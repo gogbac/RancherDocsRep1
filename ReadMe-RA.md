@@ -1,0 +1,51 @@
+# Leverage main [ReadMe.md](./ReadMe.md) sections
+- Purpose
+- Assumptions
+- Validation
+
+# Reference Architecture variant
+- At this point, you can now start editing the configuration/structure/content to to the reference enterprise architecture approach
+  - NOTE: every portion of text that cites "FixMe" is a flag to encourage modification
+  - in the top-level directory
+    - for the default configuration/structure (chapter/section/sub-section)
+      - review/edit the DAPS configuration file [DC-SA](./DC-SA)
+        - uncomment the global ADOC_ATTRIBUTES+=" --attribute RA=1" line to toggle to this variant
+          - then re-do the above validation step to generate the target output
+        - as needed/desired, also review/edit the same section's set of ADOC_ATTRIBUTES to match what content you with to provide
+  - in the main "adoc" directory
+    - review/edit the [adoc/SA.adoc](./adoc/SA.adoc) main file that pulls in the selected sections
+      - if the respective ADOC_ATTRIBUTES value is set (value = 1 and uncommented) in the [DC-SA](./DC-SA) file, then the conditional "ifdef" will include that content in the output
+    - review/edit the [adoc/SA_vars.adoc](./adoc/SA_vars.adoc) file to change global variable settings, like
+      - useCase
+      - companyName
+      - title (relative to your attribute setting)
+      - author information
+      - github references
+    - review/edit the general sections, that are generally included
+      - [adoc/SA-Preface.adoc](./adoc/SA-Preface.adoc) which also includes conditional EA content
+        - [adoc/SA-EA-Preface.adoc](./adoc/SA-EA-Preface.adoc)
+      - [adoc/SA-Summary.adoc](./adoc/SA-Summary.adoc)
+    - review/edit the general sections, that your ADOC_ATTRIBUTES settings will include
+      - [adoc/SA-References.adoc](./adoc/SA-References.adoc)
+      - [adoc/SA-Appendix.adoc](./adoc/SA-Appendix.adoc)
+      - [adoc/i/SA.adoc](./adoc/i/SA.adoc) aka Introduction
+    - the corresponding layers of an enterprise architecture, which correspond to the suggested chapters, as noted below
+      - [adoc/i/SA.adoc](./adoc/i/SA.adoc) aka Introduction
+      - 2/ii [adoc/ii/SA-RA-BPBV.adoc](./adoc/ii/SA-RA-BPBV.adoc) ... Business problem and business value (BPBV)
+      - 3/iii [adoc/iii/SA-RA-Requirements.adoc](./adoc/iii/SA-RA-Requirements.adoc)... Requirements 
+      - 4/iv [adoc/iv/SA-RA-ArchOv.adoc](./adoc/iv/SA-RA-ArchOv.adoc) ... Architectural overview (ArchOv)
+      - 5/v [adoc/v/SA-RA-CompMod.adoc](./adoc/v/SA-RA-CompMod.adoc) ... Component model (CompMod)
+      - 6/vi [adoc/vi/SA-RA-Deployment.adoc](./adoc/vi/SA-RA-Deployment.adoc) ... Deployment (Deployment)
+      - 7/vii [adoc/vii/SA-RA-DepConsiderations.adoc](./adoc/vii/SA-RA-DepConsiderations.adoc) ... Deployment considerations (DepConsiderations)
+      - in each of these chapters' directories, you will notice the main SA.doc references, via ifdef, and will utilize the alternative file content from SA-RA-layerName.adoc.
+        - so you don't need to edit/touch the chapter's SA.adoc
+        - the relative sections/sub-sections, [DC-SA](./DC-SA) which are also based upon corresponding ADOC_ATTRIBUTES in [DC-SA](./DC-SA) will be included as well.
+    - review/edit the chapter/section/sub-section content, that you wish to include
+  - as you edit the modular text content snippets, create an output format
+    - daps --force -d DC-SA format
+      - where format might be "pdf", "html", "html --single", "epub" and others are also available
+      - then review the output and continually iterate until you have your content complete
+  - miscellaneous 
+    - you can also add images/media content as needed in those subdirectories
+    - do not forget to check in your iterations as well to have a source repository and ability to rollback to a known working state
+

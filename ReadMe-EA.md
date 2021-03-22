@@ -1,0 +1,52 @@
+# Leverage main [ReadMe.md](./ReadMe.md) sections
+- Purpose
+- Assumptions
+- Validation
+
+# Enterprise Architecture variant
+- At this point, you can now start editing the configuration/structure/content to switch to the Archimate-based enterprise architecture approach ( https://pubs.opengroup.org/architecture/archimate3-doc )
+
+  - NOTE: every portion of text that cites "FixMe" is a flag to encourage modification
+  - in the top-level directory
+    - for the default configuration/structure (chapter/section/sub-section)
+      - review/edit the DAPS configuration file [DC-SA](./DC-SA)
+        - uncomment the global ADOC_ATTRIBUTES+=" --attribute EA=1" line to toggle to this variant
+        - as needed/desired, also review/edit the same section's set of ADOC_ATTRIBUTES to match what content you with to provide
+  - in the main "adoc" directory
+    - review/edit the [adoc/SA.adoc](./adoc/SA.adoc) main file that pulls in the selected sections
+      - if the respective ADOC_ATTRIBUTES value is set (value = 1 and uncommented) in the [DC-SA](./DC-SA) file, then the conditional "ifdef" will include that content in the output
+    - review/edit the [adoc/SA_vars.adoc](./adoc/SA_vars.adoc) file to change global variable settings, like
+      - useCase
+      - companyName
+      - title (relative to your attribute setting)
+      - author information
+      - github references
+    - review/edit the general sections, that are generally included
+      - [adoc/SA-Preface.adoc](./adoc/SA-Preface.adoc) which also includes conditional EA content
+        - [adoc/SA-EA-Preface.adoc](./adoc/SA-EA-Preface.adoc)
+      - [adoc/SA-Summary.adoc](./adoc/SA-Summary.adoc)
+    - review/edit the general sections, that your ADOC_ATTRIBUTES settings will include
+      - [adoc/SA-References.adoc](./adoc/SA-References.adoc)
+      - [adoc/SA-Appendix.adoc](./adoc/SA-Appendix.adoc)
+      - [adoc/i/SA.adoc](./adoc/i/SA.adoc) aka Introduction
+    - the corresponding layers of an enterprise architecture, which correspond to Archimate layers, are noted below
+      - [adoc/i/SA.adoc](./adoc/i/SA.adoc) aka Introduction
+      - 2/ii [adoc/ii/SA-EA-Strategy.adoc](./adoc/ii/SA-EA-Strategy.adoc) ... Strategy
+      - 3/iii [adoc/iii/SA-EA-Business.adoc](./adoc/iii/SA-EA-Business.adoc) ... Business
+      - 4/iv [adoc/iv/SA-EA-Application.adoc](./adoc/iv/SA-EA-Application.adoc) ... Application
+      - 5/v [adoc/v/SA-EA-Technology.adoc](./adoc/v/SA-EA-Technology.adoc) ... Technology
+      - 6/vi [adoc/vi/SA-EA-Physical.adoc](./adoc/vi/SA-EA-Physical.adoc) ... Physical
+      - 7/vii [adoc/vii/SA-EA-Migration.adoc](./adoc/vii/SA-EA-Migration.adoc) ... Migration
+      - in each of these chapters' directories, you will notice the main SA.doc references, via ifdef, and will utilize the alternative file content from SA-EA-layerName.adoc.
+        - so you don't need to edit/touch the chapter's SA.adoc
+        - if the respective ADOC_ATTRIBUTES is enabled in [DC-SA](./DC-SA) , the SA-EA-layerName.adoc is the file to edit and make changes to.
+          - the relative sections/sub-sections, often based upon FCTR (Factors), FLVR (flavors), DT (Deployment Types) which are also based upon corresponding ADOC_ATTRIBUTES will be included as well.
+    - review/edit the chapter/section/sub-section content, that you wish to include
+  - as you edit the modular text content snippets, create an output format
+    - daps --force -d DC-SA format
+      - where format might be "pdf", "html", "html --single", "epub" and others are also available
+      - then review the output and continually iterate until you have your content complete
+  - miscellaneous 
+    - you can also add images/media content as needed in those subdirectories
+    - do not forget to check in your iterations as well to have a source repository and ability to rollback to a known working state
+
