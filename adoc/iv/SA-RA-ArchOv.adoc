@@ -15,7 +15,7 @@ An outline should be provided of the solution and the components required to suc
 
 FixMe - Include high-level diagram
 
-image::RA-overview.png[title="FixMe - Architecture Overview", scaledwidth=80%]
+// image::RA-overview.png[title="FixMe - Architecture Overview", scaledwidth=80%]
 
 FixMe - As needed, include high-level table
 .FixMe - Architecture Overview 
@@ -40,7 +40,7 @@ Any special network segmentation, vlan, or performance requirements should be ou
 
 FixMe - Include high-level network diagram
 
-image::RA-overview-network.png[title="FixMe - Architecture Network", scaledwidth=80%]
+// image::RA-overview-network.png[title="FixMe - Architecture Network", scaledwidth=80%]
 
 FixMe - As needed, include high-level table
 .FixMe - Architecture Network

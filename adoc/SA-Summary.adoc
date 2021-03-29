@@ -1,4 +1,25 @@
 == Summary
 
-FixMe - incidunt vitae semper quis lectus nulla. Quis risus sed vulputate odio ut enim blandit volutpat maecenas. Pretium viverra suspendisse potenti nullam ac. Sit amet purus gravida quis blandit. Interdum velit laoreet id donec ultrices tincidunt arcu. Vel pharetra vel turpis nunc eget. Ultrices eros in cursus turpis. Id donec ultrices tincidunt arcu non sodales neque. Fermentum posuere urna nec tincidunt praesent semper feugiat nibh sed. Enim nulla aliquet porttitor lacus luctus accumsan tortor. Morbi quis commodo odio aenean sed adipiscing diam. Montes nascetur ridiculus mus mauris vitae ultricies leo integer. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Eu volutpat odio facilisis mauris sit amet massa.
+Using components and offerings from {companyName} and the {portfolioName} portfolio streamlines your ability to quickly and effectively engage in a digital transformation, taking advantage of cloud native resources and disciplines. Using such technology approaches lets you deploy and leverage transformations of your infrastructure into a durable, reliable enterprise-grade environment.
+
+Simplify::
+Simplify and optimize your existing IT environments
+
+ifdef::pnRancher[]
+* FixMe - Using {prodName} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+endif::pnRancher[]
+
+Modernize::
+Bring applications and data into modern computing
+
+ifdef::pnRancher[]
+* FixMe - Using {prodName} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+endif::pnRancher[]
+
+Accelerate::
+Accelerate business transformation through the power of open source software
+
+ifdef::pnRancher[]
+* FixMe - Using {prodName} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+endif::pnRancher[]
 

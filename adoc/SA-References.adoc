@@ -1,9 +1,31 @@
 == References
 
+.WhitePapers
+
+- How to Build an Enterprise Kubernetes Strategy https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
+
 .Books
 
-- FixMe - add list of references
+- Kubernetes Management - https://info.rancher.com/kubernetes-management-for-dummies-rancher-and-suse-0-0
+
+.Training
+
+- {portfolioName} - https://rancher.com/training/
+- {companyName} - https://training.suse.com/
 
 .Websites
 
-- FixMe - add list of references
+* https://rancher.com/[{portfolioName} Labs]
+** Products
+*** {portfolioName} - https://rancher.com/products/rancher/ ( https://rancher.com/docs/rancher/v2.x/en/[documentation] )
+*** {portfolioName} Kubernetes Engine (RKE) - https://rancher.com/products/rke/ ( https://rancher.com/docs/rke/latest/en/[documentation] )
+*** {portfolioName} Longhorn - https://rancher.com/products/longhorn/
+*** {portfolioName} K3s - https://rancher.com/products/k3s/ ( https://rancher.com/docs/k3s/latest/en/[documentation] )
+** Projects
+*** {portfolioName} Kubernetes Engine Government (RKE2) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
+*** Harvestor - https://github.com/rancher/harvester
+
+* https://www.suse.com/
+** Products
+*** {companyName} Linux Enterprise Micro (SLES) - FixMe ( FixMe[documentation] )
+*** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )

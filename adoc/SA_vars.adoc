@@ -1,17 +1,38 @@
-:useCase: FixMe
-
 :companyName: SUSE
+:portfolioName: Rancher
+
+:useCase: Enterprise Kubernetes
+
+ifdef::pnRancher[]
+:prodName: {portfolioName}
+:useCase: {portfolioName}
+endif::pnRancher[]
+
+ifdef::pnK3s[]
+:prodName: K3s
+:useCase: K3s
+endif::pnK3s[]
+
+ifdef::pnRKE1[]
+:prodName: {portfolioName} Kubernetes Engine 
+:useCase: RKE1
+endif::pnRKE1[]
+
+ifdef::pnRKE2[]
+:prodName: {portfolioName} Kubernetes Engine 
+:useCase: RKE2
+endif::pnRKE2[]
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}
 endif::EA[]
 
 ifdef::RA[]
-:title: FixMe - Reference Architecture - {useCase}
+:title: Reference Implementation - {prodName}
 endif::RA[]
 
 ifndef::EA,RA[]
-:title: FixMe - Digital Transformation - {useCase}
+:title: Digital Transformation - {useCase}
 endif::EA,RA[]
 
 ////
@@ -19,11 +40,11 @@ endif::EA,RA[]
 :authorEmail: TBD
 ////
 
-# :authorGHURL: <FixMe>
+:authorGHURL: https://github.com/gogbac/RancherDocsRep1
 
 :imagesdir: ../media/
 
 ifdef::env-github[]
-:imagesdir: {authorGHURL}/blob/master/SA-{useCase}/media/
+:imagesdir: {authorGHURL}/blob/main/media/
 endif::env-github[]
 
