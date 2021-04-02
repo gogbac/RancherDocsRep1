@@ -58,10 +58,17 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #	uncomment the following to switch to this format/structure
 ADOC_ATTRIBUTES+=" --attribute RA=1"
 
+
+ADOC_ATTRIBUTES+=" --attribute pnSLEMicro=1"
 ADOC_ATTRIBUTES+=" --attribute pnRancher=1"
-#ADOC_ATTRIBUTES+=" --attribute pnK3s=1"
+ADOC_ATTRIBUTES+=" --attribute pnK3s=1"
 #ADOC_ATTRIBUTES+=" --attribute pnRKE1=1"
 #ADOC_ATTRIBUTES+=" --attribute pnRKE2=1"
+
+# Deployment Types
+#ADOC_ATTRIBUTES+=" --attribute pnRancherPoC=1"
+ADOC_ATTRIBUTES+=" --attribute pnRancherPilot=1"
+#ADOC_ATTRIBUTES+=" --attribute pnRancherProd=1"
 
 #
 # these layers are only referenced in combination with EA setting
