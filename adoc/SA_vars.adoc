@@ -6,6 +6,8 @@
 ifdef::pnRancher[]
 :prodName: {portfolioName}
 :useCase: {portfolioName}
+:osName: SLE Micro
+:k8sName: K3s
 endif::pnRancher[]
 
 ifdef::pnK3s[]
