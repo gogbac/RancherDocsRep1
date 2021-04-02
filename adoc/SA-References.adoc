@@ -25,7 +25,7 @@
 *** {portfolioName} Kubernetes Engine Government (RKE2) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
 *** Harvestor - https://github.com/rancher/harvester
 
-* https://www.suse.com/
+* {suseHomePage}
 ** Products
-*** {companyName} Linux Enterprise Micro (SLES) - FixMe ( FixMe[documentation] )
-*** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
+*** {pn_SLE-Micro_Name} - {pn_SLE-Micro_ProductPage} ( {pn_SLE-Micro_DocURL}[documentation] )
+// *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
