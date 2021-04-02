@@ -1,0 +1,14 @@
+
+:pn_SLE-Micro_Acronym: SLE Micro
+:pn_SLE-Micro_Name: {companyName} Linux Enterprise Micro
+:pn_SLE-Micro_Version: 5.0
+
+:pn_SLE-Micro_ProductPage: https://www.suse.com/products/micro/
+:pn_SLE-Micro_ReleaseNotes: https://www.suse.com/releasenotes/x86_64/SLE-Micro/5.0/
+:pn_SLE-Micro_DocURL: https://documentation.suse.com/sle-micro/5.0/
+:pn_SLE-Micro_InstallationDocURL: https://documentation.suse.com/sle-micro/5.0/single-html/SLE-Micro-installation/#article-installation
+:pn_SLE-Micro_AutoYaSTDocURL: https://documentation.suse.com/sle-micro/5.0/single-html/SLE-Micro-autoyast/#book-autoyast
+
+
+
+

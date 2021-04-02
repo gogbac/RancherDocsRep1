@@ -1,0 +1,8 @@
+
+=== {companyName}
+
+{suseHomePage}[{companyName}](R), the Open Open Source Company, works with an ec
+osystem of partners and communities to deliver enterprise-grade, open source sof
+tware-defined infrastructure and application delivery solutions backed by superi
+or service and support.
+
