@@ -3,5 +3,5 @@ include::./SA_vars.adoc[]
 
 {pn_SLE-Micro_Name} is built from ground up for edge applications. It leverages the enterprise-hardened technology components of {companyName} Linux Enterprise and merges that with what developers want from a modern, immutable OS platform. As a result, you get an ultra-reliable infrastructure platform that is also simple to use and comes out-of-the-box with best-in-class compliance.
 
-Furthermore, {companyName}’s flexible subscription model ensures enterprise assurance for any edge, embedded or IoT deployment without vendor lock-in. 
+Furthermore, {companyName}’s flexible subscription model ensures enterprise assurance for any edge, embedded or IoT deployment without vendor lock-in. A free, evaluation copy can be {pn_SLE-Micro_Download}[downloaded] or if the organization already has subscriptions, both install media and updates can be obtained from {suseSCCPage}[{companyName} Customer Center].
 

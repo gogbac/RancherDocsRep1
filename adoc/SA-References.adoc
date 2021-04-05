@@ -26,6 +26,7 @@
 *** Harvestor - https://github.com/rancher/harvester
 
 * {suseHomePage}
+** {companyName} Customer Center - {suseSCCPage}
 ** Products
 *** {pn_SLE-Micro_Name} - {pn_SLE-Micro_ProductPage} ( {pn_SLE-Micro_DocURL}[documentation] )
 // *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )

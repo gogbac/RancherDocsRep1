@@ -61,7 +61,7 @@ ADOC_ATTRIBUTES+=" --attribute RA=1"
 
 ADOC_ATTRIBUTES+=" --attribute pnSLEMicro=1"
 ADOC_ATTRIBUTES+=" --attribute pnRancher=1"
-ADOC_ATTRIBUTES+=" --attribute pnK3s=1"
+#ADOC_ATTRIBUTES+=" --attribute pnK3s=1"
 #ADOC_ATTRIBUTES+=" --attribute pnRKE1=1"
 #ADOC_ATTRIBUTES+=" --attribute pnRKE2=1"
 
