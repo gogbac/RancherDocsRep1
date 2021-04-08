@@ -2,7 +2,7 @@
 
 .WhitePapers
 
-- How to Build an Enterprise Kubernetes Strategy https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
+- How to Build an Enterprise Kubernetes Strategy - https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
 
 .Books
 
@@ -15,18 +15,34 @@
 
 .Websites
 
-* https://rancher.com/[{portfolioName} Labs]
-** Products
-*** {portfolioName} - https://rancher.com/products/rancher/ ( https://rancher.com/docs/rancher/v2.x/en/[documentation] )
-*** {portfolioName} Kubernetes Engine (RKE) - https://rancher.com/products/rke/ ( https://rancher.com/docs/rke/latest/en/[documentation] )
-*** {portfolioName} Longhorn - https://rancher.com/products/longhorn/
-*** {portfolioName} K3s - https://rancher.com/products/k3s/ ( https://rancher.com/docs/k3s/latest/en/[documentation] )
-** Projects
-*** {portfolioName} Kubernetes Engine Government (RKE2) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
-*** Harvestor - https://github.com/rancher/harvester
-
 * {suseHomePage}
-** {companyName} Customer Center - {suseSCCPage}
+** {companyName} Customer Center ( SCC ) - {suseSCCPage}
 ** Products
-*** {pn_SLE-Micro_Name} - {pn_SLE-Micro_ProductPage} ( {pn_SLE-Micro_DocURL}[documentation] )
+ifdef::iRancher[]
+*** {pn_Rancher} - https://rancher.com/products/rancher/ ( https://rancher.com/docs/rancher/v2.x/en/[documentation] )
+endif::iRancher[]
+ifdef::iRKE1[]
+*** {pn_RKE1} ( {an_RKE1} ) - https://rancher.com/products/rke/ ( https://rancher.com/docs/rke/latest/en/[documentation] )
+endif::iRKE1[]
+ifdef::iLonghorn[]
+*** Longhorn - https://rancher.com/products/longhorn/
+endif::iLonghorn[]
+ifdef::iK3s[]
+*** {pn_K3s} - https://rancher.com/products/k3s/ ( https://rancher.com/docs/k3s/latest/en/[documentation] )
+endif::iK3s[]
+ifdef::iSLEMicro[]
+*** {pn_SLEMicro} ( {an_SLEMicro} ) - {pn_SLEMicro_ProductPage} ( {pn_SLEMicro_DocURL}[documentation] )
+endif::iSLEMicro[]
+// ifdef::iSLES[]
 // *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
+// endif::iSLES[]
+
+ifdef::iRKE,iHarvester[]
+** Projects
+ifdef::iRKE2[]
+*** {pn_RKE2} ( {an_RKE2} ) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
+endif::iRKE2[]
+ifdef::iHarvester[]
+*** Harvestor - https://github.com/rancher/harvester
+endif::iHarvester[]
+endif::iRKE,iHarvester[]

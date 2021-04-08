@@ -1,36 +1,37 @@
 :companyName: SUSE
 :portfolioName: Rancher
+:useCase: 
 
 :useCase: Enterprise Kubernetes
 
-ifdef::pnRancher[]
-:prodName: {portfolioName}
-:useCase: {portfolioName}
+ifdef::iRancher[]
+:pn_Rancher: {companyName} {portfolioName}
 :osName: SLE Micro
 :k8sName: K3s
-endif::pnRancher[]
+endif::iRancher[]
 
-ifdef::pnK3s[]
-:prodName: K3s
-:useCase: K3s
-endif::pnK3s[]
+ifdef::iK3s[]
+:pn_K3s: K3s
+endif::iK3s[]
 
-ifdef::pnRKE1[]
-:prodName: {portfolioName} Kubernetes Engine 
-:useCase: RKE1
-endif::pnRKE1[]
+ifdef::iRKE1[]
+:pn_RKE1: {portfolioName} Kubernetes Engine 
+:an_RKE1: RKE1
+endif::iRKE1[]
 
-ifdef::pnRKE2[]
-:prodName: {portfolioName} Kubernetes Engine 
-:useCase: RKE2
-endif::pnRKE2[]
+ifdef::iRKE2[]
+:pn_RKE2: {portfolioName} Kubernetes Engine Government
+:an_RKE2: RKE2
+endif::iRKE2[]
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}
 endif::EA[]
 
 ifdef::RA[]
-:title: Reference Implementation - {prodName}
+ifdef::iRancher[]
+:title: Reference Implementation - {pn_Rancher}
+endif::iRancher[]
 endif::RA[]
 
 ifndef::EA,RA[]

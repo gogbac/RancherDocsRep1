@@ -1,8 +1,5 @@
 
-=== {companyName}
+Your organization is deploying Kubernetes clusters everywhere – on-premises, in the cloud and at the edge. {pn_Rancher} unifies these clusters to ensure consistent operations, workload management and enterprise-grade security. 
 
-{suseHomePage}[{companyName}](R), the Open Open Source Company, works with an ec
-osystem of partners and communities to deliver enterprise-grade, open source sof
-tware-defined infrastructure and application delivery solutions backed by superi
-or service and support.
+{pn_Rancher} provides simple, consistent cluster operations including provisioning, version management, visibility and diagnostics, monitoring and alerting, and centralized audit. 
 
