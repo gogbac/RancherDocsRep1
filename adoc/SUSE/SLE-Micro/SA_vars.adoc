@@ -1,6 +1,6 @@
 
-:an_SLEMicro: SLE Micro
 :pn_SLEMicro: {companyName} Linux Enterprise Micro
+:an_SLEMicro: SLE Micro
 :pn_SLEMicroVersion: 5.0
 
 :pn_SLEMicro_Download: https://www.suse.com/download/sle-micro/
