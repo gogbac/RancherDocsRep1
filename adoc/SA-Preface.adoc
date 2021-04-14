@@ -2,7 +2,7 @@
 == Preface
 
 ifdef::iRancher[]
-The purpose of this documentation is to provide a reference implementation of deploying {pn_Rancher} as a container management platform for organizations that deploy containerized workloads, orchestrated by Kubernetes. {pn_Rancher} makes it easy to deploy, manage, and use Kubernetes everywhere, meet IT requirements, and empower DevOps teams.
+The purpose of this documentation is to provide a reference implementation of deploying {pn_Rancher} as a multi-cluster container management platform for organizations that deploy containerized workloads, orchestrated by Kubernetes. {pn_Rancher} makes it easy to deploy, manage, and use Kubernetes everywhere, meet IT requirements, and empower DevOps teams.
 endif::iRancher[]
 
 ifdef::EA[]

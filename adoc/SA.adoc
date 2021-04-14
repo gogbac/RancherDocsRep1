@@ -1,6 +1,11 @@
 
 include::./SA_vars.adoc[]
 
+include::./CSP/SA_vars.adoc[]
+include::./IHV/SA_vars.adoc[]
+include::./ISV/SA_vars.adoc[]
+include::./SUSE/SA_vars.adoc[]
+
 = {title}
 ////
 {author}, {companyName} < {authorEMail} >
@@ -18,12 +23,14 @@ include::./SA-Preface.adoc[]
 include::./i/SA.adoc[]
 
 // include other chapters or EA layers (as needed)
-include::./ii/SA.adoc[]
-include::./iii/SA.adoc[]
-include::./iv/SA.adoc[]
+// include::./ii/SA.adoc[]
+ifdef::RA+RI+QS+BP[]
+// include::./iii/SA.adoc[]
+// include::./iv/SA.adoc[]
 include::./v/SA.adoc[]
 include::./vi/SA.adoc[]
 include::./vii/SA.adoc[]
+endif::RA+RI+QS+BP[]
 
 // Summary
 include::./SA-Summary.adoc[]
@@ -35,7 +42,7 @@ endif::References[]
 
 // Glossary
 ifdef::Glossary[]
-include::./SA-Glossary.adoc[]
+// include::./SA-Glossary.adoc[]
 endif::Glossary[]
 
 // ifdef::Colophon[]

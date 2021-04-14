@@ -58,21 +58,26 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #	uncomment the following to switch to this format/structure
 ADOC_ATTRIBUTES+=" --attribute RA=1"
 
+# leverage RA, for best practices, reference implementation, quick start
+ADOC_ATTRIBUTES+=" --attribute RI=1"
+ADOC_ATTRIBUTES+=" --attribute QS=1"
+ADOC_ATTRIBUTES+=" --attribute BP=1"
+
 # included, focus areas
 #ADOC_ATTRIBUTES+=" --attribute iSLES=1"
 ADOC_ATTRIBUTES+=" --attribute iSLEMicro=1"
 ADOC_ATTRIBUTES+=" --attribute iRancher=1"
 ADOC_ATTRIBUTES+=" --attribute iK3s=1"
-#ADOC_ATTRIBUTES+=" --attribute iRKE1=1"
-#ADOC_ATTRIBUTES+=" --attribute iRKE2=1"
+ADOC_ATTRIBUTES+=" --attribute iRKE1=1"
+ADOC_ATTRIBUTES+=" --attribute iRKE2=1"
 #ADOC_ATTRIBUTES+=" --attribute iLonghorn=1"
 #ADOC_ATTRIBUTES+=" --attribute iHarvester=1"
 #ADOC_ATTRIBUTES+=" --attribute iFleet=1"
 
 # Deployment Types
-# d0 - Day 0 architect + demo/PoC
-# d1 - Day 1 deployment (basis for production)
-# d2 - Day 2 operations
+# d0 - Day 0 architect + demo/PoC (QuickStart)
+# d1 - Day 1 deployment (basis for production Reference Implementation)
+# d2 - Day 2 operations (include Best Practices)
 ADOC_ATTRIBUTES+=" --attribute d0=1"
 ADOC_ATTRIBUTES+=" --attribute d1=1"
 ADOC_ATTRIBUTES+=" --attribute d2=1"

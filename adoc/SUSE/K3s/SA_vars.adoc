@@ -1,0 +1,10 @@
+:pn_K3s: K3s
+:an_K3s: {pn_K3s}
+:pn_K3s_Version: 1.18.16
+
+:pn_K3s_Download: https://github.com/k3s-io/k3s/
+
+:pn_K3s_ProductPage: https://rancher.com/products/k3s/
+
+:pn_K3s_DocURL: https://rancher.com/docs/k3s/latest/en/
+

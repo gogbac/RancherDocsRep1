@@ -4,32 +4,66 @@
 
 FixMe - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-== Appendix A: Bill of Materials
+=== Appendix A: Bill of Materials
 
-FixMe - create an include file like ./SA-Appendix-A_vars.adoc or explicitely cite table entries
-
-[cols="2,1,3,6",options=header,frame=topbot,grid=rows]
+[cols="1,1,2,3a,2a",options=header,frame=topbot,grid=rows]
 |===
-|Role |Qty |Component |Notes
+|Role |Qty |SKU |Component |Notes
 
-|{nodeRole}
-|6
-|{vendorIHV} {nodePlatform} {nodeModel} 
-a| Configuration:
+|System
+|1-3
+|n/a
+|
 
-* 1x {nodeCPU} {nodeCPUDesc}
-* 4x {nodeRAM} {nodeRAMDesc}
-* 2x {nodeDisk} {nodeDiskDesc}
-* 2x {nodeNIC} {nodeNICDesc}
+* Virtual Machine,
+* Single Board Computer (SBC) or
+* Industry Standard Server
+|Configuration
 
-|{swRole}
-|6
-|{vendorISV}  {swProduct} )
-a| Configuration:
+* see https://rancher.com/docs/rancher/v2.x/en/installation/requirements/#cpu-and-memory-for-rancher-before-v2-4-0[requirements]
 
-* 1x {swSKU} {swDesc}
+|Operating System
+ifdef::iSLEMicro[]
+// |1 - 3 ( ARM : 874-007864, x86_64 : 874-007864 )
+|1-3
+|874-007864 
+|{pn_SLEMicro},
+
+* x86_64,
+* 1-16 Cores,
+* Priority Subscription,
+* 1 Year
+|Configuration:
+
+* 1x per node (up to 16 cores, stackable)
+endif::iSLEMicro[]
+
+|Kubernetes
+ifdef::iRancher[]
+|1
+|R-0001-PS1 
+|{pn_Rancher} Management Server,
+
+* x86-64,
+* 1 Instance,
+* Priority Subscription,
+* 1 Year
+| Configuration:
+
+ifdef::iK3s[]
+* includes up to 3 nodes of {pn_K3s}
+endif::iK3s[]
+ifdef::iRKE1[]
+* includes up to 3 nodes of {pn_RKE1}
+endif::iRKE1[]
+ifdef::iRKE2[]
+* includes up to 3 nodes of {pn_RKE2}
+endif::iRKE2[]
+endif::iRancher[]
 
 |===
+
+NOTE: For the software components, other duration of support terms are also available.
 
 
 
