@@ -2,33 +2,33 @@
 
 .WhitePapers
 
-- How to Build an Enterprise Kubernetes Strategy - https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
+* How to Build an Enterprise Kubernetes Strategy - https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
 
 .Books
 
-- Kubernetes Management - https://info.rancher.com/kubernetes-management-for-dummies-rancher-and-suse-0-0
+* Kubernetes Management - https://info.rancher.com/kubernetes-management-for-dummies-rancher-and-suse-0-0
 
 .Training
 
-- {portfolioName} - https://rancher.com/training/
-- {companyName} - https://training.suse.com/
+* {companyName} - https://training.suse.com/
+** {portfolioName} - https://rancher.com/training/
 
 .Websites
 
-* {suseHomePage}
+* {companyName} - {suseHomePage}
 ** {companyName} Customer Center ( SCC ) - {suseSCCPage}
 ** Products
 ifdef::iRancher[]
-*** {pn_Rancher} - https://rancher.com/products/rancher/ ( https://rancher.com/docs/rancher/v2.x/en/[documentation] )
+*** {pn_Rancher} - {pn_Rancher_ProductPage}  ( {pn_Rancher_DocURL}[documentation] )
 endif::iRancher[]
 ifdef::iRKE1[]
-*** {pn_RKE1} ( {an_RKE1} ) - https://rancher.com/products/rke/ ( https://rancher.com/docs/rke/latest/en/[documentation] )
+*** {pn_RKE1} ( {an_RKE1} ) - {pn_RKE1_ProductPage} ( {pn_RKE1_DocURL}[documentation] )
 endif::iRKE1[]
 ifdef::iLonghorn[]
 *** Longhorn - https://rancher.com/products/longhorn/
 endif::iLonghorn[]
 ifdef::iK3s[]
-*** {pn_K3s} - https://rancher.com/products/k3s/ ( https://rancher.com/docs/k3s/latest/en/[documentation] )
+*** {pn_K3s} - {pn_K3s_ProductPage} ( {pn_K3s_DocURL}[documentation] )
 endif::iK3s[]
 ifdef::iSLEMicro[]
 *** {pn_SLEMicro} ( {an_SLEMicro} ) - {pn_SLEMicro_ProductPage} ( {pn_SLEMicro_DocURL}[documentation] )
@@ -36,7 +36,6 @@ endif::iSLEMicro[]
 // ifdef::iSLES[]
 // *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
 // endif::iSLES[]
-
 ifdef::iRKE,iHarvester[]
 ** Projects
 ifdef::iRKE2[]

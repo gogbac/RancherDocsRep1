@@ -5,24 +5,26 @@
 :useCase: Enterprise Kubernetes
 
 ifdef::iRancher[]
-:pn_Rancher: {companyName} {portfolioName}
-:osName: SLE Micro
-:k8sName: K3s
+include::SUSE/Rancher/SA_vars.adoc[]
+// :osName: SLE Micro
+// :k8sName: K3s
 endif::iRancher[]
 
 ifdef::iK3s[]
-:pn_K3s: K3s
+include::SUSE/K3s/SA_vars.adoc[]
 endif::iK3s[]
 
 ifdef::iRKE1[]
-:pn_RKE1: {portfolioName} Kubernetes Engine 
-:an_RKE1: RKE1
+include::SUSE/RKE1/SA_vars.adoc[]
 endif::iRKE1[]
 
 ifdef::iRKE2[]
-:pn_RKE2: {portfolioName} Kubernetes Engine Government
-:an_RKE2: RKE2
+include::SUSE/RKE2/SA_vars.adoc[]
 endif::iRKE2[]
+
+ifdef::iSLEMicro[]
+include::SUSE/SLE-Micro/SA_vars.adoc[]
+endif::iSLEMicro[]
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}

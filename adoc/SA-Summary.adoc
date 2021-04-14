@@ -6,20 +6,20 @@ Simplify::
 Simplify and optimize your existing IT environments
 
 ifdef::iRancher[]
-* FixMe - Using {pn_Rancher} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+* Using {pn_Rancher} enables you to simplify Kubernetes cluster management and the infrastructure components.
 endif::iRancher[]
 
 Modernize::
 Bring applications and data into modern computing
 
 ifdef::iRancher[]
-* FixMe - Using {pn_Rancher} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+* With {pn_Rancher}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
 endif::iRancher[]
 
 Accelerate::
 Accelerate business transformation through the power of open source software
 
 ifdef::iRancher[]
-* FixMe - Using {pn_Rancher} enables you to simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+* Given the open source nature of {pn_Rancher} and the underlying softwware components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
 endif::iRancher[]
 
