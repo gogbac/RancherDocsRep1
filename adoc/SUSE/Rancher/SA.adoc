@@ -1,5 +1,31 @@
 
-Your organization is deploying Kubernetes clusters everywhere – on-premises, in the cloud and at the edge. {pn_Rancher} unifies these clusters to ensure consistent operations, workload management and enterprise-grade security. 
+include::SA_vars.adoc[]
 
+Many organizations are deploying Kubernetes clusters everywhere – on-premises, in the cloud and at the edge - to unify IT operations.  Such organizations can realize dramatic benefits, including:
+
+* Consistently deliver a high level of reliability on any infrastructure
+* Improve DevOps efficiency with standardized automation
+* Ensure enforcement of security policies on any infrastructure
+
+However, relying on upstream Kubernetes alone can introduce overhead and risk because Kubernetes clusters are typically deployed:
+
+* Without central visibility
+* Without consistent security policies
+* And, they must be managed independently
+
+{pn_Rancher} is a complete cluster and container management platform built on Kubernetes itself. It addresses these challenges by delivering the following key functions, as shown in the following figure:
+
+image::{an_Rancher}-Overview.png[title="Overview of {pn_Rancher}", scaledwidth=80%]
+
+Certified Kubernetes Distributions::
+{pn_Rancher} supports any certified Kubernetes distribution. For on-premises workloads, we offer the {pn_RKE1} ( {an_RKE1} ). For the public cloud, we support all the major distributions, including {pn_EKS} ( {an_EKS} ), {vn_AKS} {pn_AKS} ( {an_AKS} ), and {pn_GKE} ( {an_GKE} ). For edge, branch and desktop workloads we offer {pn_K3s}, a certified lightweight distribution of Kubernetes. 
+
+Simplified Cluster Operations::
 {pn_Rancher} provides simple, consistent cluster operations including provisioning, version management, visibility and diagnostics, monitoring and alerting, and centralized audit. 
+
+Security, Policy and User Management::
+{pn_Rancher} lets you automate processes and applies a consistent set of user access and security policies for all your clusters, no matter where they’re running.
+
+Shared Tools & Services::
+{pn_Rancher} provides a rich catalog of services for building, deploying and scaling containerized applications, including app packaging, CI/CD, logging, monitoring and service mesh.
 

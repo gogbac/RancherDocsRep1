@@ -1,0 +1,10 @@
+:pn_Rancher: {companyName} {portfolioName}
+:an_Rancher: {portfolioName}
+:pn_Rancher_Version: 2.5
+
+:pn_Rancher_Download: https://github.com/rancher/rancher/
+
+:pn_Rancher_ProductPage: https://rancher.com/products/rancher/
+
+:pn_Rancher_DocURL: https://rancher.com/docs/rancher/v2.x/en/
+
