@@ -3,3 +3,6 @@
 
 :suseSCCPage: https://scc.suse.com/login
 
+:an_RMT: RMT
+:pn_RMT: Repository Mirroring Tool
+

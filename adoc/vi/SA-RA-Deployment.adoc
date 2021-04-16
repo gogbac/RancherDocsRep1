@@ -1,7 +1,7 @@
 
 == Deployment
 
-FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Integer vitae justo eget magna fermentum iaculis eu non diam. Rhoncus urna neque viverra justo. Elementum tempus egestas sed sed risus. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Venenatis a condimentum vitae sapien pellentesque. Magna ac placerat vestibulum lectus mauris ultrices eros in cursus. Nibh cras pulvinar mattis nunc. Tempor orci dapibus ultrices in iaculis nunc. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Nisi porta lorem mollis aliquam. Laoreet id donec ultrices tincidunt arcu non sodales.
+FixMe - add overview
 
 ////
 The following typographical conventions are used in this manual:
@@ -19,16 +19,14 @@ FixMe - Add simplistic drawing showing stack and user perspective
 
 ifdef::HWDepCfg[]
 
-=== Hardware deployment configuration
+==== Hardware deployment configuration
 
 ifdef::iRancher[]
 ifdef::d1[]
 
-Leveraging the enterprise grade of the following software components being deployed, many hardware platforms are enabled and can readily be used.
+FixMe - cite required network infrastructure
 
-include::../SUSE/YES.adoc[]
-
-Further, by reviewing the minimum requirements for each of the software layers, in conjunction with the target solution deployment context, the processor, memory, disk and networking aspects can be determined.
+FixMe - cite host/node BMC/CPU/Mem/Disk/Nework prep
 
 endif::d1[]
 endif::iRancher[]
@@ -37,63 +35,54 @@ endif::HWDepCfg[]
 
 ifdef::SWDepCfg[]
 
-=== Software deployment configuration
-
-ifdef::iRancher[]
-ifdef::d1[]
-
-include::../SUSE/SA.adoc[]
-
-By utilizing three products from the {companyName} portfolio:
-
-ifdef::iSLEMicro[]
-* Operating System - {pn_SLEMicro}
-endif::iSLEMicro[]
-ifdef::iK3s[]
-* Kubernetes - {pn_K3s}
-endif::iK3s[]
-* Multi-cluster Management - {pn_Rancher}
-
-one can build the necessary infrastructure and service to administer and manage multiple Kubernets clusters. These layered components are described in the following sections.
-
-endif::d1[]
-endif::iRancher[]
-
 ==== Operating System Deployment
 
 ifdef::iRancher[]
 ifdef::d1[]
 
-include::../SUSE/SLE-Micro/SA.adoc[]
+include::../SUSE/SLE-Micro/SA_vars.adoc[]
+include::../SUSE/Manager/SA_vars.adoc[]
+include::../SUSE/RMT/SA_vars.adoc[]
 
-To accomodate many options of underlying physical or virtualization hosts, this operating system supports a vast breadth of platforms and component resources. Further, it provides the core functionality for the next layer of Kubernetes-based infrastructure software.
+Core Infrastructure Components / Services::
+** Domain Name Service (DNS) - an external network-accessible service to map IP Addresses to hostnames
+** Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
+** Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
+*** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
+*** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] or
+*** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
++
+NOTE: As each node is deployed, it can be pointed to the respective update service and update notification and applicate will be managed by the configuration management web interface.
 
-The installation process is described and can be performed, per the product documentation, by following:
-
-* the {pn_SLE-Micro_InstallationDocURL}[Installation Quick Start] for
-** manual installation
-** raw image deployment
-* or {pn_SLE-Micro_AutoYaSTDocURL}[AutoYaST Guide] for unnatttended installations
-
-TIP:: An additional consideration is, for the first node deployed, to create an additional IP address on the host network interface card. This can be used for the {pn_Rancher} access, which may also become managed by a load-balancer if a multi-node cluster becomes the base.
+Process::
+Follow these steps
+* Download the {pn_SLEMicro_Download}[{pn_SLEMicro}] product (either for the ISO or Virtual Machine image)
+* The installation process is described and can be performed with default valuesaside from your local network addressing, per the product documentation. Simply follow:
+** the {pn_SLEMicro_InstallationDocURL}[Installation Quick Start] for
+*** manual installation
+*** raw image deployment
+** or {pn_SLEMicro_AutoYaSTDocURL}[AutoYaST Guide] for unnatttended installations
++
+TIP: An additional consideration is, for the first node deployed, to create an additional IP address on the host network interface card. This can be used for the {pn_Rancher} access, which may also become managed by a load-balancer if a multi-node cluster becomes the base.
 
 endif::d1[]
 endif::iRancher[]
 
 ifdef::iRancher[]
 ifdef::d1[]
+
 ==== Kubernetes Deployment
 
-This design leverage the {k8sName} Kubernetes distribution. {k8sName} is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. {k8sName} is packaged as a single binary with minimal software dependencies. This signficantly reduces the expertise and effort required install, run, and maintain a production ready Kubernetes cluster.
+This design leverage the {pn_K3s} Kubernetes distribution. {pn_K3s} is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. {pn_K3s} is packaged as a single binary with minimal software dependencies. This signficantly reduces the expertise and effort required install, run, and maintain a production ready Kubernetes cluster.
 
-For this deployment, a single server installed with the {osName} immutable operating system will support a single instance of {k8sName}. For maximum flexibility, {k8sName} will be deployed in a manner that would allow expanding the single-node cluster into a highly available, three-node Kubernetes cluster at a later date. 
+For this deployment, a single server installed with the {pn_SLEMicro} immutable operating system will support a single instance of {pn_K3s}. For maximum flexibility, {pn_K3s} will be deployed in a manner that would allow expanding the single-node cluster into a highly available, three-node Kubernetes cluster at a later date. 
 
 While it is highly recommended that Kubernetes workloads (in this case the {pn_Rancher} ) be isolated from the Kubernetes control-plane and data-plane; this design will maintain all functions, including the {porfolioName} Server, on the server node. In this specialized case, the {pn_Rancher} workload is a known quantity and no other workloads will be run on this Kubernetes cluster. For this reason the {pn_Rancher} cluster is more closely aligned with appliance model best practices.
 
-.The primary steps for deploying this single node {k8sName} cluster are:
-1. (Optional) Provide the server with one extra IP address that will be used as the primary address for accessing the {k8sName} cluster API server. This will allow the cluster to grown beyond a single server node. It is not neccessary if there will be an external load balancer used to access the cluster, or if the cluster will never be grown beyond a single server node.
-2. Find the appropriate version of the {k8sName} binary
-3. Install {k8sName} with embedded etcd enabled
+.The primary steps for deploying this single node {pn_K3s} cluster are:
+1. (Optional) Provide the server with one extra IP address that will be used as the primary address for accessing the {pn_K3s} cluster API server. This will allow the cluster to grown beyond a single server node. It is not neccessary if there will be an external load balancer used to access the cluster, or if the cluster will never be grown beyond a single server node.
+2. Find the appropriate version of the {pn_K3s} binary
+3. Install {pn_K3s} with embedded etcd enabled
 
 .Step 1: (Optional) Provide the server with one extra IP address:
 * If needed, use the `ip a` command to determine the netmask for the second IP address, based on the CIDR notation for eth0
@@ -118,9 +107,9 @@ ip a
 * The original server IP address and the additional IP address should be shown with the correct CIDR notation
 
 
-.Step 2: Find the appropriate version of the {k8sName} binary: 
-* At the time of writing, the most current, supported version of {k8sName} for {pn_Rancher} is v1.20.4+k3s1. Verify the supported versions at: https://rancher.com/support-maintenance-terms/, under the "Rancher Support Matrix"
-* Set the following variable with the desired version of {k8sName}
+.Step 2: Find the appropriate version of the {pn_K3s} binary: 
+* At the time of writing, the most current, supported version of {pn_K3s} for {pn_Rancher} is v1.20.4+k3s1. Verify the supported versions at: https://rancher.com/support-maintenance-terms/, under the "Rancher Support Matrix"
+* Set the following variable with the desired version of {pn_K3s}
 
 ----
 K3s_VERSION=""
@@ -128,7 +117,7 @@ K3s_VERSION=""
 * I.e. `K3s_VERSION="v1.20.4+k3s1"`
 
 
-.Step 3: Install {k8sName} with embedded etcd enabled:
+.Step 3: Install {pn_K3s} with embedded etcd enabled:
 ----
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
 ----
@@ -154,10 +143,10 @@ ifdef::d1[]
 
 {pn_Rancher} is a complete solution for managing Kubernetes clusters and Kubenetes applications. It addresses the operational and security challenges of managing multiple Kubernetes clusters and applications across any infrastructure. {pn_Rancher} streamlines Kubernetes cluster management on bare metal servers, private clouds, and vSphere environements; from the datacenter to the edge. {pn_Rancher} unites all of your Kubernetes clusters with global security policies, centralized authentication, access control and observability.
 
-As {pn_Rancher} server is a native Kubernetes application, it will run on the single-node {k8sName} cluster. In instances where a load balancer is used to support the {k8sName} cluster, deploying two additional {k8sName} cluster nodes will automatically make {pn_Rancher} highly available. {pn_Rancher} uses the {k8sName} etcd key/value store to persist its data, which offers several advantages. Providing highly-available storage isn't needed to make {pn_Rancher} highly available. In addition, backing up the {k8sName} etcd store protects the cluster as well as the installation of {pn_Rancher}.
+As {pn_Rancher} server is a native Kubernetes application, it will run on the single-node {pn_K3s} cluster. In instances where a load balancer is used to support the {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available. {pn_Rancher} uses the {pn_K3s} etcd key/value store to persist its data, which offers several advantages. Providing highly-available storage isn't needed to make {pn_Rancher} highly available. In addition, backing up the {pn_K3s} etcd store protects the cluster as well as the installation of {pn_Rancher}.
 
 ifdef::iK3s[]
-NOTE: These deployment steps are specific to {pn_K3s}. They can be executed from any host or node that has the kubectl tool and the KUBECONFIG file for the {k8sName} cluster.
+NOTE: These deployment steps are specific to {pn_K3s}. They can be executed from any host or node that has the kubectl tool and the KUBECONFIG file for the {pn_K3s} cluster.
 
 The steps described here are for deploying {pn_Rancher} with self-signed security certificates. Other options are to have {pn_Rancher} create public certificates via Let's Encrypt (only with a publicly resolvable hostname for the {pn_Rancher} server) and to provide preconfigured, private certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#3-choose-your-ssl-configuration for more information.
 

@@ -2,9 +2,11 @@
 == Component model
 
 ifdef::iRancher[]
+
 This section describes the various components being used to create the {pn_Rancher}, which enables the management of multiple Kubernetes clusters, as shown in the following figure:
 
 image::rancher-architecture-cluster-controller.svg[title="Kubernetes cluster management by {pn_Rancher}", scaledwidth=80%]
+
 endif::iRancher[]
 
 === Component overview
