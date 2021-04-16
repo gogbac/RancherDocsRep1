@@ -39,6 +39,20 @@ ADOC_ATTRIBUTES+=" --attribute LN=1"
 ## License (Gnu Free Document License) (suggested)
 ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 
+## ----------------- (Partner)
+
+##
+# Partner Attributes
+##
+
+
+#	as needed, add respective ISV/IHV/CSP attributes/parameters
+#ADOC_ATTRIBUTES+=" --attribute ISV-xyz=1"
+ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
+
+## ----------------- (Partner)
+
 ##
 # Modular/Variable Content Parameters for Template Focus
 #	(to override default chapter/section/sub-section default structure)
@@ -59,9 +73,13 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 ADOC_ATTRIBUTES+=" --attribute RA=1"
 
 # leverage RA, for best practices, reference implementation, quick start
-ADOC_ATTRIBUTES+=" --attribute RI=1"
-ADOC_ATTRIBUTES+=" --attribute QS=1"
+# 	any of these can be designated here or on the daps command line
+#	BP = suggestions/considerations above default settings
 ADOC_ATTRIBUTES+=" --attribute BP=1"
+#	RI = generic reference, agnostic to partners
+ADOC_ATTRIBUTES+=" --attribute RI=1"
+#	QS = simplified, minimal approach for PoC to demonstrate functionality
+#ADOC_ATTRIBUTES+=" --attribute QS=1"
 
 # included, focus areas
 #ADOC_ATTRIBUTES+=" --attribute iSLES=1"
@@ -75,9 +93,9 @@ ADOC_ATTRIBUTES+=" --attribute iRKE2=1"
 #ADOC_ATTRIBUTES+=" --attribute iFleet=1"
 
 # Deployment Types
-# d0 - Day 0 architect + demo/PoC (QuickStart)
+# d0 - Day 0 architect + demo/PoC (basis for QuickStart, can be part of RI/RA)
 # d1 - Day 1 deployment (basis for production Reference Implementation)
-# d2 - Day 2 operations (include Best Practices)
+# d2 - Day 2 operations (include Best Practices and maintenance/operations)
 ADOC_ATTRIBUTES+=" --attribute d0=1"
 ADOC_ATTRIBUTES+=" --attribute d1=1"
 ADOC_ATTRIBUTES+=" --attribute d2=1"
@@ -116,6 +134,7 @@ ADOC_ATTRIBUTES+=" --attribute SWDepCfg=1"
 ## vii-Deployment considerations (RA+DepConsiderations)
 ADOC_ATTRIBUTES+=" --attribute DepConsiderations=1"
 
+
 ## ------------------------------------- (RA)
 
 ###############################################################################
@@ -148,9 +167,6 @@ ADOC_ATTRIBUTES+=" --attribute Technology=1"
 
 ## vi-Physical (EA+Physical)
 ADOC_ATTRIBUTES+=" --attribute Physical=1"
-#	then add respective IHV/CSP attributes/parameters, like
-#	ADOC_ATTRIBUTES+=" --attribute IHVHPE=1"
-#	ADOC_ATTRIBUTES+=" --attribute CSPAWS=1"
 
 ## vii-Migration (EA+Migration)
 ADOC_ATTRIBUTES+=" --attribute Migration=1"

@@ -32,7 +32,9 @@ endif::EA[]
 
 ifdef::RA[]
 ifdef::iRancher[]
-:title: Reference Implementation - {pn_Rancher}
+ifdef::QS[:title: Quick Start - {pn_Rancher}]
+ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
+// ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
 endif::iRancher[]
 endif::RA[]
 

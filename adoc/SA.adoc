@@ -24,13 +24,13 @@ include::./i/SA.adoc[]
 
 // include other chapters or EA layers (as needed)
 // include::./ii/SA.adoc[]
-ifdef::RA+RI+QS+BP[]
+ifdef::RA+RI[]
 // include::./iii/SA.adoc[]
 // include::./iv/SA.adoc[]
 include::./v/SA.adoc[]
 include::./vi/SA.adoc[]
-include::./vii/SA.adoc[]
-endif::RA+RI+QS+BP[]
+ifdef::BP[include::./vii/SA.adoc[]]
+endif::RA+RI[]
 
 // Summary
 include::./SA-Summary.adoc[]
