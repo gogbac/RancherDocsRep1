@@ -184,7 +184,8 @@ EOF
 * Create the cert-manager CRDs and apply the HelmChart resource manifest: 
 ----
 kubectl create namespace cert-manager
-kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml
+//// kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml ////
+sudo wget -P /var/lib/rancher/k3s/server/manifests/ https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml
 sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
 
@@ -198,6 +199,8 @@ sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 HOSTNAME=""
 ----
 * I.e. `HOSTNAME="suse-rancher.sandbox.local"`
+
+NOTE: This hostname should be resolvable to the primary or second IP address of the {K8s_name} host.
 
 * Create the SUSE-Rancher HelmChart custom resource manifest
 ----
@@ -226,50 +229,26 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
 ** Use Ctrl+c to exit the watch loop after all pods are running
 
-.Step 3: Expose {pn_Rancher} through a Kubernetes NodePort service
-* Verify that the {pn_Rancher} service is currently of the type ClusterIP:
-----
-kubectl -n cattle-system get svc/rancher
-----
-* If the {pn_Rancher} service is ClusterIP, use the following commands to change it to NodePort and assign it port 30443 on the Linux host:
-
-----
-cat <<EOF> patch-NodePort.yaml
-spec:
-  type: NodePort
-  ports:
-    - port: 443
-      nodePort: 30443
-      name: https-internal
-EOF
-----
-----
-kubectl patch -n cattle-system svc/rancher --patch "$(cat patch-NodePort.yaml)"
-----
-* Verify the exposed port for the {pn_Rancher} service:
-----
-kubectl -n cattle-system get svc/rancher | awk -F443: '{print$2}' | awk -F\/ '{print$1}'
-----
-
-.Step 4: (Optional) Create an SSH tunnel to access {pn_Rancher}: 
+.Step 3: (Optional) Create an SSH tunnel to access {pn_Rancher}: 
  
- NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can reach the exposed {pn_Rancher} server IP address and port.
+ NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can resolve and reach the exposed {pn_Rancher} service.
 
 * Create an SSH tunnel through the Linux host to the IP address of the {pn_Rancher} server on the NodePort, as noted in Step 3:
 ----
-ssh -L localhost:<NodePort>:<IP of {pn_Rancher}>:<NodePort> -N user@Linux-host
+ssh -N -D 8080 user@Linux-host
 ----
-** The SSH tunnel syntax rules require a combination of localhost/port and remote-host/port per -L switch. Use multiple -L switches to expose more than one remote-host/port.
-** -N tells SSH that it won't send any commands after establishing connection
+* On the local web browser, change the SOCKS Host settings to "127.0.0.1" and port "8080"
+
+NOTE: This will route all traffic from this web browser through the remote Linux host. Be sure to close the tunnel and remvoe the SOCKS Host settings when you're done.
 
 
-.Step 5: Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
-* On the client system, use a web browser to connect to the {pn_Rancher} server on exposed NodePort 
-** I.e. `https://172.16.230.10:NodePort` or (with the SSH tunnel) `https://localhost:NodePort`
+.Step 4: Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
+* On the client system, use a web browser to connect to the {pn_Rancher} service
+** I.e. `https://rancher.sandbox.local` 
 * Provide a new Admin password
-* IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the second IP address configured on the Linux host (or the load balancer IP address, if available) and the correct NodePort
+* IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} HelmChart custom resource and the port is 443.
 
-** I.e. `10.111.2.110:30443`
+** I.e. `rancher.sandbox.local:443`
 
 endif::iK3s[]
 
