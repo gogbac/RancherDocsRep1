@@ -11,6 +11,10 @@
 :vn_Dell: {an_Dell} Technologies
 :vn_Dell_homePage: https://www.dell.com/en-us
 
+:an_Fujitsu: Fujitsu
+:vn_Fujitsu: {an_Fujitsu}
+:vn_Fujitsu_homePage: https://www.fujitsu.com/us/
+
 :an_HPE: HPE
 :vn_HPE: Hewlett Packard Enterprise
 :vn_HPE_homePage: https://www.hpe.com/us/en/home.html
