@@ -1,10 +1,28 @@
-== Business problem and business value
+== Business aspect
 
-FixMe - Libero nunc consequat interdum varius sit amet mattis. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Ac placerat vestibulum lectus mauris ultrices eros in. Viverra vitae congue eu consequat ac felis donec et odio. Vestibulum lectus mauris ultrices eros in cursus turpis. Aliquet bibendum enim facilisis gravida neque convallis a. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Habitasse platea dictumst vestibulum rhoncus. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Quam quisque id diam vel quam elementum pulvinar etiam. Ut sem viverra aliquet eget sit amet tellus. Blandit libero volutpat sed cras ornare arcu.
+ifdef::iRancher[]
+By unifying their IT operations with Kubernetes, organizations realize key benefits like increased reliability, improved security and greater efficiencies with standardized automation. However, relying on upstream Kubernetes often isn’t enough for teams deploying Kubernetes into production.  Therefore, Kubernetes management platforms are adopted by enterprises to deliver:
+
+* Simplified Cluster Operations: improved DevOps efficiencies with simplified cluster operations
+* Consistent Security Policy & User Management: best-practice security policy enforcement and advanced user management on any infrastructure
+* Access to Shared Tools & Services: a high level of reliability with easy, consistent access to shared tools and services
+
+endif::iRancher[]
 
 === Business problem
 
-FixMe - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ...
+ifdef::iRancher[]
+So, if you’re ready to deploy your container-based application at scale with Kubernetes, you're likely faced with a bewildering array of software vendors, cloud providers, and open source projects that all promise painless, successful Kubernetes deployments.
+
+Further, you need to continually address the needs and concerns of your:
+
+Developers::
+Most of whom don’t care about IT infrastructure, per se. They just want to write code and build their apps securely using their preferred workflow, then have push-button deployment of their containerized workloads where needed.
+
+IT Operators::
+General infrastructure requirements still rely upon traditional IT pillars are for the stacked, underlying infrastructure. Ease of deployment, availability, scalability, resiliency, performance, security and integrity are still core concerns to be addressed for administrative control and observability.
+
+endif::iRancher[]
 
 ////
 The business problem description should highlight the challenges with traditional, legacy, proprietary solutions from a customer point of view. Keep the problem description at a high level.
@@ -13,7 +31,21 @@ The business problem description should highlight the challenges with traditiona
 
 === Business value
 
-FixMe - Libero id faucibus nisl tincidunt eget nullam non nisi est. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ...
+ifdef::iRancher[]
+
+By allowing operation teams to focus on infrastructure and developers to deploy code the way they want too, {companyName} and the {portfolioName} offerings helps you bring products to market faster and accelerate your organization’s digital transformation. 
+
+{pn_Rancher} is a part of a complete software stack for teams adopting containers. It addresses the operational and security challenges of managing multiple Kubernetes clusters across any infrastructure, while providing DevOps teams with integrated tools for running containerized workloads
+
+Developers::
+{pn_Rancher} makes it easy for you to securely deploy containerized applications no matter where your Kubernetes infrastructure runs – on-premises, in the cloud or at the edge.  Use of Helm or the App Catalog to deploy and manage applications across any or all these environments, ensuring multi-cluster consistency with a single deployment process. 
+
+IT Operators::
+{pn_Rancher} not only deploys production-grade Kubernetes clusters from datacenter to cloud to the edge, it also unites them with centralized authentication, access control and observability. It lets you streamline cluster deployment on bare metal, private clouds, or public clouds and secure them using global security policies.
+
+NOTE:: For further information, visit {suseWhyPage}[{companyName}] and {rancherWhyPage}[{portfolioName}].
+
+endif::iRancher[]
 
 ////
 The business value proposition should address the challenges called out above, with forward looking considerations for ongoing growth and innovation.

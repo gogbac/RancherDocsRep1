@@ -6,7 +6,7 @@ FixMe - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 
 === Appendix A: Bill of Materials
 
-[cols="1,1,2,3a,2a",options=header,frame=topbot,grid=rows]
+[cols="2,1,3,3a,2a",options=header,frame=topbot,grid=rows]
 |===
 |Role |Qty |SKU |Component |Notes
 
@@ -21,7 +21,7 @@ ifndef::QS[|1-3]
 * Industry Standard Server
 |Configuration
 
-* see https://rancher.com/docs/rancher/v2.x/en/installation/requirements/#cpu-and-memory-for-rancher-before-v2-4-0[requirements]
+* see https://rancher.com/docs/rancher/v2.x/en/installation/requirements/#cpu-and-memory-for-rancher-before-v2-4-0[installation resource requirements]
 
 |Operating System
 ifdef::iSLEMicro[]
@@ -65,7 +65,7 @@ endif::iRancher[]
 
 |===
 
-NOTE: For the software components, other duration of support terms are also available.
+NOTE: For the software components, other durations of support terms are also available.
 
 
 

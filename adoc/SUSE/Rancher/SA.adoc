@@ -1,5 +1,5 @@
 
-include::SA_vars.adoc[]
+include::./SA_vars.adoc[]
 
 Many organizations are deploying Kubernetes clusters everywhere – on-premises, in the cloud and at the edge - to unify IT operations.  Such organizations can realize dramatic benefits, including:
 

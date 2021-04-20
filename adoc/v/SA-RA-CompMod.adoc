@@ -3,9 +3,9 @@
 
 ifdef::iRancher[]
 
-This section describes the various components being used to create the {pn_Rancher}, which enables the management of multiple Kubernetes clusters, as shown in the following figure:
+This section describes the various components being used to create a {pn_Rancher} deployment, in the perspective of top to bottom ordering. Once completed, the {pn_Rancher} instance enables the management of multiple Kubernetes clusters, as shown in the following figure:
 
-image::rancher-architecture-cluster-controller.svg[title="Kubernetes cluster management by {pn_Rancher}", scaledwidth=80%]
+image::rancher-architecture-cluster-controller.svg[title="FixMe - Kubernetes cluster management by {pn_Rancher}", scaledwidth=80%]
 
 endif::iRancher[]
 
@@ -24,6 +24,7 @@ endif::iK3s[]
 ifdef::iSLEMicro[]
 * Operating System - {pn_SLEMicro}
 endif::iSLEMicro[]
+* Compute Platform
 
 one can build the necessary infrastructure and services to administer and manage multiple Kubernetes clusters. Further details of these {companyName} products are described in the following section.
 

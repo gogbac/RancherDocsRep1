@@ -3,6 +3,10 @@
 
 :suseSCCPage: https://scc.suse.com/login
 
+:suseWhyPage: https://www.suse.com/company/about/
+
+:rancherWhyPage: https://rancher.com/why-rancher/
+
 :an_RMT: RMT
 :pn_RMT: Repository Mirroring Tool
 

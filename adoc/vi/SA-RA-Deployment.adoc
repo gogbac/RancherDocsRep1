@@ -1,7 +1,9 @@
 
 == Deployment
 
-FixMe - add overview
+ifdef::iRancher[]
+This section describes the process steps to deploy each of the components needed to create the {pn_Rancher} solution. The content ordering is listed from the bottom layer upto the top.
+endif::iRancher[]
 
 ////
 The following typographical conventions are used in this manual:
@@ -15,18 +17,29 @@ The following typographical conventions are used in this manual:
 
 === Deployment overview
 
-FixMe - Add simplistic drawing showing stack and user perspective
+ifdef::iRancher[]
+The deployment stack is represented in the following figure:
+
+image::Rancher-K3s-SLEMicro-Platform.png[title="{pn_Rancher} Deployment Stack", scaledwidth=80%]
+
+endif::iRancher[]
 
 ifdef::HWDepCfg[]
 
-==== Hardware deployment configuration
+==== Compute platform deployment configuration
 
 ifdef::iRancher[]
 ifdef::d1[]
 
-FixMe - cite required network infrastructure
+For each node:
 
-FixMe - cite host/node BMC/CPU/Mem/Disk/Nework prep
+* Validate the necessary CPU, memory and interconnect quantity and type are present for each node and intended role. Refer to the recommended CPU/Memory/Disk/Networking requirements as noted in the https://rancher.com/docs/rancher/v2.x/en/installation/requirements/#cpu-and-memory-for-rancher-before-v2-4-0[{pn_Rancher} Hardware Requirements].
+** Network : Prepare an IP addressing scheme and optionally create both a public and private network, along with the respective subnets and desired VLAN designations. If a Baseboard Management Controller is present, consider using a distinct management network for controlled access.
+** and if using bare-metal nodes ...
+*** Ensure that a pair of local, direct attached disk drives is present on each node (SSDs are preferred); these will become the target for the operating system installation.
+*** Boot Settings : Manage the boot node and select UEFI mode, with the primary device being hard disk.
+*** BIOS/uEFI settings are reset to defaults for a known baseline, consistent state or perhaps with desired, localized values.
+**** Use consistent and up-to-date versions for BIOS/uEFI/device firmware to reduce potential troubleshooting issues later
 
 endif::d1[]
 endif::iRancher[]
@@ -44,24 +57,27 @@ include::../SUSE/SLE-Micro/SA_vars.adoc[]
 include::../SUSE/Manager/SA_vars.adoc[]
 include::../SUSE/RMT/SA_vars.adoc[]
 
-Core Infrastructure Components / Services::
-** Domain Name Service (DNS) - an external network-accessible service to map IP Addresses to hostnames
-** Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
-** Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
-*** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
-*** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] or
-*** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
-+
-NOTE: As each node is deployed, it can be pointed to the respective update service and update notification and applicate will be managed by the configuration management web interface.
+On each compute platform node, install the noted {companyName} operating system.  Plan on leveraging and utilizing the following core infrastructure components and services:
 
-Process::
+* Domain Name Service (DNS) - an external network-accessible service to map IP Addresses to hostnames
+* Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
+* Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
+** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
+** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] or
+** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
++
+NOTE: During the installation, the node can be pointed to the respective update service. This can also be accomplished post-installation with the command-line tool, {pn_SLEMicro_InstallationDocURL}[SUSEConnect].
+
+
+//-
+Deployment Process::
 Follow these steps
 * Download the {pn_SLEMicro_Download}[{pn_SLEMicro}] product (either for the ISO or Virtual Machine image)
-* The installation process is described and can be performed with default valuesaside from your local network addressing, per the product documentation. Simply follow:
+* The installation process is described and can be performed with default values aside from your local network addressing, per the product documentation. Simply follow:
 ** the {pn_SLEMicro_InstallationDocURL}[Installation Quick Start] for
 *** manual installation
 *** raw image deployment
-** or {pn_SLEMicro_AutoYaSTDocURL}[AutoYaST Guide] for unnatttended installations
+** or {pn_SLEMicro_AutoYaSTDocURL}[AutoYaST Guide] for unatttended installations
 +
 TIP: An additional consideration is, for the first node deployed, to create an additional IP address on the host network interface card. This can be used for the {pn_Rancher} access, which may also become managed by a load-balancer if a multi-node cluster becomes the base.
 
@@ -73,57 +89,65 @@ ifdef::d1[]
 
 ==== Kubernetes Deployment
 
-This design leverage the {pn_K3s} Kubernetes distribution. {pn_K3s} is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. {pn_K3s} is packaged as a single binary with minimal software dependencies. This signficantly reduces the expertise and effort required install, run, and maintain a production ready Kubernetes cluster.
+////
+This design leverage the {pn_K3s} Kubernetes distribution. {pn_K3s} is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. {pn_K3s} is packaged as a single binary with minimal software dependencies. This significantly reduces the expertise and effort required install, run, and maintain a production ready Kubernetes cluster.
+////
 
 For this deployment, a single server installed with the {pn_SLEMicro} immutable operating system will support a single instance of {pn_K3s}. For maximum flexibility, {pn_K3s} will be deployed in a manner that would allow expanding the single-node cluster into a highly available, three-node Kubernetes cluster at a later date. 
 
-While it is highly recommended that Kubernetes workloads (in this case the {pn_Rancher} ) be isolated from the Kubernetes control-plane and data-plane; this design will maintain all functions, including the {porfolioName} Server, on the server node. In this specialized case, the {pn_Rancher} workload is a known quantity and no other workloads will be run on this Kubernetes cluster. For this reason the {pn_Rancher} cluster is more closely aligned with appliance model best practices.
+While it is highly recommended that Kubernetes workloads (in this case the {pn_Rancher} ) be isolated from the Kubernetes control-plane and data-plane; this design will maintain all functions, including the {pn_Rancher}, on this server node. In this specialized case, the {pn_Rancher} workload is a known quantity and no other workloads will be run on this Kubernetes cluster. For this reason the {pn_Rancher} cluster is more closely aligned with appliance model best practices.
 
-.The primary steps for deploying this single node {pn_K3s} cluster are:
-1. (Optional) Provide the server with one extra IP address that will be used as the primary address for accessing the {pn_K3s} cluster API server. This will allow the cluster to grown beyond a single server node. It is not neccessary if there will be an external load balancer used to access the cluster, or if the cluster will never be grown beyond a single server node.
-2. Find the appropriate version of the {pn_K3s} binary
-3. Install {pn_K3s} with embedded etcd enabled
+//-
+Deployment Process::
+The primary steps for deploying this single node {pn_K3s} cluster are:
 
-.Step 1: (Optional) Provide the server with one extra IP address:
-* If needed, use the `ip a` command to determine the netmask for the second IP address, based on the CIDR notation for eth0
-* Set the following variable with the IP address and CIDR notation that will be used to access the Kubernetes API server:
+* (Optional) Provide the server with one extra IP address that will be used as the primary address for accessing the {pn_K3s} cluster API server. This will allow the cluster to scale beyond a single server node. It is not needed if there will be an external load balancer used to access the cluster, or if the cluster will never be expanded beyond a single server node.
+** If needed, use the `ip a` command to determine the netmask for the second IP address, based on the CIDR notation for existing network interface
+
+** Set the following variable with the IP address and CIDR notation that will be used to access the Kubernetes API server:
++
 ----
 SECOND_IP=""
 ----
-** For example: `SECOND_IP="10.111.2.100/24"`
-
++
+*** e.g., `SECOND_IP="10.111.2.100/24"`
++
 ----
 sudo cp -np /etc/sysconfig/network/ifcfg-eth0 ~/ifcfg-eth0.`date +"%d.%b.%Y.%H.%M"`
 cp -p ~/ifcfg-eth0.`date +"%d.%b.%Y"`* ~/ifcfg-eth0
 echo "IPADDR_2=${SECOND_IP}" >> ~/ifcfg-eth0
 diff /etc/sysconfig/network/ifcfg-eth0 ~/ifcfg-eth0
 ----
-* Ensure the only difference between the original ifcfg-eth0 file and the updated ~/ifcfg-eth0 is the extra "IPADDR_2" line, then run the following commands:
++
+** Ensure the only difference between the original ifcfg-eth0 file and the updated ~/ifcfg-eth0 is the extra "IPADDR_2" line, then run the following commands:
++
 ----
 sudo mv ~/ifcfg-eth0 /etc/sysconfig/network/ifcfg-eth0
 sudo systemctl restart network.service
 ip a
 ----
-* The original server IP address and the additional IP address should be shown with the correct CIDR notation
-
-
-.Step 2: Find the appropriate version of the {pn_K3s} binary: 
-* At the time of writing, the most current, supported version of {pn_K3s} for {pn_Rancher} is v1.20.4+k3s1. Verify the supported versions at: https://rancher.com/support-maintenance-terms/, under the "Rancher Support Matrix"
-* Set the following variable with the desired version of {pn_K3s}
-
++
+** The original server IP address and the additional IP address should be shown with the correct CIDR notation
++
+* Find the appropriate version of the {pn_K3s} binary
+** At the time of writing, the most current, supported version of {pn_K3s} for {pn_Rancher} is v1.20.4+k3s1. Verify the supported versions at: https://rancher.com/support-maintenance-terms/, under the "Rancher Support Matrix"
+** Set the following variable with the desired version of {pn_K3s}
++
 ----
 K3s_VERSION=""
 ----
-* I.e. `K3s_VERSION="v1.20.4+k3s1"`
-
-
-.Step 3: Install {pn_K3s} with embedded etcd enabled:
++
+*** e.g., `K3s_VERSION="v1.20.4+k3s1"`
++
+* Install {pn_K3s} with embedded etcd enabled:
++
 ----
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
 ----
-* Monitor the progress of the installation: `watch -c "kubectl get pods -n kube-system"`
-** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
-** Use Ctrl+c to exit the watch loop after all pods are running
++
+** Monitor the progress of the installation: `watch -c "kubectl get pods -n kube-system"`
+*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+*** Use Ctrl+c to exit the watch loop after all pods are running
 
 ////
 Procedure for adding servers. FIRST_SERVER_IP should be the extra IP, if configured, of the first K3s server
@@ -141,7 +165,9 @@ ifdef::d1[]
 
 ==== {pn_Rancher} Deployment
 
-{pn_Rancher} is a complete solution for managing Kubernetes clusters and Kubenetes applications. It addresses the operational and security challenges of managing multiple Kubernetes clusters and applications across any infrastructure. {pn_Rancher} streamlines Kubernetes cluster management on bare metal servers, private clouds, and vSphere environements; from the datacenter to the edge. {pn_Rancher} unites all of your Kubernetes clusters with global security policies, centralized authentication, access control and observability.
+////
+{pn_Rancher} is a complete solution for managing Kubernetes clusters and Kubernetes applications. It addresses the operational and security challenges of managing multiple Kubernetes clusters and applications across any infrastructure. {pn_Rancher} streamlines Kubernetes cluster management on bare metal servers, private clouds, and vSphere environments; from the datacenter to the edge. {pn_Rancher} unites all of your Kubernetes clusters with global security policies, centralized authentication, access control and observability.
+////
 
 As {pn_Rancher} server is a native Kubernetes application, it will run on the single-node {pn_K3s} cluster. In instances where a load balancer is used to support the {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available. {pn_Rancher} uses the {pn_K3s} etcd key/value store to persist its data, which offers several advantages. Providing highly-available storage isn't needed to make {pn_Rancher} highly available. In addition, backing up the {pn_K3s} etcd store protects the cluster as well as the installation of {pn_Rancher}.
 
@@ -150,22 +176,29 @@ NOTE: These deployment steps are specific to {pn_K3s}. They can be executed from
 
 The steps described here are for deploying {pn_Rancher} with self-signed security certificates. Other options are to have {pn_Rancher} create public certificates via Let's Encrypt (only with a publicly resolvable hostname for the {pn_Rancher} server) and to provide preconfigured, private certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#3-choose-your-ssl-configuration for more information.
 
-.The primary steps for deploying {pn_Rancher} are:
-1. Create the HelmChart custom resource for cert-manager
-2. Create the HelmChart custom resource for {pn_Rancher}
+////
+1. Create the Helm Chart custom resource for cert-manager
+2. Create the Helm Chart custom resource for {pn_Rancher}
 3. Expose {pn_Rancher} through a Kubernetes NodePort service
 4. (Optional) Create an SSH tunnel to access {pn_Rancher} in cases where the exposed server IP address and/or port is not accessible to the client browser
 5. Connect to the {pn_Rancher} web UI
+////
 
-.Step 1: Create the HelmChart custom resource for cert-manager:
-* At the time of writing, the most current, supported version of cert-manager is v1.0.4
-* Set the following variable with the desired version of cert-manager
+//-
+Deployment Process::
+The primary steps for deploying {pn_Rancher} are:
+
+* Create the Helm Chart custom resource for cert-manager:
+** At the time of writing, the most current, supported version of cert-manager is v1.0.4
+** Set the following variable with the desired version of cert-manager
++
 ----
 CERT_MANAGER_VERSION=""
 ----
-* I.e. `CERT_MANAGER_VERSION="v1.0.4"`
-
-* Create the cert-manager HelmChart custom resource manifest
++
+*** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
+** Create the cert-manager Helm Chart custom resource manifest
++
 ----
 cat <<EOF> cert-manager-helm-crd.yaml
 apiVersion: helm.cattle.io/v1
@@ -180,29 +213,33 @@ spec:
   repo: https://charts.jetstack.io
 EOF
 ----
-
-* Create the cert-manager CRDs and apply the HelmChart resource manifest: 
++
+** Create the cert-manager CRDs and apply the Helm Chart resource manifest: 
++
 ----
 kubectl create namespace cert-manager
 //// kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml ////
 sudo wget -P /var/lib/rancher/k3s/server/manifests/ https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml
 sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
-
-* Monitor the progress of the installation: `watch -c "kubectl get pods -n cert-manager"`
-** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
-** Use Ctrl+c to exit the watch loop after all pods are running
-
-.Step 2: Create the HelmChart custom resource for {pn_Rancher}:
-* Set the following variable to the hostname of the {pn_Rancher} server instance
++
+** Monitor the progress of the installation: `watch -c "kubectl get pods -n cert-manager"`
+*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+*** Use Ctrl+c to exit the watch loop after all pods are running
++
+* Create the Helm Chart custom resource for {pn_Rancher}:
+** Set the following variable to the hostname of the {pn_Rancher} server instance
++
 ----
 HOSTNAME=""
 ----
-* I.e. `HOSTNAME="suse-rancher.sandbox.local"`
-
++
+*** e.g., `HOSTNAME="suse-rancher.sandbox.local"`
++
 NOTE: This hostname should be resolvable to the primary or second IP address of the {K8s_name} host.
-
-* Create the SUSE-Rancher HelmChart custom resource manifest
++
+** Create the {pn_Rancher} Helm Chart custom resource manifest
++
 ----
 cat <<EOF> suse-rancher-helm-crd.yaml
 apiVersion: helm.cattle.io/v1
@@ -218,37 +255,40 @@ spec:
     hostname: ${HOSTNAME}
 EOF
 ----
-
-* Apply the HelmChart resource manifest: 
++
+** Apply the Helm Chart resource manifest: 
++
 ----
 kubectl create namespace cattle-system
 sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
-
-* Monitor the progress of the installation: `watch -c "kubectl get pods -n cattle-system"`
-** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
-** Use Ctrl+c to exit the watch loop after all pods are running
-
-.Step 3: (Optional) Create an SSH tunnel to access {pn_Rancher}: 
- 
- NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can resolve and reach the exposed {pn_Rancher} service.
-
-* Create an SSH tunnel through the Linux host to the IP address of the {pn_Rancher} server on the NodePort, as noted in Step 3:
++
+*** Monitor the progress of the installation: `watch -c "kubectl get pods -n cattle-system"`
+*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+*** Use Ctrl+c to exit the watch loop after all pods are running
++
+* (Optional) Create an SSH tunnel to access {pn_Rancher}: 
++
+NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can resolve and reach the exposed {pn_Rancher} service.
++
+** Create an SSH tunnel through the Linux host to the IP address of the {pn_Rancher} server on the NodePort, as noted in Step 3:
++
 ----
 ssh -N -D 8080 user@Linux-host
 ----
-* On the local web browser, change the SOCKS Host settings to "127.0.0.1" and port "8080"
-
-NOTE: This will route all traffic from this web browser through the remote Linux host. Be sure to close the tunnel and remvoe the SOCKS Host settings when you're done.
-
-
-.Step 4: Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
-* On the client system, use a web browser to connect to the {pn_Rancher} service
-** I.e. `https://rancher.sandbox.local` 
-* Provide a new Admin password
-* IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} HelmChart custom resource and the port is 443.
-
-** I.e. `rancher.sandbox.local:443`
++
+** On the local web browser, change the SOCKS Host settings to "127.0.0.1" and port "8080"
++
+NOTE: This will route all traffic from this web browser through the remote Linux host. Be sure to close the tunnel and remove the SOCKS Host settings when you're done.
++
+* Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
+** On the client system, use a web browser to connect to the {pn_Rancher} service
+*** e.g., `https://rancher.sandbox.local` 
+** Provide a new Admin password
++
+IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} Helm Chart custom resource and the port is 443.
++
+*** e.g., `rancher.sandbox.local:443`
 
 endif::iK3s[]
 

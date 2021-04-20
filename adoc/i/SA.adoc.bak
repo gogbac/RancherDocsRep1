@@ -1,0 +1,80 @@
+
+== Introduction
+
+On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+
+=== Motivation
+
+ifdef::iRancher[]
+While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
+
+This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are ( https://www.cncf.io/certification/software-conformance/[CNCF] ) compliant, anywhere from edge, core, on-premise, or cloud.  {pn_Rancher_ProductPage}[{pn_Rancher}] optimizes creating and managing Kubernetes clusters with:
+
+* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] ),
+* {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
+* lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+
+and across on-premise, hybrid-cloud or in cloud Kubernetes services, such as
+
+* baremetal, physical nodes,
+* virtual machines,
+* {pn_EKS_homePage}[{pn_EKS}],
+* {pn_AKS_homePage}[{pn_AKS}] and
+* {pn_GKE_homePage}[{pn_GKE}].
+
+{pn_Rancher} users can also import and manage existing Kubernetes clusters created that are based upon Cloud Native Computing Foundation (https://www.cncf.io/[CNCF]) https://www.cncf.io/certification/cka/[certified] Kubernetes distributions or installer.
+endif::iRancher[]
+
+
+General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+
+
+Kubernetes has become the container orchestration standard. Most cloud and virtualization vendors now offer it as standard infrastructure. {pn_Rancher} users have the choice of creating Kubernetes clusters with {pn_RKE1} ( {an_RKE1} ), lightweight edge-centric K3s, on premise or in cloud Kubernetes services, such as GKE, AKS, and EKS. {pn_Rancher} users can also import and manage their existing Kubernetes clusters created using any Cloud Native Computing Foundation (https://www.cncf.io/[CNCF]) https://www.cncf.io/certification/cka/[certified] Kubernetes distribution or installer.
+
+=== Background
+
+On the digital transformation journey to a full Cloud Native Landscape, classic IT pillars are still valid considerations for the stacked, underlying infrastructure. As utilization of microservices become the main factor, the dominant technology for such container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+
+General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+
+Even on the journey to a full Cloud Native Landscape, classic IT pillars are still valid considerations for the underlying infrastructure. General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+
+NOTE: As a further reference, the National Institute of Standards and Technology's (NIST) https://csrc.nist.gov/publications/detail/sp/800-180/draft[Definition of Microservices, Application Containers and System Virtual Machines] describes the important characteristics of application containers.
+
+=== Motivation
+
+ifdef::iRancher[]
+While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time. This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are ( https://www.cncf.io/certification/software-conformance/[CNCF] ) compliant, anywhere from edge, core, on-premise, or cloud.
+endif::iRancher[]
+
+=== Scope
+
+ifdef::iRancher[]
+The scope of this document is to provide a
+ifdef::RA[reference architecture]
+ifdef::RC[reference configuration]
+ifdef::RI[reference implementation]
+ifdef::QS[quick start]
+implementation of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
+endif::iRancher[]
+
+
+=== Audience
+
+This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes management platform. You should be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
+
+////
+
+Reference Architecture
+
+Description of the reference architecture/Solution Name and the partners included in the design and validation.  Provided as a proof point for designing similar production ready solutions with design considerations, implementation suggestion, and best practices.  May include statement regarding consulting, technical support and the intended audiences.
+////
+
+////
+
+Enterprise Architecture
+
+Beyond the general introduction/overview, in each of following chapters, content includes how this layer provides the necessary attributes to the one above, details and context for this layer itself, and what requirements are needed by the underlying layer. Thus readers are encouraged to scan the entire document to understand the overall solution, even if only expexpected to focus on a certain layer's aspect.
+
+////
+

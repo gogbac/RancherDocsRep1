@@ -1,26 +1,41 @@
 
 == Introduction
 
-Kubernetes has become the container orchestration standard. Most cloud and virtualization vendors now offer it as standard infrastructure. {pn_Rancher} users have the choice of creating Kubernetes clusters with {pn_RKE1} ( {an_RKE1} ), lightweight edge-centric K3s, on premise or in cloud Kubernetes services, such as GKE, AKS, and EKS. {pn_Rancher} users can also import and manage their existing Kubernetes clusters created using any Cloud Native Computing Foundation (https://www.cncf.io/[CNCF]) https://www.cncf.io/certification/cka/[certified] Kubernetes distribution or installer.
-
-=== Background
-
-Even on the journey to a full Cloud Native Landscape, classic IT pillars are still valid considerations for the underlying infrastructure. General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
-
-NOTE: As a further reference, the National Institute of Standards and Technology's (NIST) https://csrc.nist.gov/publications/detail/sp/800-180/draft[Definition of Microservices, Application Containers and System Virtual Machines] describes the important characteristics of application containers.
+On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being Kubernetes footnote:[https://kubernetes.io/]
+With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
 
 === Motivation
 
 ifdef::iRancher[]
-While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time. This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are ( https://www.cncf.io/certification/software-conformance/[CNCF] ) compliant, anywhere from edge, core, on-premise, or cloud.
+While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
+
+This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere from edge, core, on-premise, or cloud.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
+
+* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] ),
+* {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
+* lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+
+and across on-premise, hybrid-cloud or in cloud-based Kubernetes services, such as
+
+* baremetal, physical nodes,
+* virtual machines,
+* {pn_EKS} footnote:[{pn_EKS_homePage}],
+* {pn_AKS} footnote:[{pn_AKS_homePage}] and
+* {pn_GKE} footnote:[{pn_GKE_homePage}]
+
+{pn_Rancher} users can also import and manage existing Kubernetes clusters created that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installer.
 endif::iRancher[]
 
 === Scope
 
 ifdef::iRancher[]
-The scope of this document is to provide a quick-start, reference implementation of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of an overall Kubernetes ecosystem.
+The scope of this document is to provide a
+// ifdef::RA[reference architecture]
+// ifdef::RC[reference configuration]
+ifdef::RI[reference implementation]
+// ifdef::QS[quick start]
+of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
 endif::iRancher[]
-
 
 === Audience
 

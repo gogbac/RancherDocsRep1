@@ -23,7 +23,7 @@ include::./SA-Preface.adoc[]
 include::./i/SA.adoc[]
 
 // include other chapters or EA layers (as needed)
-// include::./ii/SA.adoc[]
+include::./ii/SA.adoc[]
 ifdef::RA+RI[]
 // include::./iii/SA.adoc[]
 // include::./iv/SA.adoc[]

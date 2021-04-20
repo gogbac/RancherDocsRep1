@@ -2,6 +2,7 @@
 
 .WhitePapers
 
+* A Buyer's Guide to Enterprise Kubernetes Management Platforms - https://info.rancher.com/enterprise-kubernetes-management-buyers-guide
 * How to Build an Enterprise Kubernetes Strategy - https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
 
 .Books
@@ -36,7 +37,7 @@ endif::iSLEMicro[]
 // ifdef::iSLES[]
 // *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
 // endif::iSLES[]
-ifdef::iRKE,iHarvester[]
+ifdef::iRKE2,iHarvester[]
 ** Projects
 ifdef::iRKE2[]
 *** {pn_RKE2} ( {an_RKE2} ) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
@@ -44,4 +45,4 @@ endif::iRKE2[]
 ifdef::iHarvester[]
 *** Harvestor - https://github.com/rancher/harvester
 endif::iHarvester[]
-endif::iRKE,iHarvester[]
+endif::iRKE2,iHarvester[]

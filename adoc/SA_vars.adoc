@@ -30,13 +30,12 @@ ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}
 endif::EA[]
 
-ifdef::RA[]
 ifdef::iRancher[]
-ifdef::QS[:title: Quick Start - {pn_Rancher}]
+ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
+ifdef::RC[:title: Reference Configuration- {pn_Rancher}]
 ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
-// ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
+ifdef::QS[:title: Quick Start - {pn_Rancher}]
 endif::iRancher[]
-endif::RA[]
 
 ifndef::EA,RA[]
 :title: Digital Transformation - {useCase}
