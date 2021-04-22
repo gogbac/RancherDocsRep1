@@ -102,7 +102,7 @@ Deployment Process::
 The primary steps for deploying this single node {pn_K3s} cluster are:
 
 * (Optional) Provide the server with one extra IP address that will be used as the primary address for accessing the {pn_K3s} cluster API server. This will allow the cluster to scale beyond a single server node. It is not needed if there will be an external load balancer used to access the cluster, or if the cluster will never be expanded beyond a single server node.
-** If needed, use the `ip a` command to determine the netmask for the second IP address, based on the CIDR notation for existing network interface
+** If needed, use the `ip a` command to determine the interface name (i.e. eth0) and CIDR netmask notation (i.e. /24) of the network interface that will be configured with the extra IP address
 
 ** Set the following variable with the IP address and CIDR notation that will be used to access the Kubernetes API server:
 +
@@ -112,6 +112,9 @@ SECOND_IP=""
 +
 *** e.g., `SECOND_IP="10.111.2.100/24"`
 +
+
+NOTE: If the target interface is not eth0, substitute the name of the interface in place of "eth0" in the commands below.
+
 ----
 sudo cp -np /etc/sysconfig/network/ifcfg-eth0 ~/ifcfg-eth0.`date +"%d.%b.%Y.%H.%M"`
 cp -p ~/ifcfg-eth0.`date +"%d.%b.%Y"`* ~/ifcfg-eth0
@@ -145,8 +148,8 @@ K3s_VERSION=""
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
 ----
 +
-** Monitor the progress of the installation: `watch -c "kubectl get pods -n kube-system"`
-*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
+*** The deployment is complete when all deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
 *** Use Ctrl+c to exit the watch loop after all pods are running
 
 ////
@@ -218,13 +221,12 @@ EOF
 +
 ----
 kubectl create namespace cert-manager
-//// kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml ////
-sudo wget -P /var/lib/rancher/k3s/server/manifests/ https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml 
 sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
 +
-** Monitor the progress of the installation: `watch -c "kubectl get pods -n cert-manager"`
-*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
+*** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
 * Create the Helm Chart custom resource for {pn_Rancher}:
@@ -236,7 +238,7 @@ HOSTNAME=""
 +
 *** e.g., `HOSTNAME="suse-rancher.sandbox.local"`
 +
-NOTE: This hostname should be resolvable to the primary or second IP address of the {K8s_name} host.
+NOTE: This hostname should be resolvable to an IP address of the {K8s_name} host, or a load balancer/proxy server that supports this installation of {pn_Rancher}.
 +
 ** Create the {pn_Rancher} Helm Chart custom resource manifest
 +
@@ -269,7 +271,7 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 +
 * (Optional) Create an SSH tunnel to access {pn_Rancher}: 
 +
-NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can resolve and reach the exposed {pn_Rancher} service.
+NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can reach the exposed {pn_Rancher} service. The {pn_Rancer} hostname should be resolvable to the appropriate IP address by the local workstation.
 +
 ** Create an SSH tunnel through the Linux host to the IP address of the {pn_Rancher} server on the NodePort, as noted in Step 3:
 +
@@ -277,16 +279,16 @@ NOTE: This optional step is useful in cases where NAT routers and/or firewalls p
 ssh -N -D 8080 user@Linux-host
 ----
 +
-** On the local web browser, change the SOCKS Host settings to "127.0.0.1" and port "8080"
+** On the local workstation web browser, change the SOCKS Host settings to "127.0.0.1" and port "8080"
 +
-NOTE: This will route all traffic from this web browser through the remote Linux host. Be sure to close the tunnel and remove the SOCKS Host settings when you're done.
+NOTE: This will route all traffic from this web browser through the remote Linux host. Be sure to close the tunnel and revert the SOCKS Host settings when you're done.
 +
 * Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
 ** On the client system, use a web browser to connect to the {pn_Rancher} service
 *** e.g., `https://rancher.sandbox.local` 
 ** Provide a new Admin password
 +
-IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} Helm Chart custom resource and the port is 443.
+IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} HelmChart custom resource and the port is 443.
 +
 *** e.g., `rancher.sandbox.local:443`
 
