@@ -108,10 +108,10 @@ The primary steps for deploying this single node {pn_K3s} cluster are:
 * Set the following variable with the IP address and CIDR notation that will be used to access the Kubernetes API server:
 +
 ----
-IPADDR_2=""
+SECOND_IP=""
 ----
 +
-** e.g., `IPADDR_2="10.111.2.100/24"`
+** e.g., `SECOND_IP="10.111.2.100/24"`
 +
 NOTE: If the target interface is not eth0, substitute the name of the interface in place of "eth0" in the commands below.
 +
