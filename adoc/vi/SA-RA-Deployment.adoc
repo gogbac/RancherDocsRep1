@@ -285,12 +285,12 @@ NOTE: This will route all traffic from this web browser through the remote Linux
 +
 . Connect to the {pn_Rancher} web UI and configure {pn_Rancher}:
 * On the client system, use a web browser to connect to the {pn_Rancher} service
-** e.g., `https://rancher.sandbox.local` 
+** e.g., `https://suse-rancher.sandbox.local` 
 * Provide a new Admin password
 +
 IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} HelmChart custom resource and the port is 443.
 +
-** e.g., `rancher.sandbox.local:443`
+** e.g., `suse-rancher.sandbox.local:443`
 
 endif::iK3s[]
 
