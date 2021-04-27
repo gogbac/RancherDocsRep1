@@ -290,7 +290,7 @@ NOTE: This will route all traffic from this web browser through the remote Linux
 +
 IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is set to the hostname specified when creating the {pn_Rancher} HelmChart custom resource and the port is 443.
 +
-** e.g., `rancher.sandbox.local:443`
+** e.g., `suse-rancher.sandbox.local:443`
 
 endif::iK3s[]
 
