@@ -1,45 +1,71 @@
+ifdef::RA,RC,RI,QS[]
 
 == Introduction
 
 On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being Kubernetes footnote:[https://kubernetes.io/]
-With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+With its large community of developers and abundant features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
 
 === Motivation
 
 ifdef::iRancher[]
 While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
 
-This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere from edge, core, on-premise, or cloud.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
+This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere across edge, on-premise data centers, or cloud service providers.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
 
-* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] ),
-* {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
-* lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
+// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
+* Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+* other Kubernetes clusters that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
 
-and across on-premise, hybrid-cloud or in cloud-based Kubernetes services, such as
+and deployed across various supported footnote:[{pn_Rancher_SupportPage}] infrastructure elements.
 
-* baremetal, physical nodes,
-* virtual machines,
-* {pn_EKS} footnote:[{pn_EKS_homePage}],
-* {pn_AKS} footnote:[{pn_AKS_homePage}] and
-* {pn_GKE} footnote:[{pn_GKE_homePage}]
+ifdef::RC[]
+Once on the digital transformation journey with {pn_Rancher}, some of the next focus areas are:
 
-{pn_Rancher} users can also import and manage existing Kubernetes clusters created that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installer.
+ifdef::iISV[]
+* Workloads
+** Determine how to launch either internally developed containerized, microservice workloads or leverage offerings from Independent Software Vendors ( ISV ).
+endif::iISV[]
+
+ifdef::iCSP,iIHV[]
+* Compute Platform
+** To optimize availablity, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
+ifdef::iIHV[]
+*** Independent Hardware Vendors ( IHV ) for physical, baremetal, hypervisors and virtual machines
+endif::iIHV[]
+ifdef::iCSP[]
+*** Cloud Service Providers ( CSP ), which can also include baremetal, virtual machines plus hosted Kubernetes services
+endif::iCSP[]
+endif::iCSP,iIHV[]
+
+endif::RC[]
+
 endif::iRancher[]
 
 === Scope
 
-ifdef::iRancher[]
 The scope of this document is to provide a
-// ifdef::RA[reference architecture]
-// ifdef::RC[reference configuration]
-ifdef::RI[reference implementation]
-// ifdef::QS[quick start]
+ifndef::RC,RI,QS[]
+ifdef::RA[<<G_RA,reference architecture>>]
+endif::RC,RI,QS[]
+ifndef::RI,QS[]
+ifdef::RA+RC[<<G_RC,reference configuration>>]
+endif::RI,QS[]
+ifndef::RC,QS[]
+ifdef::RA+RI[<<G_RI,reference implementation>>]
+endif::RC,QS[]
+ifndef::RC,RI[]
+ifdef::RA+QS[<<G_QS,quick start>>]
+endif::RC,RI[]
+ifdef::iRancher[]
 of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
 endif::iRancher[]
 
 === Audience
 
 This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes management platform. You should be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
+
+endif::RA,RC,RI,QS[]
 
 ////
 

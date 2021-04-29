@@ -1,11 +1,6 @@
 
 include::./SA_vars.adoc[]
 
-include::./CSP/SA_vars.adoc[]
-include::./IHV/SA_vars.adoc[]
-include::./ISV/SA_vars.adoc[]
-include::./SUSE/SA_vars.adoc[]
-
 = {title}
 ////
 {author}, {companyName} < {authorEMail} >
@@ -13,24 +8,26 @@ include::./SUSE/SA_vars.adoc[]
 :favicon:
 :doctype: book
 
-// About
-// include::./SA-About.adoc[]
-
 // Preface
 include::./SA-Preface.adoc[]
+
+// About
+// include::./SA-About.adoc[]
 
 // Introduction
 include::./i/SA.adoc[]
 
 // include other chapters or EA layers (as needed)
-include::./ii/SA.adoc[]
-ifdef::RA+RI[]
-// include::./iii/SA.adoc[]
-// include::./iv/SA.adoc[]
+
+ifndef::QS[include::./ii/SA.adoc[]]
+
+ifndef::RC,RI,QS[include::./iii/SA.adoc[]]
+include::./iv/SA.adoc[]
 include::./v/SA.adoc[]
 include::./vi/SA.adoc[]
+ifndef::QS[]
 ifdef::BP[include::./vii/SA.adoc[]]
-endif::RA+RI[]
+endif::QS[]
 
 // Summary
 include::./SA-Summary.adoc[]
@@ -42,7 +39,7 @@ endif::References[]
 
 // Glossary
 ifdef::Glossary[]
-// include::./SA-Glossary.adoc[]
+include::./SA-Glossary.adoc[]
 endif::Glossary[]
 
 // ifdef::Colophon[]
@@ -51,7 +48,7 @@ endif::Glossary[]
 
 // Appendices
 ifdef::Appendix[]
-include::./SA-Appendix.adoc[]
+ifndef::QS[include::./SA-Appendix.adoc[]]
 endif::Appendix[]
 
 // legal and license are optional, yet recommended

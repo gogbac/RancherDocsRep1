@@ -7,47 +7,6 @@ FixMe - Libero nunc consequat interdum varius sit amet mattis. Praesent elementu
 
 FixMe - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Libero nunc consequat interdum varius. Et magnis dis parturient montes nascetur ridiculus mus mauris. Morbi tincidunt ornare massa eget egestas purus viverra. Ac feugiat sed lectus vestibulum mattis. Arcu cursus euismod quis viverra nibh cras pulvinar mattis. Mauris nunc congue nisi vitae suscipit tellus mauris a. Amet consectetur adipiscing elit pellentesque habitant morbi tristique. Tellus mauris a diam maecenas sed. Tincidunt vitae semper quis lectus nulla at volutpat diam ut. Felis eget velit aliquet sagittis id consectetur. Urna et pharetra pharetra massa. Interdum varius sit amet mattis vulputate enim. Leo in vitae turpis massa sed elementum tempus. Sed arcu non odio euismod. Ut sem viverra aliquet eget sit amet tellus. Purus in mollis nunc sed id semper. Dictum sit amet justo donec enim diam vulputate ut.
 
-==== SLE-Micro 5.0 deployment - Sub-Section 6.3.1
-==== K3s Software deployment - Sub-Section 6.3.2
-
-This design leverage the K3s Kubernetes distribution. K3s is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. K3s is packaged as a single binary with minimal software dependencies. This signficantly reduces the expertese and effort required install, run, and maintain a production ready Kubernetes cluster.
-
-For this Proof of Concept deployment, a single server installed with the SLE-Micro 5.0 immutable operating system will support a single instance of K3s. For maximum flexibility, K3s will be deployed in a manner that would allow expanding the single-node cluster into a highly available, three-node Kubernetes cluster. This will be only slightly more complex that the one-line, 45 second (curl -sfL https://get.k3s.io | sh -) minimal installation method of K3s. 
-
-While it is highly recommended that Kubernetes workloads (in this case the Rancher Server) be isolated from the Kubernetes control-plane and data-plane; this design will maintain all functions, including the Rancher Server, on the server node. In this specialized case, the Rancher Server workload is a known quantity and no other workloads will be run on this Kubernetes cluster. For this reason the Rancher Server cluster is more closely aligned with appliance model best practices.
-
-At the time of writing, the most current, supported version of K3s for Rancher Server is 1.20.4. Verify the supported versions at: https://rancher.com/support-maintenance-terms/
-
-The primary steps for deploying this three node K3s cluster are:
-1. Ensure the first server has one extra IP address configured. This will be used as the primary address for accessing the K3s API server.
-2. Download the appropriate version of the K3s binary from: https://github.com/rancher/k3s/releases/latest
-3. Download the installation script from: https://get.k3s.io
-4. Install K3s with etcd enabled
-
-
-
-//// To deploy the first server and add a second server node to the cluster:
-* Deploy K3s with --cluster-init to enable embedded etcd:
-----
-wget https://github.com/k3s-io/k3s/releases/download/v1.20.4%2Bk3s1/k3s
-sudo mv k3s /usr/local/bin/
-sudo chmod 755 /usr/local/bin/k3s
-curl -sfL https://get.k3s.io > install.sh
-chmod 755 install.sh
-INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644'  ./install.sh
-----
-
-FIRST_SERVER_IP=""
-sudo K3S_TOKEN=<from the /var/lib/rancher/k3s/server/node-token file on the first server> INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_EXEC='server --server https://${FIRST_SERVER_IP}:6443 --write-kubeconfig-mode=644'  ./install.sh
- ////
-
-==== Rancher Server Software deployment - Sub-Section 6.3.4
-
-Rancher server is a complete solution for managing Kubernetes clusters and Kubenetes applications. It addresses the operational and security challenges of managing multiple Kubernetes clusters and applications across any infrastructure. Rancher streamlines Kubernetes cluster management on bare metal servers, private clouds, and vSphere environements; from the datacenter to the edge. Rancher unites all of your Kubernetes clusters with global security policies, centralized authentication, access control and observability.
-
-As Rancher server is a native Kubernetes application, it will run on the single-node K3s cluster. In instances where a load balancer is used to support the K3s cluster, deploying two additional K3s cluster nodes will automatically make Rancher server highly available. Rancher server uses the K3s etcd key/value store to persist its data, which offers several advantages. Additional, highly available, storage isn't needed to make Rancher server highly available. In addition, backing up the K3s etcd store protects the cluster as well as the installation of Rancher server. 
-
-
 endif::EA,RA[]
 
 ifdef::EA+Physical[]

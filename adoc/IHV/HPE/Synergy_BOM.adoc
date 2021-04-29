@@ -1,0 +1,19 @@
+
+|Enclosure
+|1
+|FixMe
+|{vn_HPE} {familyHPE-S} 12000 Frame
+|Houses the infrastructure used for the solution
+
+|Network
+|2
+|FixMe
+|{vn_HPE} Virtual Connect 40Gb SE F8 Module
+|Provides network connectivity into and out of the frames
+
+|Compute Platform
+|1-3
+|FixMe
+|{vn_HPE} {familyHPE-S} {modelHPE-SY480} Compute Module
+| FixMe
+

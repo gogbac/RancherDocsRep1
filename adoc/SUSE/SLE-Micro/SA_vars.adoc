@@ -1,5 +1,4 @@
 
-:pn_SLEMicro: {companyName} Linux Enterprise Micro
 :an_SLEMicro: SLE Micro
 :pn_SLEMicro_Version: 5.0
 

@@ -1,4 +1,4 @@
-:pn_K3s: K3s
+
 :an_K3s: {pn_K3s}
 :pn_K3s_Version: 1.18.16
 

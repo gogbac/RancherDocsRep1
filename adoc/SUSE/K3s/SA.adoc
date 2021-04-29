@@ -15,7 +15,7 @@ The only OS dependencies are the Linux kernel itself and a proper dev, proc and 
 
 into combined processes that are presented as a simple server and agent model, as represented in the following figure:
 
-image::{an_K3s}-Overview.svg[title="Overview of {pn_K3s}", scaledwidth=80%]
+image::{pn_K3s}-Overview.svg[title="Overview of {pn_K3s}", scaledwidth=80%]
 
 {pn_K3s} can run as a complete cluster on a single node or can be expanded into a multi-node cluster. Besides the core Kubernetes components, we also run
 

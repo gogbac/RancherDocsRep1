@@ -45,10 +45,18 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 # Partner Attributes
 ##
 
-
 #	as needed, add respective ISV/IHV/CSP attributes/parameters
+#	and then specific partners
+
+ADOC_ATTRIBUTES+=" --attribute iISV=1"
 #ADOC_ATTRIBUTES+=" --attribute ISV-xyz=1"
+
+ADOC_ATTRIBUTES+=" --attribute iIHV=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Dell=1"
 ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
+ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
+
+ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 #ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
 
 ## ----------------- (Partner)
@@ -63,7 +71,10 @@ ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
 ###############################################################################
 ###############################################################################
 
-# NOTE : leveraging RA for Reference Implementation (RI)
+# NOTE : leveraging RA for
+# 	Reference Configuration (RC)
+# 	Reference Implementation (RC)
+# 	Quick Start (QS)
 #
 ## --------------------------- (RA)
 #	Reference Architecture
@@ -81,15 +92,17 @@ ADOC_ATTRIBUTES+=" --attribute RI=1"
 #	QS = simplified, minimal approach for PoC to demonstrate functionality
 #ADOC_ATTRIBUTES+=" --attribute QS=1"
 #	BP = suggestions/considerations above default settings
-#ADOC_ATTRIBUTES+=" --attribute BP=1"
+ADOC_ATTRIBUTES+=" --attribute BP=1"
 
 # included, focus areas
-#ADOC_ATTRIBUTES+=" --attribute iSLES=1"
+ADOC_ATTRIBUTES+=" --attribute iRMT=1"
+ADOC_ATTRIBUTES+=" --attribute iSLES=1"
 ADOC_ATTRIBUTES+=" --attribute iSLEMicro=1"
-ADOC_ATTRIBUTES+=" --attribute iRancher=1"
+ADOC_ATTRIBUTES+=" --attribute iSUMa=1"
 ADOC_ATTRIBUTES+=" --attribute iK3s=1"
 ADOC_ATTRIBUTES+=" --attribute iRKE1=1"
 ADOC_ATTRIBUTES+=" --attribute iRKE2=1"
+ADOC_ATTRIBUTES+=" --attribute iRancher=1"
 #ADOC_ATTRIBUTES+=" --attribute iLonghorn=1"
 #ADOC_ATTRIBUTES+=" --attribute iHarvester=1"
 #ADOC_ATTRIBUTES+=" --attribute iFleet=1"
@@ -98,9 +111,9 @@ ADOC_ATTRIBUTES+=" --attribute iRKE2=1"
 # d0 - Day 0 architect + demo/PoC (basis for QuickStart, can be part of RI/RA)
 # d1 - Day 1 deployment (basis for production Reference Implementation)
 # d2 - Day 2 operations (include Best Practices and maintenance/operations)
-ADOC_ATTRIBUTES+=" --attribute d0=1"
-ADOC_ATTRIBUTES+=" --attribute d1=1"
-ADOC_ATTRIBUTES+=" --attribute d2=1"
+#ADOC_ATTRIBUTES+=" --attribute d0=1"
+#ADOC_ATTRIBUTES+=" --attribute d1=1"
+#ADOC_ATTRIBUTES+=" --attribute d2=1"
 
 #
 # these layers are only referenced in combination with RA setting
@@ -115,7 +128,7 @@ ADOC_ATTRIBUTES+=" --attribute Requirements=1"
 ADOC_ATTRIBUTES+=" --attribute ArchOv=1"
 #	then add/enable respective attributes/parameters, like
 #	Network Architecture
-ADOC_ATTRIBUTES+=" --attribute ArchOvNetworkArch=1"
+#ADOC_ATTRIBUTES+=" --attribute ArchOvNetworkArch=1"
 
 ## v-Component model (RA+CompMod)
 ADOC_ATTRIBUTES+=" --attribute CompMod=1"
@@ -192,15 +205,15 @@ ADOC_ATTRIBUTES+=" --attribute Integrity=1"
 ## ------------------------------------------------------------ (FLVR)
 ## Flavors (FLVR) - extent/phases of deployment flavors sub-set
 #	uncomment the following to switch/enable to this format/structure
-#ADOC_ATTRIBUTES+=" --attribute FLVR=1"
+ADOC_ATTRIBUTES+=" --attribute FLVR=1"
 # 	then add respective flavors, named specifically, like
 
 # Proof-of-Concept (FLVR)
 ADOC_ATTRIBUTES+=" --attribute PoC=1"
 # Production (FLVR)
-ADOC_ATTRIBUTES+=" --attribute Production=1"
+#ADOC_ATTRIBUTES+=" --attribute Production=1"
 # Scaling (FLVR)
-ADOC_ATTRIBUTES+=" --attribute Scaling=1"
+#ADOC_ATTRIBUTES+=" --attribute Scaling=1"
 ## ------------------------------------------------------------ (FLVR)
 
 ## ------------------------------------------------------------ (DT)

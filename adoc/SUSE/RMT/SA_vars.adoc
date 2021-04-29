@@ -1,6 +1,5 @@
 
 :an_RMT: RMT
-:pn_RMT: Repository Mirroring Tool
 :pn_RMT_Version: 15-SP2
 
 :pn_RMT_Download: https://www.suse.com/download/

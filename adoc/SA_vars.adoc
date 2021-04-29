@@ -1,13 +1,17 @@
+
 :companyName: SUSE
 :portfolioName: Rancher
 :useCase: 
 
 :useCase: Enterprise Kubernetes
 
+include::./CSP/SA_vars.adoc[]
+include::./IHV/SA_vars.adoc[]
+include::./ISV/SA_vars.adoc[]
+include::./SUSE/SA_vars.adoc[]
+
 ifdef::iRancher[]
 include::SUSE/Rancher/SA_vars.adoc[]
-// :osName: SLE Micro
-// :k8sName: K3s
 endif::iRancher[]
 
 ifdef::iK3s[]
@@ -25,6 +29,10 @@ endif::iRKE2[]
 ifdef::iSLEMicro[]
 include::SUSE/SLE-Micro/SA_vars.adoc[]
 endif::iSLEMicro[]
+
+ifdef::iSLES[]
+include::SUSE/SLES/SA_vars.adoc[]
+endif::iSLES[]
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}

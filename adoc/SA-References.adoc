@@ -25,18 +25,24 @@ endif::iRancher[]
 ifdef::iRKE1[]
 *** {pn_RKE1} ( {an_RKE1} ) - {pn_RKE1_ProductPage} ( {pn_RKE1_DocURL}[documentation] )
 endif::iRKE1[]
-ifdef::iLonghorn[]
-*** Longhorn - https://rancher.com/products/longhorn/
-endif::iLonghorn[]
 ifdef::iK3s[]
 *** {pn_K3s} - {pn_K3s_ProductPage} ( {pn_K3s_DocURL}[documentation] )
 endif::iK3s[]
+ifdef::iLonghorn[]
+*** Longhorn - {pn_Longhorn_ProductPage} ( {pn_Longhorn_DocURL}[documentation] )
+endif::iLonghorn[]
 ifdef::iSLEMicro[]
 *** {pn_SLEMicro} ( {an_SLEMicro} ) - {pn_SLEMicro_ProductPage} ( {pn_SLEMicro_DocURL}[documentation] )
 endif::iSLEMicro[]
-// ifdef::iSLES[]
-// *** {companyName} Linux Enterprise Server (SLES) - https://www.suse.com/products/server/ ( https://documentation.suse.com/sles/15-SP2/[documentation] )
-// endif::iSLES[]
+ifdef::iSLES[]
+*** {pn_SLES} ( {an_SLES} ) - {pn_SLES_ProductPage} ( {pn_SLES_DocURL}[documentation] )
+endif::iSLES[]
+ifdef::iSUMa[]
+*** {pn_SUMa} - {pn_SUMa_ProductPage} ( {pn_SUMa_DocURL}[documentation] )
+endif::iSUMa[]
+ifdef::iRMT[]
+*** {companyName} {pn_RMT} ( {an_RMT} ) - {pn_SLES_ProductPage} ( {pn_RMT_DocURL}[documentation] )
+endif::iRMT[]
 ifdef::iRKE2,iHarvester[]
 ** Projects
 ifdef::iRKE2[]

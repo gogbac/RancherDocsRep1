@@ -1,6 +1,5 @@
 
 // :an_SUMa: 
-:pn_SUMa: {companyName} Manager
 :pn_SUMa_Version: 4.1
 
 :pn_SUMa_Download: https://www.suse.com/download/

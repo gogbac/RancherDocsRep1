@@ -1,11 +1,13 @@
 
 == Architectural overview
 
-FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut. Integer vitae justo eget magna fermentum iaculis eu non diam. Rhoncus urna neque viverra justo. Elementum tempus egestas sed sed risus. Porta nibh venenatis cras sed felis eget velit aliquet sagittis. Venenatis a condimentum vitae sapien pellentesque. Magna ac placerat vestibulum lectus mauris ultrices eros in cursus. Nibh cras pulvinar mattis nunc. Tempor orci dapibus ultrices in iaculis nunc. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Nisi porta lorem mollis aliquam. Laoreet id donec ultrices tincidunt arcu non sodales.
+ifdef::iRancher[]
+This section outlines the overall elements of the {pn_Rancher} solution, along with the suggested target platforms and then how it can be used.
+endif::iRancher[]
 
 === Solution architecture
 
-FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
+// FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
 
 ////
 An outline should be provided of the solution and the components required to successfully architect the solution
@@ -13,9 +15,48 @@ An outline should be provided of the solution and the components required to suc
 	e.g., A SUSE OpenStack Cloud solution show a block diagram of OpenStack components or elements for the Control, compute and storage pools
 ////
 
-FixMe - Include high-level diagram
+ifdef::iRancher[]
+The figure below illustrates the high-level architecture of {pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
 
 // image::RA-overview.png[title="FixMe - Architecture Overview", scaledwidth=80%]
+image::ArchitectureOverview-Rancher.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
+
+Authentication Proxy::
+A user is authenticated via {pn_Rancher} and then, if authorized, can access both the {pn_Rancher} environment and the downstream clusters and workloads.
+
+API Server::
+This provides the programmatic interface backend for user, command-line interactions with {pn_Rancher} and the managed clusters.
+
+Data Store::
+The purpose of this service is to capture the configuration and state of {pn_Rancher} and the managed clusters to aid in backup and recovery processes.
+
+Cluster Controller::
+Interacting with a cluster agent on the downstream cluster, the cluster controller allows the communication path for users and services to leverage for workloads and cluster management.
+
+Once setup, users can potentially interact with {pn_Rancher} through the web-based user interface (UI), the command-line interface ( CLI ), and programatically through the application programming interface ( API ). Depending upon the assigned roles, group membership and privileges, a user could:
+
+* manage all clusters, users, roles, projects
+* deploy new clusters, import other clusters, or remove existing ones
+* manage workloads across respective or labeled clusters
+* simply view clusters or workloads, or just benefit from what is running
+
+ifdef::RC,RI[]
+For the best performance and security, the recommended deployment a dedicated Kubernetes cluster for the Rancher management server. Running user workloads on this cluster is not advised. After deploying Rancher, you can create or import clusters for running your workloads.
+endif::RC,RI[]
+
+ifdef::QS[]
+To aid in planning, training or assessing functionality like in a [<<G_PoC,proof-of-concept>>] deployment, {pn_Rancher} can be installed on a single node as described later in this document.
+
+ifdef::BP[]
+TIP: The {pn_Rancher} backup operator can then be used to migrate from the single node to an installation on a high-availability Kubernetes cluster footnote:[https://rancher.com/docs/rancher/v2.5/en/backups/migrating-rancher/]
+endif::BP[]
+endif::QS[]
+
+NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this cluster is not advised.
+
+endif::iRancher[]
+
+////
 
 FixMe - As needed, include high-level table
 .FixMe - Architecture Overview 
@@ -28,8 +69,11 @@ FixMe - As needed, include high-level table
 |Row   | | |
 
 |===
+////
 
 ifdef::ArchOvNetworkArch[]
+
+
 === Networking architecture
 
 FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...

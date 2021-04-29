@@ -3,10 +3,25 @@
 
 :suseSCCPage: https://scc.suse.com/login
 
-:suseWhyPage: https://www.suse.com/company/about/
+:suseWhyPage: https://www.suse.com/company/about
 
-:rancherWhyPage: https://rancher.com/why-rancher/
+:rancherWhyPage: https://rancher.com/why-rancher
 
-:an_RMT: RMT
+:pn_K3s: K3s
+include::./K3s/SA_vars.adoc[]
+:pn_Longhorn: Longhorn
+include::./Longhorn/SA_vars.adoc[]
+:pn_SLES: {companyName} Linux Enterprise Server
+include::./SLES/SA_vars.adoc[]
+:pn_SUMa: {companyName} Manager
+include::./Manager/SA_vars.adoc[]
+:pn_Rancher: {companyName} {portfolioName}
+include::./Rancher/SA_vars.adoc[]
+:pn_RKE1: {portfolioName} Kubernetes Engine
+include::./RKE1/SA_vars.adoc[]
+:pn_RKE2: {portfolioName} Kubernetes Engine Government
+include::./RKE2/SA_vars.adoc[]
 :pn_RMT: Repository Mirroring Tool
-
+include::./RMT/SA_vars.adoc[]
+:pn_SLEMicro: {companyName} Linux Enterprise Micro
+include::./SLE-Micro/SA_vars.adoc[]

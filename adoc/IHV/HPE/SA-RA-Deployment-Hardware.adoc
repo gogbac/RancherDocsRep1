@@ -1,0 +1,31 @@
+
+ifdef::IHV-HPE-Synergy[]
+
+FixMe
+
+The sample configuration resides all within a single {vn_HPE} {familyHPE-S} Frame consists of three control nodes, arranged in a high-availability fashion to host the required OpenStack services and at least a single compute node to host virtualized workloads on the KVM hypervisor. The number and type of nodes can easily be expanded to scale out the {pn_Rancher} cluster, even across multiple {vn_HPE} {familyHPE-S} Frames by leveraging the integration with {vn_HPE} {vn_HPE_ComposerTech}.
+
+Given the integration with {vn_HPE} {vn_HPE_ComposerTech}, many of these attributes will be discovered, once a node is selected for inclusion into the deployment.
+
+* Once a model has been selected, review the documentation for each node role around minimal resources required, the disk layout and the networking setup. At this point, you can effectively setup the necessary items in the {vn_HPE} {vn_HPE_ComposerTech}, including:
+** Settings -> Addresses and Identifiers (Subnets and Address Ranges)
+** Networks -> Create (associate subnets and designate bandwidths)
+** Network Sets -> Create (aggregate all the necessary Networks)
+** Logical Interconnects -> Edit (include the respective Network Sets)
+** Logical Interconnect Groups -> Edit (include the respective Network Sets)
+** Server Profile Templates -> Create
+** OS Deployment mode -> could be configured to boot from PXE, local storage, shared storage
+** Firmware (upgrade to the latest and strive for consistency across node types)
+** Manage Connections (assign the Network Set to be bonded across NICs)
+** Local Storage (create the internal RAID1 set and request additional drives for the respective roles)
+** Manage Boot/BIOS/iLO Settings
+** Server Profile -> Create (assign the role template to the target model)
++
+. Add Servers and Assign Server Roles
+* Utilize the Discover function to link {pn_Rancher} and {vn_HPE} {vn_HPE_ComposerTech} to see all of the available nodes that can be assigned to to their respective roles:
+
+* Then drag and drop the nodes into the roles and ensure there is no missing configuration information, by reviewing and editing each node's server details
+* Manage Cloud Settings - setup DNS/NTP, designate Disk Models/NIC Mappings/Interface Model/Networks
+* Manage Subnet and Netmask - edit Management Network information, ensuring a match exists to those setup in {vn_HPE} {vn_HPE_ComposerTech}
+* Choose servers on which the operating system will be installed.  Given the small number of initial nodes in this deployment, each can be installed with the {pn_SLEMicro} operating system using the ISO media and the {vn_HPE} {vn_HPE_BMC} virtual media methodology.
+endif::IHV-HPE-Synergy[]

@@ -1,6 +1,6 @@
-== About the author(s)
+== About {companyName}
 
-FixMe - Name, Bio/Details, Contact
+include::./SUSE/SA.adoc[]
 
 
 
