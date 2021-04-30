@@ -87,7 +87,7 @@ ADOC_ATTRIBUTES+=" --attribute RA=1"
 # leverage RA template, for layering reference configuration/implementation, quick start and best practices
 # 	any of these can be designated here or on the daps command line
 #	RC = reference configuration, leveraging testing w/ partner portfolio
-#ADOC_ATTRIBUTES+=" --attribute RC=1"
+ADOC_ATTRIBUTES+=" --attribute RC=1"
 #	RI = generic reference, agnostic to partners
 #ADOC_ATTRIBUTES+=" --attribute RI=1"
 #	QS = simplified, minimal approach for PoC to demonstrate functionality
