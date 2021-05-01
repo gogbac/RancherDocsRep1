@@ -16,12 +16,12 @@ A guide with the basic steps to deploy the highlighted components of the {compan
 endif::RI[]
 ifdef::RC[]
 [[G_RC]]Reference Configuration::
-A guide with the basic steps to deploy the layered stack of components from both the {companyName} and partner porfolios. This is considered a fundamental basis to demonstrate a specific, tested configuration of components.
+A guide with the basic steps to deploy the layered stack of components from both the {companyName} and partner portfolios. This is considered a fundamental basis to demonstrate a specific, tested configuration of components.
 +
 endif::RC[]
 ifdef::RA[]
 [[G_RA]]Reference Architecture footnote:Reference-Architecture[link: https://en.wikipedia.org/wiki/Reference_architecture[Reference Architecture]]::
-A guide with the general steps to deploy and validate the structured solution components from both the {companyName} and partner porfolios. This provides a shareable template of consistency for consumers to leverage.
+A guide with the general steps to deploy and validate the structured solution components from both the {companyName} and partner portfolios. This provides a shareable template of consistency for consumers to leverage.
 +
 endif::RA[]
 // ifdef::SS[]

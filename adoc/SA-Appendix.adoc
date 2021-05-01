@@ -97,3 +97,20 @@ endif::iIHV[]
 // endif::iCSP[]
 
 ////
+
+ifeval::[ "{daps-adoc-attributes}" != "" ]
+
+=== Appendix Z: DAPS Configuration / Attributes
+
+This document was build using the following AsciiDoc attributes:
+
+[source, subs="attributes"]
+
+----
+
+{daps-adoc-attributes}
+
+----
+
+endif::[]
+

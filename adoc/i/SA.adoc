@@ -29,7 +29,7 @@ endif::iISV[]
 
 ifdef::iCSP,iIHV[]
 * Compute Platform
-** To optimize availablity, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
+** To optimize availability, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
 ifdef::iIHV[]
 *** Independent Hardware Vendors ( IHV ) for physical, baremetal, hypervisors and virtual machines
 endif::iIHV[]

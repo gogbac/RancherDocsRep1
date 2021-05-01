@@ -1,67 +1,71 @@
+ifdef::RA,RC,RI,QS[]
 
 == Introduction
 
-On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being Kubernetes footnote:[https://kubernetes.io/]
+With its large community of developers and abundant features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
 
 === Motivation
 
 ifdef::iRancher[]
 While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
 
-This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are ( https://www.cncf.io/certification/software-conformance/[CNCF] ) compliant, anywhere from edge, core, on-premise, or cloud.  {pn_Rancher_ProductPage}[{pn_Rancher}] optimizes creating and managing Kubernetes clusters with:
+This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere across edge, on-premise data centers, or cloud service providers.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
 
-* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] ),
-* {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
-* lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
+// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
+* Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
+* other Kubernetes clusters that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
 
-and across on-premise, hybrid-cloud or in cloud Kubernetes services, such as
+and deployed across various supported footnote:[{pn_Rancher_SupportPage}] infrastructure elements.
 
-* baremetal, physical nodes,
-* virtual machines,
-* {pn_EKS_homePage}[{pn_EKS}],
-* {pn_AKS_homePage}[{pn_AKS}] and
-* {pn_GKE_homePage}[{pn_GKE}].
+ifdef::RC[]
+Once on the digital transformation journey with {pn_Rancher}, some of the next focus areas are:
 
-{pn_Rancher} users can also import and manage existing Kubernetes clusters created that are based upon Cloud Native Computing Foundation (https://www.cncf.io/[CNCF]) https://www.cncf.io/certification/cka/[certified] Kubernetes distributions or installer.
-endif::iRancher[]
+ifdef::iISV[]
+* Workloads
+** Determine how to launch either internally developed containerized, microservice workloads or leverage offerings from Independent Software Vendors ( ISV ).
+endif::iISV[]
 
+ifdef::iCSP,iIHV[]
+* Compute Platform
+** To optimize availablity, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
+ifdef::iIHV[]
+*** Independent Hardware Vendors ( IHV ) for physical, baremetal, hypervisors and virtual machines
+endif::iIHV[]
+ifdef::iCSP[]
+*** Cloud Service Providers ( CSP ), which can also include baremetal, virtual machines plus hosted Kubernetes services
+endif::iCSP[]
+endif::iCSP,iIHV[]
 
-General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
+endif::RC[]
 
-
-Kubernetes has become the container orchestration standard. Most cloud and virtualization vendors now offer it as standard infrastructure. {pn_Rancher} users have the choice of creating Kubernetes clusters with {pn_RKE1} ( {an_RKE1} ), lightweight edge-centric K3s, on premise or in cloud Kubernetes services, such as GKE, AKS, and EKS. {pn_Rancher} users can also import and manage their existing Kubernetes clusters created using any Cloud Native Computing Foundation (https://www.cncf.io/[CNCF]) https://www.cncf.io/certification/cka/[certified] Kubernetes distribution or installer.
-
-=== Background
-
-On the digital transformation journey to a full Cloud Native Landscape, classic IT pillars are still valid considerations for the stacked, underlying infrastructure. As utilization of microservices become the main factor, the dominant technology for such container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
-
-General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
-
-Even on the journey to a full Cloud Native Landscape, classic IT pillars are still valid considerations for the underlying infrastructure. General requirements include the need for a small, purpose-built operating system with a container runtime engine and a container orchestration platform to distribute workloads across a target, clustered instance. The dominant technology for container orchestration is https://kubernetes.io/[Kubernetes]. With its large community of developers and a plethora of features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms. With all of these attributes in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
-
-NOTE: As a further reference, the National Institute of Standards and Technology's (NIST) https://csrc.nist.gov/publications/detail/sp/800-180/draft[Definition of Microservices, Application Containers and System Virtual Machines] describes the important characteristics of application containers.
-
-=== Motivation
-
-ifdef::iRancher[]
-While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time. This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are ( https://www.cncf.io/certification/software-conformance/[CNCF] ) compliant, anywhere from edge, core, on-premise, or cloud.
 endif::iRancher[]
 
 === Scope
 
-ifdef::iRancher[]
 The scope of this document is to provide a
-ifdef::RA[reference architecture]
-ifdef::RC[reference configuration]
-ifdef::RI[reference implementation]
-ifdef::QS[quick start]
-implementation of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
+ifndef::RC,RI,QS[]
+ifdef::RA[<<G_RA,reference architecture>>]
+endif::RC,RI,QS[]
+ifndef::RI,QS[]
+ifdef::RA+RC[<<G_RC,reference configuration>>]
+endif::RI,QS[]
+ifndef::RC,QS[]
+ifdef::RA+RI[<<G_RI,reference implementation>>]
+endif::RC,QS[]
+ifndef::RC,RI[]
+ifdef::RA+QS[<<G_QS,quick start>>]
+endif::RC,RI[]
+ifdef::iRancher[]
+of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
 endif::iRancher[]
-
 
 === Audience
 
 This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes management platform. You should be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
+
+endif::RA,RC,RI,QS[]
 
 ////
 
@@ -74,7 +78,7 @@ Description of the reference architecture/Solution Name and the partners include
 
 Enterprise Architecture
 
-Beyond the general introduction/overview, in each of following chapters, content includes how this layer provides the necessary attributes to the one above, details and context for this layer itself, and what requirements are needed by the underlying layer. Thus readers are encouraged to scan the entire document to understand the overall solution, even if only expexpected to focus on a certain layer's aspect.
+Beyond the general introduction/overview, in each of following chapters, content includes how this layer provides the necessary attributes to the one above, details and context for this layer itself, and what requirements are needed by the underlying layer. Thus readers are encouraged to scan the entire document to understand the overall solution, even if only expected to focus on a certain layer's aspect.
 
 ////
 

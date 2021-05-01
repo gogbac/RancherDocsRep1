@@ -20,7 +20,7 @@ Accelerate::
 Accelerate business transformation through the power of open source software
 
 ifdef::iRancher[]
-* Given the open source nature of {pn_Rancher} and the underlying softwware components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+* Given the open source nature of {pn_Rancher} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
 endif::iRancher[]
 
 

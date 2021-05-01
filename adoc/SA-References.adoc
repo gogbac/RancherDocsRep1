@@ -1,6 +1,6 @@
 == References
 
-.WhitePapers
+.White Papers
 
 * A Buyer's Guide to Enterprise Kubernetes Management Platforms - https://info.rancher.com/enterprise-kubernetes-management-buyers-guide
 * How to Build an Enterprise Kubernetes Strategy - https://info.rancher.com/how-to-build-enterprise-kubernetes-strategy
