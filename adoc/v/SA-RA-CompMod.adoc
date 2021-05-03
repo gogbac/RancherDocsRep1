@@ -15,13 +15,13 @@ endif::iRancher[]
 
 By utilizing:
 
-ifdef::RC,RI,QS[]
+ifdef::RC,RI,GS[]
 
 ifdef::iRancher[]
 * Multi-cluster Management Server - {pn_Rancher}
 endif::iRancher[]
 
-ifndef::QS[]
+ifndef::GS[]
 ifdef::iK3s[]
 * Kubernetes Platform - {pn_K3s}
 endif::iK3s[]
@@ -35,8 +35,8 @@ ifdef::iSLEMicro[]
 * Operating System - {pn_SLEMicro}
 endif::iSLEMicro[]
 * Compute Platform
-endif::QS[]
-endif::RC,RI,QS[]
+endif::GS[]
+endif::RC,RI,GS[]
 
 one can create the necessary infrastructure and services to administer and manage multiple Kubernetes clusters. Further details for these components are described in the following sections.
 
@@ -60,13 +60,13 @@ include::../SUSE/Rancher/SA.adoc[]
 ifdef::RC,RI[]
 As {pn_Rancher} relies upon being deployed on a Kubernetes platform, the next section describes such a suggested component layer.
 endif::RC,RI[]
-ifdef::QS[]
+ifdef::GS[]
 As {pn_Rancher} can be deployed on a single node, only some prerequisites for the underlying operating system are needed and will be detailed in the deployment section.
-endif::QS[]
+endif::GS[]
 
 endif::iRancher[]
 
-ifndef::QS[]
+ifndef::GS[]
 
 ifdef::iK3s[]
 ==== Software - {pn_K3s}
@@ -97,11 +97,11 @@ Depending on the number and complexity of the components this proceeding section
 FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
 ////
 
-endif::QS[]
+endif::GS[]
 endif::SWComp[]
 
 ifdef::HWComp[]
-ifndef::QS[]
+ifndef::GS[]
 
 ==== Compute Platform Options
 
@@ -130,7 +130,7 @@ endif::RC[]
 Provide a description of the Systems used and their position in the solution.  Each system should explain why the characteristics of that system is a good fit for the SW Component or architecture.
 ////
 
-endif::QS[]
+endif::GS[]
 endif::HWComp[]
 
 ////

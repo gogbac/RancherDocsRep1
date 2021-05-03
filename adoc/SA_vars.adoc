@@ -42,7 +42,7 @@ ifdef::iRancher[]
 ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
 ifdef::RC[:title: Reference Configuration- {pn_Rancher}]
 ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
-ifdef::QS[:title: Quick Start - {pn_Rancher}]
+ifdef::GS[:title: {pn_Rancher} - Getting Started]
 endif::iRancher[]
 
 ifndef::EA,RA[]

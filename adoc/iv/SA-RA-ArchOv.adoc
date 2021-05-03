@@ -44,13 +44,13 @@ ifdef::RC,RI[]
 For the best performance and security, the recommended deployment a dedicated Kubernetes cluster for the Rancher management server. Running user workloads on this cluster is not advised. After deploying Rancher, you can create or import clusters for running your workloads.
 endif::RC,RI[]
 
-ifdef::QS[]
+ifdef::GS[]
 To aid in planning, training or assessing functionality like in a [<<G_PoC,proof-of-concept>>] deployment, {pn_Rancher} can be installed on a single node as described later in this document.
 
 ifdef::BP[]
 TIP: The {pn_Rancher} backup operator can then be used to migrate from the single node to an installation on a high-availability Kubernetes cluster footnote:[https://rancher.com/docs/rancher/v2.5/en/backups/migrating-rancher/]
 endif::BP[]
-endif::QS[]
+endif::GS[]
 
 NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this cluster is not advised.
 

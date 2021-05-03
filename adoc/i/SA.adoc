@@ -1,4 +1,4 @@
-ifdef::RA,RC,RI,QS[]
+ifdef::RA,RC,RI,GS[]
 
 == Introduction
 
@@ -45,17 +45,17 @@ endif::iRancher[]
 === Scope
 
 The scope of this document is to provide a
-ifndef::RC,RI,QS[]
+ifndef::RC,RI,GS[]
 ifdef::RA[<<G_RA,reference architecture>>]
-endif::RC,RI,QS[]
-ifndef::RI,QS[]
+endif::RC,RI,GS[]
+ifndef::RI,GS[]
 ifdef::RA+RC[<<G_RC,reference configuration>>]
-endif::RI,QS[]
-ifndef::RC,QS[]
+endif::RI,GS[]
+ifndef::RC,GS[]
 ifdef::RA+RI[<<G_RI,reference implementation>>]
-endif::RC,QS[]
+endif::RC,GS[]
 ifndef::RC,RI[]
-ifdef::RA+QS[<<G_QS,quick start>>]
+ifdef::RA+GS[<<G_GS,getting started>>]
 endif::RC,RI[]
 ifdef::iRancher[]
 of {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing overall Kubernetes ecosystems.
@@ -65,7 +65,7 @@ endif::iRancher[]
 
 This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes management platform. You should be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
 
-endif::RA,RC,RI,QS[]
+endif::RA,RC,RI,GS[]
 
 ////
 

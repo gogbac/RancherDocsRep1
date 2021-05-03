@@ -2,9 +2,9 @@
 == Deployment considerations
 
 ifdef::BP[]
-ifndef::QS[]
+ifndef::GS[]
 FixMe - Elaborate further on best practices and day2 considerations for the deployments.
-endif::QS[]
+endif::GS[]
 endif::BP[]
 
 // ifdef::iISV[]

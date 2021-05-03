@@ -2,7 +2,7 @@
 
 Content:
 - Rancher (refer to [DC-RA-Rancher](./DC-RA-Rancher) for a general DAPS configuration template)
-  - Quick Start [QS-Rancher_color_draft_en.pdf](./example/QS-Rancher_color_draft_en.pdf)
+  - Getting Started [GS-Rancher_color_draft_en.pdf](./example/GS-Rancher_color_draft_en.pdf)
     - simplified deployment for a PoC or just to try functionality
   - Reference Implementation [RI-Rancher_color_draft_en.pdf](./example/RI-Rancher_color_draft_en.pdf)
     - stacked deployment of SUSE components as a basis for production
@@ -19,8 +19,8 @@ Output Creation:
 - Process
   - git clone this repo (and either regularly fetch/pull to stay current)
   - change directory to the local path where the content resides
-  - determine which type of document to generate
-    - Quick Start (QS)
+  - determine which type of document to generate ![TechnicalRefDocsVennDiagram](./media/src/png/TechnicalRefDocsVennDiagram.png)
+    - Getting Started (GS)
     - Reference Implmentation (RI)
     - Reference Configuration (RC) ... citing this example for the remainder
   - copy (and/or) hard link the DAPS configuration file to an appropriate name

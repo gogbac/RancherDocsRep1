@@ -72,10 +72,10 @@ ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 ###############################################################################
 ###############################################################################
 
-# NOTE : leveraging RA for
+# NOTE : leveraging RA template for
 # 	Reference Configuration (RC)
 # 	Reference Implementation (RC)
-# 	Quick Start (QS)
+# 	Getting Started (GS)
 #
 ## --------------------------- (RA)
 #	Reference Architecture
@@ -84,14 +84,14 @@ ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 #	uncomment the following to switch to this format/structure
 ADOC_ATTRIBUTES+=" --attribute RA=1"
 
-# leverage RA template, for layering reference configuration/implementation, quick start and best practices
+# leverage RA template, for layering reference configuration/implementation, getting stared and best practices
 # 	any of these can be designated here or on the daps command line
 #	RC = reference configuration, leveraging testing w/ partner portfolio
-ADOC_ATTRIBUTES+=" --attribute RC=1"
+#ADOC_ATTRIBUTES+=" --attribute RC=1"
 #	RI = generic reference, agnostic to partners
 #ADOC_ATTRIBUTES+=" --attribute RI=1"
-#	QS = simplified, minimal approach for PoC to demonstrate functionality
-#ADOC_ATTRIBUTES+=" --attribute QS=1"
+#	GS = simplified, minimal approach for PoC to demonstrate functionality
+#ADOC_ATTRIBUTES+=" --attribute GS=1"
 #	BP = suggestions/considerations above default settings
 ADOC_ATTRIBUTES+=" --attribute BP=1"
 

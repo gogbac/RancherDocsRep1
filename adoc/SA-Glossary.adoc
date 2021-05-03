@@ -4,11 +4,11 @@
 
 * Document Scope
 +
-ifdef::QS[]
-[[G_QS]]Quick Start::
+ifdef::GS[]
+[[G_GS]]Getting Started::
 A guide with the basic steps to quickly and simply deploy the one layer of the referenced component of the {companyName} portfolio, with generalized pointers to other required elements.
 +
-endif::QS[]
+endif::GS[]
 ifdef::RI[]
 [[G_RI]]Reference Implementation::
 A guide with the basic steps to deploy the highlighted components of the {companyName} portfolio, including generalized pointers to other layers and elements. This is considered an introductory approach and a basis for other tested variations.

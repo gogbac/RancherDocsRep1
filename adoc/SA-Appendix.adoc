@@ -14,8 +14,8 @@ ifdef::RC,RI[]
 
 ifndef::iIHV[]
 |System
-ifdef::QS[|1]
-ifndef::QS[|1-3]
+ifdef::GS[|1]
+ifndef::GS[|1-3]
 |n/a
 |
 
@@ -38,8 +38,8 @@ endif::RC[]
 |Operating System
 ifdef::iSLEMicro[]
 // |1 - 3 ( ARM : 874-007864, x86_64 : 874-007864 )
-ifdef::QS[|1]
-ifndef::QS[|1-3]
+ifdef::GS[|1]
+ifndef::GS[|1-3]
 |874-007864 
 |{pn_SLEMicro},
 

@@ -19,15 +19,15 @@ include::./i/SA.adoc[]
 
 // include other chapters or EA layers (as needed)
 
-ifndef::QS[include::./ii/SA.adoc[]]
+ifndef::GS[include::./ii/SA.adoc[]]
 
-ifndef::RC,RI,QS[include::./iii/SA.adoc[]]
+ifndef::RC,RI,GS[include::./iii/SA.adoc[]]
 include::./iv/SA.adoc[]
 include::./v/SA.adoc[]
 include::./vi/SA.adoc[]
-ifndef::QS[]
+ifndef::GS[]
 ifdef::BP[include::./vii/SA.adoc[]]
-endif::QS[]
+endif::GS[]
 
 // Summary
 include::./SA-Summary.adoc[]
@@ -48,7 +48,7 @@ endif::Glossary[]
 
 // Appendices
 ifdef::Appendix[]
-ifndef::QS[include::./SA-Appendix.adoc[]]
+ifndef::GS[include::./SA-Appendix.adoc[]]
 endif::Appendix[]
 
 // legal and license are optional, yet recommended

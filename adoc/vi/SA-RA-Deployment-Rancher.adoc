@@ -3,7 +3,7 @@ ifdef::iRancher[]
 
 ==== {pn_Rancher} Deployment
 
-ifdef::QS[]
+ifdef::GS[]
 
 The underlying Linux operating system can be:
 
@@ -57,7 +57,7 @@ IMPORTANT: On the second configuration page, ensure the "Server URL" is set to t
 
 Now other Kubernetes clusters can be deployed, imported and managed from this {pn_Rancher} instance.
 
-endif::QS[]
+endif::GS[]
 
 ifdef::RC,RI[]
 As {pn_Rancher} server is a native Kubernetes application, it will run on the single-node {pn_K3s} cluster. In instances where a load balancer is used to support the {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available. {pn_Rancher} uses the {pn_K3s} etcd key/value store to persist its data, which offers several advantages. Providing highly-available storage isn't needed to make {pn_Rancher} highly available. In addition, backing up the {pn_K3s} etcd store protects the cluster as well as the installation of {pn_Rancher}.
