@@ -21,18 +21,25 @@ A guide with the basic steps to deploy the layered stack of components from both
 endif::RC[]
 ifdef::RA[]
 [[G_RA]]Reference Architecture footnote:Reference-Architecture[link: https://en.wikipedia.org/wiki/Reference_architecture[Reference Architecture]]::
-A guide with the general steps to deploy and validate the structured solution components from both the {companyName} and partner portfolios. This provides a shareable template of consistency for consumers to leverage.
+A guide with the general steps to deploy and validate the structured solution components from both the {companyName} and partner portfolios. This provides a shareable template of consistency for consumers to leverage for similar production ready solutions, including design considerations, implementation suggestions and best practices.
 +
 endif::RA[]
-// ifdef::SS[]
-// [[G_Solution-Stack]]Solution Stack::
-// A guide with the basic steps to deploy the highlighted components of the {companyName} portfolio, with generalized pointers to other elements. This is considered a fundamental approach and a basis for many other tested and supported variations.
-// endif::SS[]
-//+
-// ifdef::EA[]
-// [[G_Enterprise-Architecture]]Enterprise Architectures::
-// A guide with the basic steps to deploy the highlighted components of the {companyName} portfolio, with generalized pointers to other elements. This is considered a fundamental approach and a basis for many other tested and supported variations.
-// endif::EA[]
+ifdef::SS[]
+[[G_Solution-Stack]]Solution Stack::
+A validated framework guide with {companyName} offerings and partner components that leverages the strengths of the combined ecosystem to address the challenges of a broad spectrum of customers.
+endif::SS[]
++
+ifdef::EA[]
+[[G_Enterprise-Architecture]]Enterprise Architectures::
+A complete guide that addresses the business and IT concerns within an organization. This identifies and refines the motivation of developing an architecture, creating views of the architecture that show how it addresses and balances stakeholder concerns.
+endif::EA[]
++
+ifdef::BP[]
+[[G_Best-Practice]]Best Practice::
+Information that can overlap both the {companyName} and partner space and be either be provided as
+* a standalone guide that provides reliable technical information not covered in other product documentation, based on real-life installation and implementation experiences from subject matter experts
+* or complementary, embedded sections within any of the above documentation types describing considerations and possible steps forward
+endif::BP[]
 
 ////
 ifdef::DT[]
