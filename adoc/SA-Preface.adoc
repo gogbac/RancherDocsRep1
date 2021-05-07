@@ -3,18 +3,22 @@
 
 ifdef::RA,RC,RI,GS[]
 
-ifdef::iRancher[]
+ifeval::["{focus}" == "{an_Rancher"]
 The purpose of this document is to provide an overview and procedure for implementing {pn_Rancher_ProductPage}[{pn_Rancher}], as a multi-cluster container management platform for organizations that deploy containerized workloads, orchestrated by Kubernetes. {pn_Rancher} makes it easy to deploy, manage, and use Kubernetes everywhere, meet IT requirements, and empower DevOps teams.
-endif::iRancher[]
+endif::[]
+
+ifeval::["{focus}" == "{an_RKE1}"]
+The purpose of this document is to provide an overview and procedure for implementing {companyName} {pn_RKE1_ProductPage}[{pn_RKE1}] ( {an_RKE1} ), a Kubernetes distribution that runs entirely within containers on bare-metal and virtualized server nodes. RKE solves the problem of installation complexity and the operation is both simplified and easily automated, while entirely accommodating of the operating system and platform you’re running.
+endif::[]
 
 ////
-ifdef::iRKE1[]
-FixMe
-endif::iRKE1[]
-
 ifdef::iRKE2[]
 FixMe
 endif::iRKE2[]
+
+ifdef::iK3s[]
+FixMe
+endif::iK3s[]
 ////
 
 endif::RA,RC,RI,GS[]

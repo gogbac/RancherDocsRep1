@@ -31,15 +31,30 @@ The deployment stack is represented in the following figure:
 ifdef::iRancher[]
 
 ifdef::RC[]
+ifeval::["{focus}" == "{an_Rancher}"]
 image::RC-Deployment-Rancher.png[title="{pn_Rancher} Deployment Stack", scaledwidth=80%]
+endif::[]
+ifeval::["{focus}" == "{an_RKE1}"]
+image::RC-Deployment-RKE1.png[title="{pn_RKE1} Deployment Stack", scaledwidth=80%]
+endif::[]
 endif::RC[]
 
 ifdef::RI[]
+ifeval::["{focus}" == "{an_Rancher}"]
 image::RI-Deployment-Rancher.png[title="{pn_Rancher} Deployment Stack", scaledwidth=80%]
+endif::[]
+ifeval::["{focus}" == "{an_RKE1}"]
+image::RI-Deployment-RKE1.png[title="{pn_RKE1} Deployment Stack", scaledwidth=80%]
+endif::[]
 endif::RI[]
 
 ifdef::GS[]
+ifeval::["{focus}" == "{an_Rancher}"]
 image::GS-Deployment-Rancher.png[title="{pn_Rancher} Deployment Stack", scaledwidth=80%]
+endif::[]
+ifeval::["{focus}" == "{an_RKE1}"]
+image::GS-Deployment-RKE1.png[title="{pn_RKE1} Deployment Stack", scaledwidth=80%]
+endif::[]
 endif::GS[]
 
 endif::iRancher[]
@@ -69,10 +84,22 @@ ifdef::RC,RI[]
 include::SA-RA-Deployment-Kubernetes.adoc[]
 endif::RC,RI[] 
 
-// Core Solution Component Section Inclusion
-// =========================================
+// Multi-Cluster Management Section Inclusion
+// ==========================================
 ifdef::RC,RI,GS[]
-ifdef::iRancher[include::SA-RA-Deployment-Rancher.adoc[]]
+ifeval::["{focus}" == "{an_Rancher}"]
+include::SA-RA-Deployment-Rancher.adoc[]
+endif::[]
+endif::RC,RI,GS[]
+
+// Software Workload Section Inclusion
+// ===================================
+ifdef::RC,RI,GS[]
+ifdef::iISV[]
+ifdef::ISV-FixMe[]
+include::SA-RA-Deployment-Workload.adoc[]
+endif::ISV-FixMe[]
+endif::iISV[]
 endif::RC,RI,GS[]
 
 endif::SWDepCfg[]

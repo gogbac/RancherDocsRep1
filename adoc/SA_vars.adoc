@@ -14,10 +14,6 @@ ifdef::iRancher[]
 include::SUSE/Rancher/SA_vars.adoc[]
 endif::iRancher[]
 
-ifdef::iK3s[]
-include::SUSE/K3s/SA_vars.adoc[]
-endif::iK3s[]
-
 ifdef::iRKE1[]
 include::SUSE/RKE1/SA_vars.adoc[]
 endif::iRKE1[]
@@ -26,6 +22,10 @@ ifdef::iRKE2[]
 include::SUSE/RKE2/SA_vars.adoc[]
 endif::iRKE2[]
 
+ifdef::iK3s[]
+include::SUSE/K3s/SA_vars.adoc[]
+endif::iK3s[]
+
 ifdef::iSLEMicro[]
 include::SUSE/SLE-Micro/SA_vars.adoc[]
 endif::iSLEMicro[]
@@ -33,6 +33,8 @@ endif::iSLEMicro[]
 ifdef::iSLES[]
 include::SUSE/SLES/SA_vars.adoc[]
 endif::iSLES[]
+
+:focus: {an_RKE1}
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}
@@ -44,6 +46,14 @@ ifdef::RC[:title: Reference Configuration- {pn_Rancher}]
 ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
 ifdef::GS[:title: {pn_Rancher} - Getting Started]
 endif::iRancher[]
+
+ifdef::iRKE1[]
+ifdef::RA[:title: Reference Architecture - {pn_RKE1}]
+ifdef::RC[:title: Reference Configuration- {pn_RKE1}]
+ifdef::RI[:title: Reference Implementation - {pn_RKE1}]
+ifdef::GS[:title: {pn_RKE1} - Getting Started]
+endif::iRKE1[]
+
 
 ifndef::EA,RA[]
 :title: Digital Transformation - {useCase}

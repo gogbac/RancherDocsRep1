@@ -1,13 +1,16 @@
 
 == Architectural overview
 
-ifdef::iRancher[]
-This section outlines the overall elements of the {pn_Rancher} solution, along with the suggested target platforms and then how it can be used.
-endif::iRancher[]
+This section outlines the overall elements of the
+ifeval::["{focus}" == "{an_Rancher}"]
+{pn_Rancher}
+endif::[]
+ifeval::["{focus}" == "{an_RKE1}"]
+{pn_RKE1}
+endif::[]
+solution, along with the suggested target platforms and then how it can be used.
 
 === Solution architecture
-
-// FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
 
 ////
 An outline should be provided of the solution and the components required to successfully architect the solution
@@ -15,10 +18,11 @@ An outline should be provided of the solution and the components required to suc
 	e.g., A SUSE OpenStack Cloud solution show a block diagram of OpenStack components or elements for the Control, compute and storage pools
 ////
 
-ifdef::iRancher[]
-The figure below illustrates the high-level architecture of {pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
+The figure below illustrates the high-level architecture of the
 
-// image::RA-overview.png[title="FixMe - Architecture Overview", scaledwidth=80%]
+ifeval::["{focus}" == "{an_Rancher}"]
+{pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
+
 image::ArchitectureOverview-Rancher.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
 
 Authentication Proxy::
@@ -41,7 +45,7 @@ Once setup, users can potentially interact with {pn_Rancher} through the web-bas
 * simply view clusters or workloads, or just benefit from what is running
 
 ifdef::RC,RI[]
-For the best performance and security, the recommended deployment a dedicated Kubernetes cluster for the Rancher management server. Running user workloads on this cluster is not advised. After deploying Rancher, you can create or import clusters for running your workloads.
+For the best performance and security, the recommended deployment of a dedicated Kubernetes cluster for the {pn_Rancher} management server. Running user workloads on this cluster is not advised. After deploying {pn_Rancher}, you can create or import clusters for running your workloads.
 endif::RC,RI[]
 
 ifdef::GS[]
@@ -54,10 +58,49 @@ endif::GS[]
 
 NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this cluster is not advised.
 
-endif::iRancher[]
+endif::[]
+
+ifeval::["{focus}" == "{an_RKE1}"]
+{pn_RKE1} installation across one or more nodes:
+
+image::ArchitectureOverview-RKE1.png[title="Architecture Overview - {pn_RKE1}", scaledwidth=80%]
+
+FixMe-Authentication Proxy::
+A user is authenticated via {pn_RKE1} and then, if authorized, can access both the {pn_RKE1} environment and the downstream clusters and workloads.
+
+FixMe-API Server::
+This provides the programmatic interface backend for user, command-line interactions with {pn_RKE1} and the managed clusters.
+
+FixMe-Data Store::
+The purpose of this service is to capture the configuration and state of {pn_RKE1} and the managed clusters to aid in backup and recovery processes.
+
+FixMe-Cluster Controller::
+Interacting with a cluster agent on the downstream cluster, the cluster controller allows the communication path for users and services to leverage for workloads and cluster management.
+
+FixMe-Once setup, users can potentially interact with {pn_RKE1} through the web-based user interface (UI), the command-line interface ( CLI ), and programatically through the application programming interface ( API ). Depending upon the assigned roles, group membership and privileges, a user could:
+
+* manage all clusters, users, roles, projects
+* deploy new clusters, import other clusters, or remove existing ones
+* manage workloads across respective or labeled clusters
+* simply view clusters or workloads, or just benefit from what is running
+
+ifdef::RC,RI[]
+FixMe-For the best performance and security, the recommended deployment is a dedicated Kubernetes cluster for the Rancher management server. Running user workloads on this cluster is not advised. After deploying Rancher, you can create or import clusters for running your workloads.
+endif::RC,RI[]
+
+ifdef::GS[]
+FixMe-To aid in planning, training or assessing functionality like in a [<<G_PoC,proof-of-concept>>] deployment, {pn_RKE1} can be installed on a single node as described later in this document.
+
+ifdef::BP[]
+FixMe-TIP: The {pn_RKE1} backup operator can then be used to migrate from the single node to an installation on a high-availability Kubernetes cluster footnote:[https://rancher.com/docs/rancher/v2.5/en/backups/migrating-rancher/]
+endif::BP[]
+endif::GS[]
+
+FixMe-NOTE: Regardless of the deployment target, {pn_RKE1} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this cluster is not advised.
+
+endif::[]
 
 ////
-
 FixMe - As needed, include high-level table
 .FixMe - Architecture Overview 
 [width="80%",valign="middle",halign="center",options="header"]
@@ -72,7 +115,6 @@ FixMe - As needed, include high-level table
 ////
 
 ifdef::ArchOvNetworkArch[]
-
 
 === Networking architecture
 

@@ -1,5 +1,5 @@
 
-ifdef::iRancher[]
+ifeval::["{focus}" == "{an_Rancher}"]
 
 ==== {pn_Rancher} Deployment
 
@@ -183,4 +183,4 @@ IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is 
 
 endif::RC,RI[]
 
-endif::iRancher[]
+endif::[]

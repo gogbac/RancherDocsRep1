@@ -1,10 +1,9 @@
+
+ifdef::iK3s,iRKE1,iRKE2[]
+
 ==== Kubernetes Deployment
 
 ifdef::iK3s[]
-
-////
-This design leverage the {pn_K3s} Kubernetes distribution. {pn_K3s} is a highly available, CNCF certified Kubernetes distribution capable of deploying any Kubernetes production workload. {pn_K3s} is packaged as a single binary with minimal software dependencies. This significantly reduces the expertise and effort required install, run, and maintain a production ready Kubernetes cluster.
-////
 
 ifdef::iRancher[]
 For this deployment, a single server installed with the {pn_SLEMicro} immutable operating system will support a single instance of {pn_K3s}. For maximum flexibility, {pn_K3s} will be deployed in a manner that would allow expanding the single-node cluster into a highly available, three-node Kubernetes cluster at a later date. 
@@ -77,4 +76,6 @@ sudo K3S_TOKEN=<from the /var/lib/rancher/k3s/server/node-token file on the firs
 endif::iRancher[]
 
 endif::iK3s[]
+
+endif::iK3s,iRKE1,iRKE2[]
 

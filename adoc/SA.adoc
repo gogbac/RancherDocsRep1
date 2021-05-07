@@ -48,7 +48,7 @@ endif::Glossary[]
 
 // Appendices
 ifdef::Appendix[]
-ifndef::GS[include::./SA-Appendix.adoc[]]
+include::./SA-Appendix.adoc[]
 endif::Appendix[]
 
 // legal and license are optional, yet recommended
