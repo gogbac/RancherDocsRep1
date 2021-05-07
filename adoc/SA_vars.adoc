@@ -34,26 +34,29 @@ ifdef::iSLES[]
 include::SUSE/SLES/SA_vars.adoc[]
 endif::iSLES[]
 
-:focus: {an_RKE1}
+:focus: {an_Rancher}
 
 ifdef::EA[]
 :title: FixMe - Solution Architecture - {useCase}
 endif::EA[]
 
 ifdef::iRancher[]
+ifeval::["{focus}" == "{an_Rancher}"]
 ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
 ifdef::RC[:title: Reference Configuration- {pn_Rancher}]
 ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
 ifdef::GS[:title: {pn_Rancher} - Getting Started]
+endif::[]
 endif::iRancher[]
 
 ifdef::iRKE1[]
+ifeval::["{focus}" == "{an_RKE1}"]
 ifdef::RA[:title: Reference Architecture - {pn_RKE1}]
 ifdef::RC[:title: Reference Configuration- {pn_RKE1}]
 ifdef::RI[:title: Reference Implementation - {pn_RKE1}]
 ifdef::GS[:title: {pn_RKE1} - Getting Started]
+endif::[]
 endif::iRKE1[]
-
 
 ifndef::EA,RA[]
 :title: Digital Transformation - {useCase}
