@@ -95,6 +95,7 @@ endif::iISV[]
 ifdef::iCSP,iIHV[]
 ifdef::iIHV[]
 ifdef::IHV-HPE[include::../IHV/HPE/SA-RA-BPBV.adoc[]]
+ifdef::IHV-Supermicro[include::../IHV/Supermicro/SuperServer/SA-RA-BPBV.adoc[]]
 endif::iIHV[]
 //ifdef::iCSP[]
 //FixMe

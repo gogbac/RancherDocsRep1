@@ -1,0 +1,1 @@
+include::./Supermicro_vars.adoc[]
