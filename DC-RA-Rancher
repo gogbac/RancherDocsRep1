@@ -57,7 +57,7 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
 
-ADOC_ATTRIBUTES+=" --attribute iCSP=1"
+#ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 #ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
 
 ## ----------------- (Partner)
