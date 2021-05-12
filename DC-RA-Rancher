@@ -48,14 +48,14 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #	as needed, add respective ISV/IHV/CSP attributes/parameters
 #	and then specific partners
 
-ADOC_ATTRIBUTES+=" --attribute iISV=1"
+#ADOC_ATTRIBUTES+=" --attribute iISV=1"
 #ADOC_ATTRIBUTES+=" --attribute ISV-xyz=1"
 
-ADOC_ATTRIBUTES+=" --attribute iIHV=1"
+#ADOC_ATTRIBUTES+=" --attribute iIHV=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Dell=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
-ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
 
 ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 #ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
