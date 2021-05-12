@@ -181,6 +181,10 @@ IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is 
 +
 ** e.g., `suse-rancher.sandbox.local:443`
 
+== Import Kubernetes cluster into {pn_Rancher} <<ImportCluster>>
+
+* Go to the UI and do some stuff.
+
 endif::RC,RI[]
 
 endif::[]
