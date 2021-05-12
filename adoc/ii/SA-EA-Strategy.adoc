@@ -6,7 +6,7 @@ The strategy elements are typically used to model the strategic direction and ch
 
 FixMe - Libero nunc consequat interdum varius sit amet mattis. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor sit. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Ac placerat vestibulum lectus mauris ultrices eros in. Viverra vitae congue eu consequat ac felis donec et odio. Vestibulum lectus mauris ultrices eros in cursus turpis. Aliquet bibendum enim facilisis gravida neque convallis a. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Habitasse platea dictumst vestibulum rhoncus. Diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus. Quam quisque id diam vel quam elementum pulvinar etiam. Ut sem viverra aliquet eget sit amet tellus. Blandit libero volutpat sed cras ornare arcu.
 
-image::SA-Strategy.png[title="Solution Architecture - {useCase} Strategy", scaledwidth=80%]
+// image::SA-Strategy.png[title="Solution Architecture - {useCase} Strategy", scaledwidth=80%]
 
 === Context
 
