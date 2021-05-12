@@ -12,6 +12,9 @@ While it is highly recommended that Kubernetes workloads (in this case the {pn_R
 
 //-
 Deployment Process::
+
+NOTE: This process is applicable for deploying a {pn_K3s} cluster for the {pn_Rancher} server or as a downstream cluster managed by {pn_Rancher}. In the case of a downstream cluster, import the {pn_K3s} cluster according to the instructions in [Import a Kubernetes cluster into {pn_Rancher}].
+
 The primary steps for deploying this single node {pn_K3s} cluster are:
 
 . Find the appropriate version of the {pn_K3s} binary
