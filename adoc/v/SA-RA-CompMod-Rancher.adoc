@@ -70,7 +70,6 @@ Depending on the number and complexity of the components this proceeding section
 FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
 ////
 
-endif::GS[]
 endif::SWComp[]
 
 ifdef::HWComp[]
@@ -114,5 +113,6 @@ FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auc
 
 ////
 
+endif::RC,RI,GS[]
 
 endif::iRancher[]
