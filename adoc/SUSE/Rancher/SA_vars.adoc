@@ -5,7 +5,6 @@
 :pn_Rancher_Download: https://github.com/rancher/rancher/
 
 :pn_Rancher_ProductPage: https://rancher.com/products/rancher/
-:pn_Rancher_SupportPage: https://rancher.com/support-maintenance-terms/all-supported-versions/rancher-v2.5.7/
 
 :pn_Rancher_DocURL: https://rancher.com/docs/rancher/v2.x/en/
 

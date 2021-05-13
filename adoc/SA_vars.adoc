@@ -1,7 +1,6 @@
 
 :companyName: SUSE
 :portfolioName: Rancher
-:useCase: 
 
 :useCase: Enterprise Kubernetes
 
@@ -9,6 +8,14 @@ include::./CSP/SA_vars.adoc[]
 include::./IHV/SA_vars.adoc[]
 include::./ISV/SA_vars.adoc[]
 include::./SUSE/SA_vars.adoc[]
+
+ifdef::iHarvester[]
+include::SUSE/Harvester/SA_vars.adoc[]
+endif::iHarvester[]
+
+ifdef::iLonghorn[]
+include::SUSE/Longhorn/SA_vars.adoc[]
+endif::iLonghorn[]
 
 ifdef::iRancher[]
 include::SUSE/Rancher/SA_vars.adoc[]
@@ -26,6 +33,10 @@ ifdef::iK3s[]
 include::SUSE/K3s/SA_vars.adoc[]
 endif::iK3s[]
 
+ifdef::iRMT[]
+include::SUSE/RMT/SA_vars.adoc[]
+endif::iRMT[]
+
 ifdef::iSLEMicro[]
 include::SUSE/SLE-Micro/SA_vars.adoc[]
 endif::iSLEMicro[]
@@ -34,11 +45,26 @@ ifdef::iSLES[]
 include::SUSE/SLES/SA_vars.adoc[]
 endif::iSLES[]
 
-:focus: {an_Rancher}
+ifdef::iSUMa[]
+include::SUSE/SUMa/SA_vars.adoc[]
+endif::iSUMa[]
 
-ifdef::EA[]
-:title: FixMe - Solution Architecture - {useCase}
+// From the above products, select the main focus area of the document
+//	essentially the top-level SUSE product being described
+:focus: {an_Rancher}
+// :focus: {an_RKE1}
+// :focus: {an_RKE2}
+// :focus: {an_K3s}
+
+ifndef::EA[]
+:title: Digital Transformation - {useCase}
 endif::EA[]
+
+ifdef::SS[]
+:title: Solution Stack - {useCase}
+endif::SS[]
+
+ifdef::RA,RC,RI,GS[]
 
 ifdef::iRancher[]
 ifeval::["{focus}" == "{an_Rancher}"]
@@ -58,9 +84,25 @@ ifdef::GS[:title: {pn_RKE1} - Getting Started]
 endif::[]
 endif::iRKE1[]
 
-ifndef::EA,RA[]
-:title: Digital Transformation - {useCase}
-endif::EA,RA[]
+ifdef::iRKE2[]
+ifeval::["{focus}" == "{an_RKE2}"]
+ifdef::RA[:title: Reference Architecture - {pn_RKE2}]
+ifdef::RC[:title: Reference Configuration- {pn_RKE2}]
+ifdef::RI[:title: Reference Implementation - {pn_RKE2}]
+ifdef::GS[:title: {pn_RKE2} - Getting Started]
+endif::[]
+endif::iRKE2[]
+
+ifdef::iK3s[]
+ifeval::["{focus}" == "{an_K3s}"]
+ifdef::RA[:title: Reference Architecture - {pn_K3s}]
+ifdef::RC[:title: Reference Configuration- {pn_K3s}]
+ifdef::RI[:title: Reference Implementation - {pn_K3s}]
+ifdef::GS[:title: {pn_K3s} - Getting Started]
+endif::[]
+endif::iK3s[]
+
+endif::RA,RC,RI,GS[]
 
 ////
 :author: TBD

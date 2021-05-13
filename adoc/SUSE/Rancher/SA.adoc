@@ -1,6 +1,4 @@
 
-include::./SA_vars.adoc[]
-
 {pn_Rancher} is a complete cluster and container management platform built to reside on Kubernetes itself. It addresses these challenges by delivering the following key functions, as shown in the following figure:
 
 image::{an_Rancher}-Overview.png[title="Overview of {pn_Rancher}", scaledwidth=80%]

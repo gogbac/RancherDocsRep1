@@ -1,0 +1,18 @@
+
+== Business aspect
+
+ifdef::iRKE2[]
+FixMe
+endif::iRKE2[]
+
+=== Business problem
+
+ifdef::iRKE2[]
+FixMe
+endif::iRKE2[]
+
+=== Business value
+
+ifdef::iRKE2[]
+FixMe
+endif::iRKE2[]

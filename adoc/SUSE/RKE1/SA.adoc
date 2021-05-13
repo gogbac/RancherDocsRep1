@@ -20,10 +20,9 @@ _K3s} bundles the Kubernetes components:
 into combined processes that are presented as a simple server and agent model, a
 s represented in the following figure:
 
-image::{an_RKE1}-Overview.svg[title="FixMe-Overview of {pn_RKE1}", scaledwidth=80%]
+image::{an_RKE1}-Overview.png[title="FixMe-Overview of {pn_RKE1}", scaledwidth=80%]
 
-FixMe-{pn_RKE1} can run as a complete cluster on a single node or can be expanded into 
-a multi-node cluster. Besides the core Kubernetes components, we also run
+{pn_RKE1} can run as a complete cluster on a single node or can be expanded into a multi-node cluster. Besides the core Kubernetes components, we also run
 
 * containerd,
 * Flannel,
@@ -33,4 +32,4 @@ a multi-node cluster. Besides the core Kubernetes components, we also run
 
 FixMe-All of these components are optional and can be swapped out for your implementation of choice. With these included components, you get a fully functional and CNCF-conformant cluster so you can start running apps right away. {pn_RKE1} is now a CNCF Sandbox project, being the first Kubernetes distribution ever to be adopt ed into sandbox.
 
-FixMe-Learn more information about {pn_RKE1} at https://k3s.io
+Learn more information about {pn_RKE1} at {pn_RKE1_DocURL}.

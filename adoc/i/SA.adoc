@@ -8,54 +8,23 @@ With its large community of developers and abundant features and capabilities, K
 === Motivation
 
 ifeval::["{focus}" == "{an_Rancher}"]
-While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
-
-This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere across edge, on-premise data centers, or cloud service providers.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
-
-* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
-// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
-* Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
-* other Kubernetes clusters that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
-
-and deployed across various supported footnote:[{pn_Rancher_SupportPage}] infrastructure elements.
-
-ifdef::RC[]
-Once on the digital transformation journey with {pn_Rancher}, some of the next focus areas are:
-
-ifdef::iISV[]
-* Workloads
-** Determine how to launch either internally developed containerized, microservice workloads or leverage offerings from Independent Software Vendors ( ISV ).
-endif::iISV[]
-
-ifdef::iCSP,iIHV[]
-* Compute Platform
-** To optimize availability, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
-ifdef::iIHV[]
-*** Independent Hardware Vendors ( IHV ) for physical, baremetal, hypervisors and virtual machines
-endif::iIHV[]
-ifdef::iCSP[]
-*** Cloud Service Providers ( CSP ), which can also include baremetal, virtual machines plus hosted Kubernetes services
-endif::iCSP[]
-endif::iCSP,iIHV[]
-
-endif::RC[]
-
+include::./SA-{an_Rancher}.adoc[]
 endif::[]
 
 ifeval::["{focus}" == "{an_RKE1}"]
-FixMe- While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate the all of these instances over time.
+include::./SA-{an_RKE1}1.adoc[]
+endif::[]
 
-FixMe- This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere across edge, on-premise data centers, or cloud service providers.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
+ifeval::["{focus}" == "{an_RKE2}"]
+include::./SA-{an_RKE2}.adoc[]
+endif::[]
 
-* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
-// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
-* Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
-* other Kubernetes clusters that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
-
-FixMe- and deployed across various supported footnote:[{pn_Rancher_SupportPage}] infrastructure elements.
+ifeval::["{focus}" == "{an_K3s}"]
+include::./SA-{an_K3s}.adoc[]
+endif::[]
 
 ifdef::RC[]
-FixMe- Once on the digital transformation journey with {pn_Rancher}, some of the next focus areas are:
+Once on such a digital transformation journey, some of the next focus areas are:
 
 ifdef::iISV[]
 * Workloads
@@ -74,36 +43,34 @@ endif::iCSP[]
 endif::iCSP,iIHV[]
 
 endif::RC[]
-
-endif::[]
 
 === Scope
 
 The scope of this document is to provide a
 ifndef::RA[]
 complete
-ifdef::EA[<<G_EA,enterprise architecture>>]
-ifdef::SS[<<G_EA,solution stack>>]
+ifdef::EA[<<G_EA>>]
+ifdef::SS[<<G_EA>>]
 including
 endif::RA[]
 ifndef::RC,RI,GS[]
 detailed
-ifdef::RA[<<G_RA,reference architecture>>]
+ifdef::RA[<<G_RA>>]
 for
 endif::RC,RI,GS[]
 ifndef::RI,GS[]
 layered
-ifdef::RA+RC[<<G_RC,reference configuration>>]
+ifdef::RA+RC[<<G_RC>>]
 for
 endif::RI,GS[]
 ifndef::RC,GS[]
 general
-ifdef::RA+RI[<<G_RI,reference implementation>>]
+ifdef::RA+RI[<<G_RI>>]
 of
 endif::RC,GS[]
 ifndef::RC,RI[]
 simplified,
-ifdef::RA+GS[<<G_GS,getting started>>]
+ifdef::RA+GS[<<G_GS>>]
 approach for
 endif::RC,RI[]
 ifeval::["{focus}" == "{an_Rancher}"]
@@ -111,7 +78,15 @@ ifeval::["{focus}" == "{an_Rancher}"]
 endif::[]
 ifeval::["{focus}" == "{an_RKE1}"]
 {pn_RKE1}.
-This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment.
+This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
+endif::[]
+ifeval::["{focus}" == "{an_RKE2}"]
+{pn_RKE2}.
+This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
+endif::[]
+ifeval::["{focus}" == "{an_K3s}"]
+{pn_KE1}.
+This can be done in a variety of scenarios to create an edge-oriented, lightweith Kubernetes cluster deployment.
 endif::[]
 
 === Audience

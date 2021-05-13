@@ -1,0 +1,5 @@
+
+While any developer or organization may experiment with a single, Kubernetes-based deployment, it is very common for that number of nodes and cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate all of these instances over time.
+
+{pn_RKE1} is a Cloud Native Compute Foundation ( CNCF footnote:[https://www.cncf.io/] ) certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distribution. It runs entirely within a container runtime engine, solving the common frustration of installation complexity with Kubernetes. By removing most host dependencies, it provides a stable path for deployment, upgrades, and rollbacks. {pn_RKE1} can be deployed across various supported footnote:[{pn_Rancher_SupURL}] infrastructure elements.
+

@@ -1,6 +1,4 @@
 
-include::./SA_vars.adoc[]
-
 {pn_SLEMicro} combines the assurance of enterprise-grade security and compliance with the immutability and portability of a modern, lightweight operating system. The top 4 features are:
 
 Immutable OS::

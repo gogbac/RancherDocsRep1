@@ -49,6 +49,6 @@ ifdef::iRKE2[]
 *** {pn_RKE2} ( {an_RKE2} ) - https://github.com/rancher/rke2 ( https://docs.rke2.io/[documentation] )
 endif::iRKE2[]
 ifdef::iHarvester[]
-*** Harvestor - https://github.com/rancher/harvester
+*** {pn_Harvester} - {pn_Harvester_ProductPage} ( {pn_Harvester_DocURL}[documentation] )
 endif::iHarvester[]
 endif::iRKE2,iHarvester[]

@@ -17,7 +17,7 @@ Deployment Process::
 The primary steps for deploying this single node {pn_K3s} cluster are:
 
 . Find the appropriate version of the {pn_K3s} binary
-* Verify the supported versions of {pn_K3s} at: https://rancher.com/support-maintenance-terms/, under the "Rancher Support Matrix"
+* Verify the supported versions of {pn_K3s} at: {pn_Rancher_SupURL}, under the "Rancher Support Matrix"
 * Set the following variable with the desired version of {pn_K3s}, exactly as shown in the Rancher Support Matrix:
 +
 ----

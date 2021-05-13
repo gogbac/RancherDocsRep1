@@ -1,0 +1,18 @@
+
+== Business aspect
+
+ifdef::iK3s[]
+FixMe
+endif::iK3s[]
+
+=== Business problem
+
+ifdef::iK3s[]
+FixMe
+endif::iK3s[]
+
+=== Business value
+
+ifdef::iK3s[]
+FixMe
+endif::iK3s[]
