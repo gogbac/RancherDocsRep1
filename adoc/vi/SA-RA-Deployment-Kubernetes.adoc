@@ -37,7 +37,9 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EX
 *** Use Ctrl+c to exit the watch loop after all pods are running
 
 ifdef::BP[]
-* Procedure for adding servers to a {pn_K3s} cluster:
+While a single {pn_K3s} node works perfectly fine, a fully HA {pn_K3s} cluster is highly recommended for production workloads. The etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_K3s} plane (aka master nodes). In this case, two additional control-plane nodes will be added; for a total of three.
+
+* Execute the following sets of commands on each of the remaining control-plane server nodes:
 ----
 FIRST_SERVER_IP=""      # Private IP preferred, if available
 NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
@@ -47,7 +49,9 @@ K3s_VERSION=""          # Match the first of the first server
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https://${FIRST_SERVER_IP}:6443 K3S_TOKEN=${NODE_TOKEN} K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC='server' sh -
 ----
 
-* Procedure for adding agents to a {pn_K3s} cluster:
+By default, the {pn_K3s} server nodes are available to run non-control-plane workloads. This can be changed to the normal Kubernetes default by adding a taint to each server node. See the official Kubernetes documentation for more information on how to do that. In this case, the {pn_K3s} default behavior is perfect for the {pn_Rancher} server cluster as it doesn't require additional agent (aka worker) nodes to maintain a highly available {pn_Rancher} server application.
+
+* In cases where agent nodes are desired, execute the following sets of commands on each of the agent nodes to add it to the {pn_K3s} cluster:
 ----
 FIRST_SERVER_IP=""      # Private IP preferred, if available
 NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
