@@ -2,7 +2,7 @@ ifdef::RA,RC,RI,GS[]
 
 == Introduction
 
-On the digital transformation journey to a full Cloud Native Landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being Kubernetes footnote:[https://kubernetes.io/]
+On the digital transformation journey to a full cloud native landscape, utilization of microservices becomes the main approach with the dominant technology for such container orchestration being Kubernetes footnote:[https://kubernetes.io/]
 With its large community of developers and abundant features and capabilities, Kubernetes has become the defacto standard and is included across most container-as-a-service platforms.  With all of these technologies in place, both developer and operation teams can effectively deploy, manage and deliver functionality to their end users in a resilient and agile manner.
 
 === Motivation
@@ -91,7 +91,7 @@ endif::[]
 
 === Audience
 
-This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes management platform. You should be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
+This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes ifdef::iRancher[management] platform. One should still be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
 
 endif::RA,RC,RI,GS[]
 
