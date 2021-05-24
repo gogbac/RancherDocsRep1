@@ -6,7 +6,7 @@ ifdef::RA,RC,RI,GS[]
 The purpose of this document is to provide an overview and procedure of implementing {suseHomePage}[{companyName}] (R)
 ifdef::iCSP,iIHV,iISV[and partner]
 offerings for
-ifeval::["{focus}" == "{an_Rancher"]
+ifeval::["{focus}" == "{an_Rancher}"]
 {pn_Rancher_ProductPage}[{pn_Rancher}], as a multi-cluster container management platform for organizations that deploy containerized workloads, orchestrated by Kubernetes. {pn_Rancher} makes it easy to deploy, manage, and use Kubernetes everywhere, meet IT requirements, and empower DevOps teams.
 endif::[]
 ifeval::["{focus}" == "{an_RKE1}"]
