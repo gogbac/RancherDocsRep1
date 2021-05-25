@@ -14,7 +14,7 @@ endif::[]
 ifeval::["{focus}" == "{an_K3s}"]
 {pn_K3s}
 endif::[]
-solution, along with the suggested target platforms and then how it can be used.
+solution, along with the suggested target platforms and components.
 
 === Solution architecture
 

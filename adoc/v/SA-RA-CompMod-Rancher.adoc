@@ -32,6 +32,8 @@ ifdef::GS[]
 As {pn_Rancher} can be deployed on a single node, only some prerequisites for the underlying operating system are needed and will be detailed in the deployment section.
 endif::GS[]
 
+ifndef::GS[]
+
 ifdef::iK3s[]
 ==== Software - {pn_K3s}
 
@@ -42,13 +44,22 @@ Given that {pn_K3s} relies upon being deployed on a Linux operating system, the 
 endif::iK3s[]
 
 ifdef::iRKE1[]
-==== Software - {pn_K3s}
+==== Software - {pn_RKE1}
 
 include::../SUSE/RKE1/SA.adoc[]
 
 Given that {pn_K3s} relies upon being deployed on a Linux operating system, the next section describes that target component layer.
 
 endif::iRKE1[]
+
+ifdef::iRKE2[]
+==== Software - {pn_RKE2}
+
+include::../SUSE/RKE2/SA.adoc[]
+
+Given that {pn_RKE2} relies upon being deployed on a Linux operating system, the next section describes that target component layer.
+
+endif::iRKE2[]
 
 ifdef::iSLEMicro[]
 ==== Software - {pn_SLEMicro}
@@ -70,6 +81,7 @@ Depending on the number and complexity of the components this proceeding section
 FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auctor eu augue ut ...
 ////
 
+endif::GS[]
 endif::SWComp[]
 
 ifdef::HWComp[]

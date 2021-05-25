@@ -18,13 +18,13 @@ To meet the {pn_Rancher} prerequisite and requirements, {companyName} offerings,
 * Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
 * Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
 ** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
-** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] or
+** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] infrastructure or
 ** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
 +
 NOTE: During the installation, the node can be pointed to the respective update service. This can also be accomplished post-installation with the command-line tool, {pn_SLEMicro_InstallationDocURL}[SUSEConnect].
 +
 . Enable the required container runtime engine
-* for {pn_SLEMicro} ( version {pn_SLEMicro_Version} )
+* for {pn_SLEMicro}
 +
 ----
 sudo transactional-update pkg install docker
@@ -33,7 +33,7 @@ sudo systemctl enable --now docker.service
 sudo systemctl status docker.service
 ----
 +
-* for {pn_SLES} ( version {pn_SLES_Version} )
+* for {pn_SLES}
 +
 ----
 sudo SUSEConnect -p sle-module-containers/15.2/x86_64
@@ -50,7 +50,7 @@ sudo systemctl status docker.service
 sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
 ----
 +
-* Then from a client system, connect a web browser to the IP address or hostname of the {pn_Rancher} node
+* Once the previous command completes, from a client system connect a web browser to the IP address or hostname of the {pn_Rancher} node
 ** Enter a new admin password
 +
 IMPORTANT: On the second configuration page, ensure the "Server URL" is set to the IP address or hostname of this deployed {pn_Rancher} node.

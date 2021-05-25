@@ -8,7 +8,7 @@ This section describes the process steps to deploy each of the components needed
 endif::RC,RI[]
 
 ifdef::GS[]
-This section describes the base process steps to deploy {pn_Rancher} including the the prerequisites for the node operating system.
+This section describes the base process steps to deploy {pn_Rancher} including the prerequisites for the underlying node's operating system.
 endif::GS[]
 
 endif::iRancher[]

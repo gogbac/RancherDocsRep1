@@ -2,13 +2,13 @@
 ifdef::iRancher[]
 The figure below illustrates the high-level architecture of the {pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
 
-image::ArchitectureOverview-Rancher.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
+image::ArchitectureOverview-{portfolioName}.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
 
 Authentication Proxy::
 A user is authenticated via {pn_Rancher} and then, if authorized, can access both the {pn_Rancher} environment and the downstream clusters and workloads.
 
 API Server::
-This provides the programmatic interface backend for user, command-line interactions with {pn_Rancher} and the managed clusters.
+This provides the programmatic interface backend for a user, utilizing command-line interactions with {pn_Rancher} and the managed clusters.
 
 Data Store::
 The purpose of this service is to capture the configuration and state of {pn_Rancher} and the managed clusters to aid in backup and recovery processes.
@@ -28,14 +28,14 @@ For the best performance and security, the recommended deployment of a dedicated
 endif::RC,RI[]
 
 ifdef::GS[]
-To aid in planning, training or assessing functionality like in a [<<G_PoC,proof-of-concept>>] deployment, {pn_Rancher} can be installed on a single node as described later in this document.
+To aid in planning, training or assessing functionality like in a proof-of-concept deployment, {pn_Rancher} can be installed on a single node as described later in this document.
 
 ifdef::BP[]
-TIP: The {pn_Rancher} backup operator can then be used to migrate from the single node to an installation on a high-availability Kubernetes cluster footnote:[https://rancher.com/docs/rancher/v2.5/en/backups/migrating-rancher/]
+TIP: The {pn_Rancher} backup operator can then be used to {pn_Rancher_MigrateURL}[migrate] from the single node to an installation on a multi-node, high-availability Kubernetes cluster.
 endif::BP[]
 endif::GS[]
 
-NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this cluster is not advised.
+NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this {pn_Rancher} cluster or nodes is not advised.
 
 endif::iRancher[]
 
