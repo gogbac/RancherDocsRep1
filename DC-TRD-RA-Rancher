@@ -166,26 +166,26 @@ ADOC_ATTRIBUTES+=" --attribute DepConsiderations=1"
 # these layers are only referenced in combination with EA setting
 
 ## ii-Strategy (EA+Strategy)
-ADOC_ATTRIBUTES+=" --attribute Strategy=1"
+#ADOC_ATTRIBUTES+=" --attribute Strategy=1"
 
 ## iii-Business (EA+Business)
-ADOC_ATTRIBUTES+=" --attribute Business=1"
+#ADOC_ATTRIBUTES+=" --attribute Business=1"
 
 ## iv-Application (Workloads) (EA+Applications)
-ADOC_ATTRIBUTES+=" --attribute Application=1"
+#ADOC_ATTRIBUTES+=" --attribute Application=1"
 #	then add respective ISV attributes/parameters, like
 #	ADOC_ATTRIBUTES+=" --attribute ISVPartner=1"
 
 ## v-Technology (EA+Technology)
-ADOC_ATTRIBUTES+=" --attribute Technology=1"
+#ADOC_ATTRIBUTES+=" --attribute Technology=1"
 #	then add respective SUSE portolio attributes/parameters, like
 #	ADOC_ATTRIBUTES+=" --attribute SUSEManager=1"
 
 ## vi-Physical (EA+Physical)
-ADOC_ATTRIBUTES+=" --attribute Physical=1"
+#ADOC_ATTRIBUTES+=" --attribute Physical=1"
 
 ## vii-Migration (EA+Migration)
-ADOC_ATTRIBUTES+=" --attribute Migration=1"
+#ADOC_ATTRIBUTES+=" --attribute Migration=1"
 
 ## --------------------------------------------------------- (FCTR)
 ## Factors (FCTR) - core priority deployment factors sub-set
@@ -194,23 +194,23 @@ ADOC_ATTRIBUTES+=" --attribute Migration=1"
 
 # 	then add respective factors, named specifically
 # Availability (FCTR>
-ADOC_ATTRIBUTES+=" --attribute Availability=1"
+#ADOC_ATTRIBUTES+=" --attribute Availability=1"
 # Performance (FCTR>
-ADOC_ATTRIBUTES+=" --attribute Performance=1"
+#ADOC_ATTRIBUTES+=" --attribute Performance=1"
 # Security (FCTR>
-ADOC_ATTRIBUTES+=" --attribute Security=1"
+#ADOC_ATTRIBUTES+=" --attribute Security=1"
 # Integrity (FCTR>
-ADOC_ATTRIBUTES+=" --attribute Integrity=1"
+#ADOC_ATTRIBUTES+=" --attribute Integrity=1"
 ## --------------------------------------------------------- (FCTR)
 
 ## ------------------------------------------------------------ (FLVR)
 ## Flavors (FLVR) - extent/phases of deployment flavors sub-set
 #	uncomment the following to switch/enable to this format/structure
-ADOC_ATTRIBUTES+=" --attribute FLVR=1"
+#ADOC_ATTRIBUTES+=" --attribute FLVR=1"
 # 	then add respective flavors, named specifically, like
 
 # Proof-of-Concept (FLVR)
-ADOC_ATTRIBUTES+=" --attribute PoC=1"
+#ADOC_ATTRIBUTES+=" --attribute PoC=1"
 # Production (FLVR)
 #ADOC_ATTRIBUTES+=" --attribute Production=1"
 # Scaling (FLVR)
@@ -223,8 +223,8 @@ ADOC_ATTRIBUTES+=" --attribute PoC=1"
 #ADOC_ATTRIBUTES+=" --attribute DT=1"
 
 # 	then add respective deployment types, specifically named
-ADOC_ATTRIBUTES+=" --attribute DT1=1" 
-ADOC_ATTRIBUTES+=" --attribute DT2=1"
+#ADOC_ATTRIBUTES+=" --attribute DT1=1" 
+#ADOC_ATTRIBUTES+=" --attribute DT2=1"
 ## ------------------------------------------------------------ (DT)
 
 ## ------------------------------------- (EA)
