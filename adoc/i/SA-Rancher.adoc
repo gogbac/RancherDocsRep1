@@ -1,12 +1,12 @@
 
 While any developer or organization may simply start with a single, Kubernetes-based deployment, it is very common for that number of cluster instances to rapidly grow. While each of these may have specific focus areas, it becomes imperative to figure out how to use, manage, maintain and replicate all of these instances over time.
 
-This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/certification/software-conformance] ) compliant, anywhere across edge, on-premise data centers, or cloud service providers.  {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
+This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/] ) conformant footnote:[https://www.cncf.io/certification/software-conformance] ), anywhere across edge, on-premise data centers, or cloud service providers. {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
 
 * {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
 // * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
 * Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
-* other Kubernetes clusters that are based upon CNCF footnote:[https://www.cncf.io/] certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
+* other Kubernetes clusters that are based upon CNCF certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
 
-and deployed across various supported footnote:[{pn_Rancher_SupURL}] infrastructure elements.
+and deployed across various {pn_Rancher_SupURL}[supported] infrastructure elements.
 
