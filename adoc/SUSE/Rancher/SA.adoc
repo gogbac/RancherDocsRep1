@@ -11,7 +11,7 @@ Certified Kubernetes Distributions::
 ** {pn_EKS} ( {an_EKS} footnote:[{pn_EKS_homePage}] ),
 ** {pn_AKS} ( {an_AKS} footnote:[{pn_AKS_homePage}] ) and
 ** {pn_GKE} ( {an_GKE} footnote:[{pn_GKE_homePage}] )
-* for edge, branch and desktop workloads, {companyName} offerings like {pn_K3s_ProductPage}[{pn_K3s}], a certified lightweight distribution of Kubernetes. 
+* for development, edge, branch workloads, {companyName} offerings like {pn_K3s_ProductPage}[{pn_K3s}], a certified lightweight distribution of Kubernetes. 
 
 Simplified Cluster Operations and Infrastructure Management::
 {pn_Rancher} provides simple, consistent cluster operations including provisioning and templates, configuration and lifecycle version management, along with visibility and diagnostics.
