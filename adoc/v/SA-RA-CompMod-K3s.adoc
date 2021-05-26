@@ -1,9 +1,9 @@
 
 == Component model
 
-ifeval::["{focus}" == "{an_K3s}"]
+ifdef::focusK3s[]
 FixMe-This section describes the various components being used to create a {pn_K3s} deployment, in the perspective of top to bottom ordering. Once completed, the {pn_K3s} instance enables the management of multiple Kubernetes clusters, as shown in the following figure:
-endif::[]
+endif::focusK3s[]
 
 === Component overview
 
@@ -19,7 +19,7 @@ one can create the necessary infrastructure and services. Further details for th
 
 ifdef::SWComp[]
 
-==== Software - {pn_K3s}
+=== Software - {pn_K3s}
 
 include::../SUSE/K3s/SA.adoc[]
 
@@ -33,7 +33,7 @@ endif::GS[]
 ifndef::GS[]
 
 ifdef::iSLEMicro[]
-==== Software - {pn_SLEMicro}
+=== Software - {pn_SLEMicro}
 
 include::../SUSE/SLE-Micro/SA.adoc[]
 
@@ -59,7 +59,7 @@ endif::SWComp[]
 ifdef::HWComp[]
 ifndef::GS[]
 
-==== Compute Platform Options
+=== Compute Platform
 
 Leveraging the enterprise grade functionality of the operating system mentioned in the previous section, many compute platforms can be the foundation of the deployment:
 

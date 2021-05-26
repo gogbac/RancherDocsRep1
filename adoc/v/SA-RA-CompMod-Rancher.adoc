@@ -3,17 +3,18 @@ ifdef::iRancher[]
 
 == Component model
 
-This section describes the various components being used to create a {pn_Rancher} deployment, in the perspective of top to bottom ordering. Once completed, the {pn_Rancher} instance enables the management of multiple Kubernetes clusters, as shown in the following figure:
+This section describes the various components being used to create a {pn_Rancher} deployment, in the perspective of top to bottom ordering. Once completed, the {pn_Rancher} instance enables the management of multiple Kubernetes clusters.
 
 === Component overview
 
 By utilizing:
 
 ifdef::RC,RI,GS[]
-* Multi-cluster Management Server - {pn_Rancher}
+* Software
+** Multi-cluster Management Server - {pn_Rancher}
 ifndef::GS[]
-* Kubernetes Platform - ifdef::iK3s[{pn_K3s}]
-* Operating System - ifdef::iSLES[{pn_SLES}] ifdef::iSLEMicro[{pn_SLEMicro}}]
+** Kubernetes Platform - ifdef::iK3s[{pn_K3s}]
+** Operating System - ifdef::iSLEMicro[{pn_SLEMicro}]
 * Compute Platform
 endif::GS[]
 
@@ -21,7 +22,7 @@ one can create the necessary infrastructure and services. Further details for th
 
 ifdef::SWComp[]
 
-==== Software - {pn_Rancher}
+=== Software - {pn_Rancher}
 
 include::../SUSE/Rancher/SA.adoc[]
 
@@ -35,7 +36,7 @@ endif::GS[]
 ifndef::GS[]
 
 ifdef::iK3s[]
-==== Software - {pn_K3s}
+=== Software - {pn_K3s}
 
 include::../SUSE/K3s/SA.adoc[]
 
@@ -43,8 +44,9 @@ Given that {pn_K3s} relies upon being deployed on a Linux operating system, the 
 
 endif::iK3s[]
 
+//// 
 ifdef::iRKE1[]
-==== Software - {pn_RKE1}
+=== Software - {pn_RKE1}
 
 include::../SUSE/RKE1/SA.adoc[]
 
@@ -53,16 +55,17 @@ Given that {pn_K3s} relies upon being deployed on a Linux operating system, the 
 endif::iRKE1[]
 
 ifdef::iRKE2[]
-==== Software - {pn_RKE2}
+=== Software - {pn_RKE2}
 
 include::../SUSE/RKE2/SA.adoc[]
 
 Given that {pn_RKE2} relies upon being deployed on a Linux operating system, the next section describes that target component layer.
 
 endif::iRKE2[]
+////
 
 ifdef::iSLEMicro[]
-==== Software - {pn_SLEMicro}
+=== Software - {pn_SLEMicro}
 
 include::../SUSE/SLE-Micro/SA.adoc[]
 
@@ -87,7 +90,7 @@ endif::SWComp[]
 ifdef::HWComp[]
 ifndef::GS[]
 
-==== Compute Platform Options
+=== Compute Platform
 
 Leveraging the enterprise grade functionality of the operating system mentioned in the previous section, many compute platforms can be the foundation of the deployment:
 

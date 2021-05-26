@@ -2,18 +2,18 @@
 == Architectural overview
 
 This section outlines the overall elements of the
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 {pn_Rancher}
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-{pn_RKE1}
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-{pn_RKE2}
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 {pn_K3s}
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+{pn_RKE1}
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+{pn_RKE2}
+endif::focusRKE2[]
 solution, along with the suggested target platforms and components.
 
 === Solution architecture
@@ -24,18 +24,18 @@ An outline should be provided of the solution and the components required to suc
 	e.g., A SUSE OpenStack Cloud solution show a block diagram of OpenStack components or elements for the Control, compute and storage pools
 ////
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 include::./SA-RA-ArchOv-{an_Rancher}.adoc[]
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-include::./SA-RA-ArchOv-{an_RKE1}1.adoc[]
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-include::./SA-RA-ArchOv-{an_RKE2}adoc[]
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 include::./SA-RA-ArchOv-{an_K3s}adoc[]
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+include::./SA-RA-ArchOv-{an_RKE1}1.adoc[]
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+include::./SA-RA-ArchOv-{an_RKE2}adoc[]
+endif::focusRKE2[]
 
 ////
 FixMe - As needed, include high-level table

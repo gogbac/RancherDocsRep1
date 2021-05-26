@@ -1,18 +1,19 @@
-==== Compute platform deployment configuration
+=== Compute Platform
 
 ifdef::iRancher[]
 
 ifdef::RI[]
 ifndef::iIHV[]
-For each node:
+Preparation(s)::
+For each node used in the deployment:
 
-* Validate the necessary CPU, memory and interconnect quantity and type are present for each node and intended role. Refer to the recommended CPU/Memory/Disk/Networking requirements as noted in the https://rancher.com/docs/rancher/v2.x/en/installation/requirements/#cpu-and-memory-for-rancher-before-v2-4-0[{pn_Rancher} Hardware Requirements].
-** Network : Prepare an IP addressing scheme and optionally create both a public and private network, along with the respective subnets and desired VLAN designations. If a Baseboard Management Controller is present, consider using a distinct management network for controlled access.
-** and if using bare-metal nodes ...
-*** Ensure that a pair of local, direct attached disk drives is present on each node (SSDs are preferred); these will become the target for the operating system installation.
-*** Boot Settings : Manage the boot node and select UEFI mode, with the primary device being hard disk.
-*** BIOS/uEFI settings are reset to defaults for a known baseline, consistent state or perhaps with desired, localized values.
-**** Use consistent and up-to-date versions for BIOS/uEFI/device firmware to reduce potential troubleshooting issues later
+* Validate the necessary CPU, memory, disk capacity, and network interconnect quantity and type are present for each node and its intended role. Refer to the recommended CPU/Memory/Disk/Networking requirements as noted in the {pn_Rancher_HWReqURL}[{pn_Rancher} Hardware Requirements].
+* Further suggestions
+** Disk : Use a pair of local, direct attached, mirrored disk drives is present on each node (SSDs are preferred); these will become the target for the operating system installation.
+** Network : Prepare an IP addressing scheme and optionally create both a public and private network, along with the respective subnets and desired VLAN designations for the target environment.
+*** Baseboard Management Controller : If present, consider using a distinct management network for controlled access.
+** Boot Settings : BIOS/uEFI reset to defaults for a known baseline, consistent state or perhaps with desired, localized values.
+** Firmware : Use consistent and up-to-date versions for BIOS/uEFI/device firmware to reduce potential troubleshooting issues later
 endif::iIHV[]
 endif::RI[]
 

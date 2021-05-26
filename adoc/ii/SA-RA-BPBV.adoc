@@ -3,7 +3,7 @@ ifdef::RA,RC,RI,GS[]
 
 == Business aspect
 
-Agility is the name of the game in modern application development. This is driving developers toward more agile, cloud native methodologies that focus on microservices architectures and streamlined workflows. Container technologies, like Kubernetes, embody this agile approach and help enable cloud native transformation.
+Agility is the name of the game in modern application development. This is driving developers toward more cloud native methodologies that focus on microservices architectures and streamlined workflows. Container technologies, like Kubernetes, embody this agile approach and help enable cloud native transformation.
 
 By unifying IT operations with Kubernetes, organizations realize key benefits like increased reliability, improved security and greater efficiencies with standardized automation. Therefore, Kubernetes infrastructure platforms are adopted by enterprises to deliver:
 
@@ -16,21 +16,21 @@ Consistent security policy enforcement plus advanced user management on any Kube
 Access to Shared Tools & Services::
 A high level of reliability with easy, consistent access to a broad set of tools and services
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 include::./SA-RA-BPBV-{an_Rancher}.adoc[]
-endif::[]
+endif::focusRancher[]
 
-ifeval::["{focus}" == "{an_RKE1}"]
-include::./SA-RA-BPBV-{an_RKE1}1.adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_RKE2}"]
-include::./SA-RA-BPBV-{an_RKE2}adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_K3s}"]
+ifdef::focusK3s[]
 include::./SA-RA-BPBV-{an_K3s}adoc[]
-endif::[]
+endif::focusK3s[]
+
+ifdef::focusRKE1[]
+include::./SA-RA-BPBV-{an_RKE1}1.adoc[]
+endif::focusRKE1[]
+
+ifdef::focusRKE2[]
+include::./SA-RA-BPBV-{an_RKE2}adoc[]
+endif::focusRKE2[]
 
 ////
 

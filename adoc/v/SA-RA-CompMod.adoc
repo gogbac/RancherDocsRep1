@@ -1,21 +1,22 @@
 
 ifdef::RA,RC,RI[]
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 include::./SA-RA-CompMod-{an_Rancher}.adoc[]
-endif::[]
+endif::focusRancher[]
 
-ifeval::["{focus}" == "{an_RKE1}"]
-include::./SA-RA-CompMod-{an_RKE1}1.adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_RKE2}"]
-include::./SA-RA-CompMod-{an_RKE2}adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_K3s}"]
+ifdef::focusK3s[]
 include::./SA-RA-CompMod-{an_K3s}adoc[]
-endif::[]
+endif::focusK3s[]
+
+ifdef::focusRKE1[]
+include::./SA-RA-CompMod-{an_RKE1}1.adoc[]
+endif::focusRKE1[]
+
+ifdef::focusRKE2[]
+include::./SA-RA-CompMod-{an_RKE2}adoc[]
+endif::focusRKE2[]
+
 
 ////
 

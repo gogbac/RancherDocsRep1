@@ -1,94 +1,98 @@
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 
-==== {pn_Rancher} Deployment
+=== {pn_Rancher}
 
 ifdef::GS[]
 
 The underlying Linux operating system can be:
 
 * A cloud-host virtual machine (VM)
-* An on-prem VM
-* A bare-metal server
+* An on-premise VM or a bare-metal server node
 
-To meet the {pn_Rancher} prerequisite and requirements, {companyName} offerings, like {pn_SLES_ProductPage}[{pn_SLEMicro}] or {pn_SLEMicro_ProductPage}[{pn_SLES}], can be utilized:
-
-. Ensure these services are in place and configured for this node
-* Domain Name Service (DNS) - an external network-accessible service to map IP Addresses to hostnames
-* Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
-* Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
-** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
-** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] infrastructure or
-** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
+Preparation(s)::
+To meet the {pn_Rancher} prerequisites and requirements, {companyName} operating system offerings, like
+ifdef::layerSLEMicro[{pn_SLEMicro_ProductPage}[{pn_SLEMicro}]]
+ifdef::layerSLES[{pn_SLES_ProductPage}[{pn_SLES}]]
+can be utilized.
 +
-NOTE: During the installation, the node can be pointed to the respective update service. This can also be accomplished post-installation with the command-line tool, {pn_SLEMicro_InstallationDocURL}[SUSEConnect].
+. Ensure these services are in place and configured for this node to use:
 +
+** Domain Name Service ( DNS ) - an external network-accessible service to map IP Addresses to hostnames
+** Network Time Protocol ( NTP ) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
+** Software Update Service - access to a network-based repository for software update packages. This can be accessed directly from each node via registration to
+*** the general, internet-based {suseSCCPage}[{companyName} Customer Center] ( SCC ) or
+*** an organization's {pn_SUMa_ProductPage}[{pn_SUMa}] infrastructure or
+*** a local server running an instance of {pn_RMT_DocURL}[{pn_RMT}] ( {an_RMT} )
++
+NOTE: During the node's installation, it can be pointed to the respective update service. This can also be accomplished post-installation with the command-line tool named {kb_SUSEConnect}[SUSEConnect].
++
+. Log into the node's operating system, either as root or as a user with sudo privileges.
 . Enable the required container runtime engine
-* for {pn_SLEMicro}
 +
+ifdef::layerSLEMicro[]
 ----
 sudo transactional-update pkg install docker
 sudo reboot
 sudo systemctl enable --now docker.service
-sudo systemctl status docker.service
 ----
-+
-* for {pn_SLES}
-+
+endif::layerSLEMicro[]
+ifdef::layerSLES[]
 ----
 sudo SUSEConnect -p sle-module-containers/15.2/x86_64
 sudo zypper refresh ; zypper install docker
 sudo systemctl enable --now docker.service
-sudo systemctl status docker.service
 ----
+endif::layerSLES[]
 +
-. Then install {pn_Rancher}, with a self-signed security certificate.
+** Then validate the container runtime engine is working
++
+----
+sudo systemctl status docker.service
+sudo docker ps --all
+----
 
-* Run the following command
+Deployment Process::
+While logged into the node, as root or with sudo privileges, install {pn_Rancher}:
++
+. Run the following installation command
 +
 ----
 sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher
 ----
 +
-* Once the previous command completes, from a client system connect a web browser to the IP address or hostname of the {pn_Rancher} node
+ifdef::BP[]
+TIP: This process deploys an auto-generated, self-signed security certificate for the {pn_Rancher} service. Other options are describe in the {pn_Rancher} {pn_Rancher_DocURL}[product documentation].
+endif::BP[]
++
+. Once the previous command completes, from a client system connect via a web browser to the IP address or hostname of the {pn_Rancher} node
 ** Enter a new admin password
 +
 IMPORTANT: On the second configuration page, ensure the "Server URL" is set to the IP address or hostname of this deployed {pn_Rancher} node.
 
-Now other Kubernetes clusters can be deployed, imported and managed from this {pn_Rancher} instance.
-
 endif::GS[]
 
 ifdef::RC,RI[]
-As {pn_Rancher} server is a native Kubernetes application, it will run on the single-node {pn_K3s} cluster. In instances where a load balancer is used to support the {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available. {pn_Rancher} uses the {pn_K3s} etcd key/value store to persist its data, which offers several advantages. Providing highly-available storage isn't needed to make {pn_Rancher} highly available. In addition, backing up the {pn_K3s} etcd store protects the cluster as well as the installation of {pn_Rancher}.
+As {pn_Rancher} is a native Kubernetes application, it will run on this single-node {pn_K3s} deployment.
 
-ifdef::iK3s[]
-NOTE: These deployment steps are specific to {pn_K3s}. They can be executed from any host or node that has the kubectl tool and the KUBECONFIG file for the {pn_K3s} cluster.
-endif::iK3s[]
-
-The steps described here are for deploying {pn_Rancher} with self-signed security certificates. Other options are to have {pn_Rancher} create public certificates via Let's Encrypt (only with a publicly resolvable hostname for the {pn_Rancher} server) and to provide preconfigured, private certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#3-choose-your-ssl-configuration for more information.
-
-////
-1. Create the Helm Chart custom resource for cert-manager
-2. Create the Helm Chart custom resource for {pn_Rancher}
-3. Expose {pn_Rancher} through a Kubernetes NodePort service
-4. (Optional) Create an SSH tunnel to access {pn_Rancher} in cases where the exposed server IP address and/or port is not accessible to the client browser
-5. Connect to the {pn_Rancher} web UI
-////
+//-
+Preparation(s)::
+To complete the process of this solution's deployment layer, the remaining steps, while specific to {pn_K3s}, can actually be executed directly on the {pn_K3s} node or from any system that has the kubectl footnote:[https://kubernetes.io/docs/reference/kubectl/overview/] command-line tool plus the KUBECONFIG file for the {pn_K3s} instance ( see "Cluster Access" on {pn_K3s} {pn_K3s_DocURL}[product documentation] ).
 
 //-
 Deployment Process::
-The primary steps for deploying {pn_Rancher} are:
+The following steps for deploying {pn_Rancher} are:
 
 . Create the Helm Chart custom resource for cert-manager:
-* At the time of writing, the most current, supported version of cert-manager is v1.0.4
 * Set the following variable with the desired version of cert-manager
 +
 ----
 CERT_MANAGER_VERSION=""
 ----
 +
-** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
+NOTE: At this time, the most current, supported version of cert-manager is v1.0.4
++
+// ** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
 * Create the cert-manager Helm Chart custom resource manifest
 +
 ----
@@ -114,9 +118,9 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
 +
-* Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
-** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
-** Use Ctrl+c to exit the watch loop after all pods are running
+** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
+*** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
+*** Use Ctrl+c to exit the watch loop after all pods are running
 +
 . Create the Helm Chart custom resource for {pn_Rancher}:
 * Set the following variable to the hostname of the {pn_Rancher} server instance
@@ -125,8 +129,8 @@ sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 HOSTNAME=""
 ----
 +
-** e.g., `HOSTNAME="suse-rancher.sandbox.local"`
-+
+// ** e.g., `HOSTNAME="suse-rancher.sandbox.local"`
+// +
 NOTE: This hostname should be resolvable to an IP address of the {pn_K3s} host, or a load balancer/proxy server that supports this installation of {pn_Rancher}.
 +
 * Create the {pn_Rancher} Helm Chart custom resource manifest
@@ -155,10 +159,10 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
 +
 ** Monitor the progress of the installation: `watch -c "kubectl get pods -n cattle-system"`
-** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
-** Use Ctrl+c to exit the watch loop after all pods are running
+*** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
+*** Use Ctrl+c to exit the watch loop after all pods are running
 +
-* (Optional) Create an SSH tunnel to access {pn_Rancher}: 
+. (Optional) Create an SSH tunnel to access {pn_Rancher}: 
 +
 NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can reach the exposed {pn_Rancher} service. The {pn_Rancher} hostname should be resolvable to the appropriate IP address by the local workstation.
 +
@@ -181,7 +185,25 @@ IMPORTANT: On the second configuration page, ensure the "Rancher Server URL" is 
 +
 ** e.g., `suse-rancher.sandbox.local:443`
 
+//-
+Deployment Consideration(s)::
+To further optimize deployment factors, leverage the following practices
+ifdef::FCTR+Availability[]
+* <<G_Availability>>
+** In instances where a load balancer is used to access a {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available.
+endif::FCTR+Availability[]
+ifdef::FCTR+Security[]
+* <<G_Security>>
+** The basic deployment steps described above are for deploying {pn_Rancher} with automatically generated, self-signed security certificates. Other options are to have {pn_Rancher} create public certificates via Let's Encrypt associated with with a publicly resolvable hostname for the {pn_Rancher} server, or to provide preconfigured, private certificates. See {pn_Rancher} https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#3-choose-your-ssl-configuration[product documentation] for more information.
+endif::FCTR+Security[]
+ifdef::FCTR+Integrity[]
+* <<G_Integrity>>
+** This deployment of {pn_Rancher} uses the {pn_K3s} etcd key/value store to persist its data and configuration, which offers several advantages. With a multi-node cluster and this resiliency through replication, having to provide highly-available storage isn't needed. In addition, backing up the {pn_K3s} etcd store protects the cluster as well as the installation of {pn_Rancher} and permits restoration of a given state.
+endif::FCTR+Integrity[]
 
 endif::RC,RI[]
 
-endif::[]
+Now other Kubernetes clusters can be deployed, imported and managed from this {pn_Rancher} instance.
+
+endif::focusRancher[]
+

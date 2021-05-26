@@ -1,12 +1,23 @@
-==== Operating System Deployment
-
 ifdef::iRancher[]
+
+ifdef::layerSLEMicro[]
+=== {pn_SLEMicro}
+endif::layerSLEMicro[]
+
+ifdef::layerSLES[]
+=== {pn_SLES}
+endif::layerSLES[]
+
+Utilize an enterprise-grade Linux operating system
+ifdef::iSLEMicro[, like {pn_SLEMicro},]
+as the base software layer.
 
 include::../SUSE/SLE-Micro/SA_vars.adoc[]
 include::../SUSE/Manager/SA_vars.adoc[]
 include::../SUSE/RMT/SA_vars.adoc[]
 
-On each compute platform node, install the noted {companyName} operating system.  Plan on leveraging and utilizing the following core infrastructure components and services:
+Preparation(s)::
+Plan on leveraging and utilizing the following core infrastructure components and services:
 
 * Domain Name Service (DNS) - an external network-accessible service to map IP Addresses to hostnames
 * Network Time Protocol (NTP) - an external network-accessible service to obtain and synchronize system times to aid in timestamp consistency
@@ -17,18 +28,33 @@ On each compute platform node, install the noted {companyName} operating system.
 +
 NOTE: During the installation, the node can be pointed to the respective update service. This can also be accomplished post-installation with the command-line tool, {pn_SLEMicro_InstallationDocURL}[SUSEConnect].
 
-
 //-
 Deployment Process::
-Follow these steps
-* Download the {pn_SLEMicro_Download}[{pn_SLEMicro}] product (either for the ISO or Virtual Machine image)
-* The installation process is described and can be performed with default values aside from your local network addressing, per the product documentation. Simply follow:
-** the {pn_SLEMicro_InstallationDocURL}[Installation Quick Start] for
-*** manual installation
-*** raw image deployment
-** or {pn_SLEMicro_AutoYaSTDocURL}[AutoYaST Guide] for unatttended installations
+On the compute platform node, install the noted {companyName} operating system, by following these steps:
+
+. Download the {pn_SLEMicro_Download}[{pn_SLEMicro}] product (either for the ISO or Virtual Machine image)
+. The installation process is described and can be performed with default values by following steps from the {pn_SLEMicro} product documentation, see {pn_SLEMicro_InstallationDocURL}[Installation Quick Start]
 +
+TIP: Adjust both the password and the local network addressing setup to comply with your environment guidelines and requirements.
+
+ifdef::BP+FCTR[]
+
+//-
+Deployment Consideration(s)::
+To further optimize deployment factors, leverage the following practices:
+
+ifdef::FCTR+Automation[]
+* <<G_Automation>>
+** To reduce user intervention, unattended deployments of {pn_SLEMicro} can be automated
+*** for ISO-based installations, by referring to the {pn_SLEMicro_AutoYaSTDocURL}[AutoYaST Guide]
+*** for raw-image based installation, by configuring the Ignition and Combustion tooling as described in the {pn_SLEMicro_InstallationDocURL}[Installation Quick Start]
+endif::FCTR+Automation[]
+
+////
 TIP: An additional consideration is, for the first node deployed, to create an additional IP address on the host network interface card. This can be used for the {pn_Rancher} access, which may also become managed by a load-balancer if a multi-node cluster becomes the base.
+////
+
+endif::BP+FCTR[]
 
 endif::iRancher[]
 
