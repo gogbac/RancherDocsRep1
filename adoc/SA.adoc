@@ -26,7 +26,7 @@ include::./iv/SA.adoc[]
 include::./v/SA.adoc[]
 include::./vi/SA.adoc[]
 ifndef::GS[]
-ifdef::BP[include::./vii/SA.adoc[]]
+// include::./vii/SA.adoc[]
 endif::GS[]
 
 // Summary

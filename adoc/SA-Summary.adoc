@@ -5,50 +5,50 @@ Using components and offerings from {companyName} and the {portfolioName} portfo
 Simplify::
 Simplify and optimize your existing IT environments
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 * Using {pn_Rancher} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-* FixMe-Using {pn_RKE1} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-* FixMe-Using {pn_RKE2} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 * FixMe-Using {pn_K3s} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+* FixMe-Using {pn_RKE1} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+* FixMe-Using {pn_RKE2} enables you to simplify Kubernetes cluster deployment and management of the the infrastructure components.
+endif::focusRKE2[]
 
 Modernize::
 Bring applications and data into modern computing
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 * With {pn_Rancher}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-* FixMe-With {pn_RKE1}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-* FixMe-With {pn_RKE2}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 * FixMe-With {pn_K3s}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+* FixMe-With {pn_RKE1}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+* FixMe-With {pn_RKE2}, the digital transformation to containerized applications can benefit from the ability both to manage many target clusters, for each of the respective user bases and to facilitate the actual workload deployments.
+endif::focusRKE2[]
 
 Accelerate::
 Accelerate business transformation through the power of open source software
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 * Given the open source nature of {pn_Rancher} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-* FixMe-Given the open source nature of {pn_RKE1} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-* FixMe-Given the open source nature of {pn_RKE2} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 * FixMe-Given the open source nature of {pn_K3s} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+* FixMe-Given the open source nature of {pn_RKE1} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+* FixMe-Given the open source nature of {pn_RKE2} and the underlying software components, you can simplify management and make significant IT savings as you scale orchestrated, microservice deployments anywhere you need to and for whatever use cases are needed in an agile and innovative way.
+endif::focusRKE2[]
 
 
 

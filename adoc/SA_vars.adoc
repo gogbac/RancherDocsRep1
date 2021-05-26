@@ -51,10 +51,17 @@ endif::iSUMa[]
 
 // From the above products, select the main focus area of the document
 //	essentially the top-level SUSE product being described
-:focus: {an_Rancher}
+// :focus: {an_Rancher}
 // :focus: {an_RKE1}
 // :focus: {an_RKE2}
 // :focus: {an_K3s}
+
+// And for the layered stacks (K8s and OS), select the target
+// :layerK8s: {an_RKE1}
+// :layerK8s: {an_RKE2}
+// :layerK8s: {an_K3s}
+// :layerOS: {an_SLES}
+// :layerOS: {an_SLEMicro}
 
 ifndef::EA[]
 :title: Digital Transformation - {useCase}
@@ -66,41 +73,33 @@ endif::SS[]
 
 ifdef::RA,RC,RI,GS[]
 
-ifdef::iRancher[]
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 ifdef::RA[:title: Reference Architecture - {pn_Rancher}]
 ifdef::RC[:title: Reference Configuration- {pn_Rancher}]
 ifdef::RI[:title: Reference Implementation - {pn_Rancher}]
 ifdef::GS[:title: {pn_Rancher} - Getting Started]
-endif::[]
-endif::iRancher[]
+endif::focusRancher[]
 
-ifdef::iRKE1[]
-ifeval::["{focus}" == "{an_RKE1}"]
-ifdef::RA[:title: Reference Architecture - {pn_RKE1}]
-ifdef::RC[:title: Reference Configuration- {pn_RKE1}]
-ifdef::RI[:title: Reference Implementation - {pn_RKE1}]
-ifdef::GS[:title: {pn_RKE1} - Getting Started]
-endif::[]
-endif::iRKE1[]
-
-ifdef::iRKE2[]
-ifeval::["{focus}" == "{an_RKE2}"]
-ifdef::RA[:title: Reference Architecture - {pn_RKE2}]
-ifdef::RC[:title: Reference Configuration- {pn_RKE2}]
-ifdef::RI[:title: Reference Implementation - {pn_RKE2}]
-ifdef::GS[:title: {pn_RKE2} - Getting Started]
-endif::[]
-endif::iRKE2[]
-
-ifdef::iK3s[]
-ifeval::["{focus}" == "{an_K3s}"]
+ifdef::focusK3s[]
 ifdef::RA[:title: Reference Architecture - {pn_K3s}]
 ifdef::RC[:title: Reference Configuration- {pn_K3s}]
 ifdef::RI[:title: Reference Implementation - {pn_K3s}]
 ifdef::GS[:title: {pn_K3s} - Getting Started]
-endif::[]
-endif::iK3s[]
+endif::focusK3s[]
+
+ifdef::focusRKE1[]
+ifdef::RA[:title: Reference Architecture - {pn_RKE1}]
+ifdef::RC[:title: Reference Configuration- {pn_RKE1}]
+ifdef::RI[:title: Reference Implementation - {pn_RKE1}]
+ifdef::GS[:title: {pn_RKE1} - Getting Started]
+endif::focusRKE1[]
+
+ifdef::focusRKE2[]
+ifdef::RA[:title: Reference Architecture - {pn_RKE2}]
+ifdef::RC[:title: Reference Configuration- {pn_RKE2}]
+ifdef::RI[:title: Reference Implementation - {pn_RKE2}]
+ifdef::GS[:title: {pn_RKE2} - Getting Started]
+endif::focusRKE2[]
 
 endif::RA,RC,RI,GS[]
 

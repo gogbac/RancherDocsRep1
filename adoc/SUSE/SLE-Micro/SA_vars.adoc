@@ -1,5 +1,5 @@
 
-:an_SLEMicro: SLE Micro
+:an_SLEMicro: SLEMicro
 :pn_SLEMicro_Version: 5.0
 
 :pn_SLEMicro_Download: https://www.suse.com/download/sle-micro/
