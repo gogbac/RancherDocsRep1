@@ -39,6 +39,17 @@ ADOC_ATTRIBUTES+=" --attribute LN=1"
 ## License (Gnu Free Document License) (suggested)
 ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 
+## Focus / Layers Attributes
+#ADOC_ATTRIBUTES+=" --attribute focusRancher=1"
+#ADOC_ATTRIBUTES+=" --attribute focusK3s=1"
+#ADOC_ATTRIBUTES+=" --attribute focusRKE1=1"
+#ADOC_ATTRIBUTES+=" --attribute focusRKE2=1"
+#ADOC_ATTRIBUTES+=" --attribute layerK3s=1"
+#ADOC_ATTRIBUTES+=" --attribute layerRKE1=1"
+#ADOC_ATTRIBUTES+=" --attribute layerRKE2=1"
+#ADOC_ATTRIBUTES+=" --attribute layerSLEMicro=1"
+#ADOC_ATTRIBUTES+=" --attribute layerSLES=1"
+
 ## ----------------- (Partner)
 
 ##
@@ -52,13 +63,19 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #ADOC_ATTRIBUTES+=" --attribute ISV-xyz=1"
 
 #ADOC_ATTRIBUTES+=" --attribute iIHV=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Ampere=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Dell=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Apollo=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Edgeline=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-HPE-ProLiant=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
 
 #ADOC_ATTRIBUTES+=" --attribute iCSP=1"
 #ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-Azure=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-GCP=1"
 
 ## ----------------- (Partner)
 
@@ -95,7 +112,7 @@ ADOC_ATTRIBUTES+=" --attribute RA=1"
 #	BP = suggestions/considerations above default settings
 ADOC_ATTRIBUTES+=" --attribute BP=1"
 
-# included, focus areas
+# included portofolio components
 ADOC_ATTRIBUTES+=" --attribute iRMT=1"
 ADOC_ATTRIBUTES+=" --attribute iSLES=1"
 ADOC_ATTRIBUTES+=" --attribute iSLEMicro=1"
@@ -193,7 +210,9 @@ ADOC_ATTRIBUTES+=" --attribute DepConsiderations=1"
 #ADOC_ATTRIBUTES+=" --attribute FCTR=1"
 
 # 	then add respective factors, named specifically
-# Availability (FCTR>
+# Automation (FCTR)
+#ADOC_ATTRIBUTES+=" --attribute Automation=1"
+# Availability (FCTR)
 #ADOC_ATTRIBUTES+=" --attribute Availability=1"
 # Performance (FCTR>
 #ADOC_ATTRIBUTES+=" --attribute Performance=1"
