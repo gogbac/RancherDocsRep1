@@ -7,21 +7,22 @@ With its large community of developers and abundant features and capabilities, K
 
 === Motivation
 
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 include::./SA-{an_Rancher}.adoc[]
-endif::[]
+endif::focusRancher[]
 
-ifeval::["{focus}" == "{an_RKE1}"]
-include::./SA-{an_RKE1}1.adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_RKE2}"]
-include::./SA-{an_RKE2}.adoc[]
-endif::[]
-
-ifeval::["{focus}" == "{an_K3s}"]
+ifdef::focusK3s[]
 include::./SA-{an_K3s}.adoc[]
-endif::[]
+endif::focusK3s[]
+
+ifdef::focusRKE1[]
+include::./SA-{an_RKE1}1.adoc[]
+endif::focusRKE1[]
+
+ifdef::focusRKE2[]
+include::./SA-{an_RKE2}.adoc[]
+endif::focusRKE2[]
+
 
 ifdef::RC[]
 Once on such a digital transformation journey, some of the next focus areas are:
@@ -73,25 +74,27 @@ simplified,
 ifdef::RA+GS[<<G_GS>>]
 approach for
 endif::RC,RI[]
-ifeval::["{focus}" == "{an_Rancher}"]
+ifdef::focusRancher[]
 {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing multiple Kubernetes ecosystems.
-endif::[]
-ifeval::["{focus}" == "{an_RKE1}"]
-{pn_RKE1}.
-This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
-endif::[]
-ifeval::["{focus}" == "{an_RKE2}"]
-{pn_RKE2}.
-This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
-endif::[]
-ifeval::["{focus}" == "{an_K3s}"]
+endif::focusRancher[]
+ifdef::focusK3s[]
 {pn_KE1}.
 This can be done in a variety of scenarios to create an edge-oriented, lightweith Kubernetes cluster deployment.
-endif::[]
+endif::focusK3s[]
+ifdef::focusRKE1[]
+{pn_RKE1}.
+This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
+endif::focusRKE1[]
+ifdef::focusRKE2[]
+{pn_RKE2}.
+This can be done in a variety of scenarios to create an enterprise Kubernetes cluster deployment anywhere.
+endif::focusRKE2[]
 
 === Audience
 
-This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes ifdef::iRancher[management] platform. One should still be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
+This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes
+ifdef::iRancher[management]
+platform. One should still be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
 
 endif::RA,RC,RI,GS[]
 
