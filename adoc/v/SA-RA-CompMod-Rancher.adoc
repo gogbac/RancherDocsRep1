@@ -13,8 +13,10 @@ ifdef::RC,RI,GS[]
 * Software
 ** Multi-cluster Management Server - {pn_Rancher}
 ifndef::GS[]
-** Kubernetes Platform - ifdef::iK3s[{pn_K3s}]
-** Operating System - ifdef::iSLEMicro[{pn_SLEMicro}]
+** Kubernetes Platform -
+ifdef::iK3s[{pn_K3s}]
+** Operating System -
+ifdef::iSLEMicro[{pn_SLEMicro}]
 * Compute Platform
 endif::GS[]
 
