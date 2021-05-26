@@ -24,14 +24,15 @@ Output Creation:
     - Getting Started (GS)
     - Reference Implmentation (RI)
     - Reference Configuration (RC) ... citing this example for the remainder
-  - modify the file adoc/SA_vars.adoc to represent the top level SUSE product
-    - e.g. :focus: {an_Rancher} as noted in ./SUSE/Rancher/SA_vars.adoc
   - copy the DAPS configuration file to an appropriate name
     - e.g. DC-TRD-RA-Rancher to DC-TRD-RC-Rancher
-      - to create an output format that has the associated naming (e.g. TRD-RC-Rancher.suffix)
+      - to create an output format that has the associated naming (e.g. TRD-RC-Rancher)
   - edit the new, respective DAPS configuration file
-    - uncomment the desire document type
+    - uncomment the desired document type
       - ADOC_ATTRIBUTES+=" --attribute RC=1"
+      - adjust/enable the focus and layer attributes
+        - focusPROD : to represent the top level SUSE product
+        - layersPROD : to include the respective SUSE products for the referenced layers
     - for an RC variant, you will likely also need to adjust inclusion of partner attributes (ISV, IHV, CSP)
       - e.g. for an IHV partner
         - ADOC_ATTRIBUTES+=" --attribute iIHV=1"
