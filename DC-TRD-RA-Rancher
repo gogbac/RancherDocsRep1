@@ -64,18 +64,23 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 
 #ADOC_ATTRIBUTES+=" --attribute iIHV=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Ampere=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Cisco=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Dell=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Fujitsu=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Apollo=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Edgeline=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-ProLiant=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-HPI=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-IBM=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Lenovo=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
 
 #ADOC_ATTRIBUTES+=" --attribute iCSP=1"
-#ADOC_ATTRIBUTES+=" --attribute CSP-AWS=1"
-#ADOC_ATTRIBUTES+=" --attribute CSP-Azure=1"
-#ADOC_ATTRIBUTES+=" --attribute CSP-GCP=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-Amazon=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-Google=1"
+#ADOC_ATTRIBUTES+=" --attribute CSP-Microsoft=1"
 
 ## ----------------- (Partner)
 

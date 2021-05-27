@@ -1,4 +1,5 @@
 :vn_HPE_ComposerTech: OneView
+:vn_HPE_OVTerraformURL: https://github.com/HewlettPackard/terraform-provider-oneview
 :vn_HPE_BMC: iLO
 
 :familyHPE-S: Synergy
