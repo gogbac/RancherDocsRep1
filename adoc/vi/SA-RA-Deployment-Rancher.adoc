@@ -203,7 +203,7 @@ endif::FCTR+Integrity[]
 
 endif::RC,RI[]
 
-Now other Kubernetes clusters can be deployed, imported and managed from this {pn_Rancher} instance.
+Now other Kubernetes clusters can be deployed, imported ( refer to section "Setting up Kubernetes Clusters in {portfolioName}" ) and managed ( refer to section "Cluster Administration" ) in the {pn_Rancher_DocURL}[product documentation].
 
 endif::focusRancher[]
 
