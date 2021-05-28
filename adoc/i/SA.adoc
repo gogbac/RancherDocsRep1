@@ -92,8 +92,8 @@ ifdef::focusRancher[]
 {pn_Rancher}. This can be done in a variety of solution stack, architectural scenarios as a fundamental component of a managing multiple Kubernetes ecosystems.
 endif::focusRancher[]
 ifdef::focusK3s[]
-{pn_KE1}.
-This can be done in a variety of scenarios to create an edge-oriented, lightweith Kubernetes cluster deployment.
+{pn_K3s}.
+This can be done in a variety of scenarios to create an edge-oriented, lightweight Kubernetes cluster deployment.
 endif::focusK3s[]
 ifdef::focusRKE1[]
 {pn_RKE1}.
@@ -107,7 +107,7 @@ endif::focusRKE2[]
 === Audience
 
 This document is intended for IT decision makers, architects, system administrators and technicians who are implementing a flexible, software-defined Kubernetes
-ifdef::iRancher[management]
+ifdef::focusRancher[management]
 platform. One should still be familiar with the traditional IT infrastructure pillars -- networking, computing and storage -- along with the local use cases for sizing, scaling and limitations within each pillars' environments.
 
 endif::RA,RC,RI,GS[]

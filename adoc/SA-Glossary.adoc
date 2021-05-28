@@ -62,7 +62,7 @@ ifdef::FCTR[]
 +
 ifdef::FCTR+Automation[]
 [[G_Automation,Automation]]Automation footnote:Automation[link: https://en.wikipedia.org/wiki/Infrastructure_as_code[Infrastructure-as-Code]]::
-Infrastructure automation enables speed through faster execution when configuring your infrastructure and aims at providing visibility to help other teams across the enterprise work quickly and more efficiently. Automation removes the risk associated with human error, like manual misconfiguration; removing this can decrease downtime and increase reliability. These outcomes and attributes help the enterprise move towards implementing a culture of DevOps, the combined working of development and operations.
+Infrastructure automation enables speed through faster execution when configuring the infrastructure and aims at providing visibility to help other teams across the enterprise work quickly and more efficiently. Automation removes the risk associated with human error, like manual misconfiguration; removing this can decrease downtime and increase reliability. These outcomes and attributes help the enterprise move towards implementing a culture of DevOps, the combined working of development and operations.
 endif::FCTR+Automation[]
 +
 ifdef::FCTR+Availability[]

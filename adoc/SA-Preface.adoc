@@ -10,7 +10,7 @@ ifdef::focusRancher[]
 {pn_Rancher_ProductPage}[{pn_Rancher}], as a multi-cluster container management platform for organizations that deploy containerized workloads, orchestrated by Kubernetes. {pn_Rancher} makes it easy to deploy, manage, and use Kubernetes everywhere, meet IT requirements, and empower DevOps teams.
 endif::focusRancher[]
 ifdef::focusK3s[]
-pn_K3s_ProductPage}[{pn_K3s}] is an official CNCF sandbox project that delivers a lightweight yet powerful certified Kubernetes distribution designed for production workloads across resource-restrained, remote locations or on IoT devices.
+pn_K3s_ProductPage}[{pn_K3s}] is an official CNCF sandbox project that delivers a lightweight yet powerful certified Kubernetes distribution designed for production workloads across resource-restrained, remote locations or on Edge IoT devices.
 endif::focusK3s[]
 ifdef::focusRKE1[]
 {pn_RKE1_ProductPage}[{pn_RKE1}] ( {an_RKE1} ), a Kubernetes distribution that runs entirely within containers on bare-metal and virtualized nodes. {an_RKE1} solves the problem of installation complexity and the operation is both simplified and easily automated, while entirely accommodating the operating system and platform it is running on.
