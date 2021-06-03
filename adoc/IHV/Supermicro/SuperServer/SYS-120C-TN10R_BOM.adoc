@@ -1,1 +1,5 @@
-include::./Supermicro_vars.adoc[]
+[format="csv",options="header"]
+|===================================================
+System / Component,Part Number,Qty / Node,Part Description
+include::./SYS-120C-TN10R_BOM.csv[]
+|===================================================
