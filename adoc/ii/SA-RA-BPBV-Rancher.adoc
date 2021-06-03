@@ -61,7 +61,7 @@ By allowing operation teams to focus on infrastructure and developers to deploy 
 {pn_Rancher} is a fundamental part of the complete software stack for teams adopting containers. It provides DevOps teams with integrated tools for running containerized workloads while also addressing the operational and security challenges of managing multiple Kubernetes clusters across any targetedd infrastructure.
 
 Developers::
-{pn_Rancher} makes it easy for you to securely deploy containerized applications no matter where your Kubernetes infrastructure runs -– in the cloud, on-premises, or at the edge.  Using Helm or the App Catalog to deploy and manage applications across any or all these environments, ensuring multi-cluster consistency with a single deployment process. 
+{pn_Rancher} makes it easy to securely deploy containerized applications no matter where the Kubernetes infrastructure runs -– in the cloud, on-premises, or at the edge.  Using Helm or the App Catalog to deploy and manage applications across any or all these environments, ensuring multi-cluster consistency with a single deployment process. 
 
 IT Operators::
 {pn_Rancher} not only deploys and manages production-grade Kubernetes clusters from datacenter to cloud to the edge, it also unites them with centralized authentication, access control and observability. Further, it streamlines cluster deployment on bare metal or virtual machines and maintains them using defined security policies.

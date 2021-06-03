@@ -59,13 +59,13 @@ endif::DT[]
 
 ifdef::FCTR[]
 * Factor(s)
-+
 ifdef::FCTR+Automation[]
++
 [[G_Automation,Automation]]Automation footnote:Automation[link: https://en.wikipedia.org/wiki/Infrastructure_as_code[Infrastructure-as-Code]]::
 Infrastructure automation enables speed through faster execution when configuring the infrastructure and aims at providing visibility to help other teams across the enterprise work quickly and more efficiently. Automation removes the risk associated with human error, like manual misconfiguration; removing this can decrease downtime and increase reliability. These outcomes and attributes help the enterprise move towards implementing a culture of DevOps, the combined working of development and operations.
 endif::FCTR+Automation[]
-+
 ifdef::FCTR+Availability[]
++
 [[G_Availability,Availability]]Availability footnote:Availability[link: https://en.wikipedia.org/wiki/Minimum_viable_product[Availability]]::
 The probability that an item operates satisfactorily, without failures or downtimes, under stated conditions as a function of its reliability, redundancy and maintainability attributes. Some major objectives to achieve a desired service level objectives are:
 +
@@ -73,43 +73,41 @@ The probability that an item operates satisfactorily, without failures or downti
 ** Correcting or coping with possible component failures via resiliency, automated failover and disaster-recovery processes
 ** Estimating and analyzing current conditions to prevent unexpected failures via predictive maintenance
 endif::FCTR+Availability[]
-+
 ifdef::FCTR+Integrity[]
++
 [[G_Integrity,Integrity]]Integrity footnote:Integrity[link: https://en.wikipedia.org/wiki/Data_integrity[Data Integrity]]::
 Integrity is the maintenance of, and the insurance of the accuracy and consistency of a specific element over its entire lifecycle. Both physical and logical aspects must be managed to ensure stability, performance, re-usability and maintainability.
 endif::FCTR+Integrity[]
-+
 ifdef::FCTR+Performance[]
++
 [[G_Performance,Performance]]Performance footnote:Performance[link: https://en.wikipedia.org/wiki/Performance_engineering[Performance Engineering]]::
 In the context of a system's expected life cycle, performance is an assessment of transactions, responsiveness and underlying stability of the provider technology while doing tuning and adjustments. Other risk factors and discerning potential impacts to surrounding use cases are also integral parts of the profile to address beyond service levels, capacity and problem managmement.
 endif::FCTR+Performance[]
-+
 ifdef::FCTR+Security[]
++
 [[G_Security,Security]]Security footnote:Security[link: https://en.wikipedia.org/wiki/Security[Security]]::
 Security is about ensuring freedom from or resilience against potential harm, including protection from destructive or hostile forces. To minimize risks, one mus manage governance to avoid tampering, maintain access controls to prevent unauthorized usage and integrate layers of defense, reporting and recovery tactics.
 endif::FCTR+Security[]
 
 endif::FCTR[]
 
-////
 ifdef::FLVR[]
-* Deployment Flavor
+* Deployment Flavor(s)
 +
 ifdef::FLVR+PoC[]
-[[G_PoC]]Proof-of-Concept footnote:Proof-of-Concept[link: https://en.wikipedia.org/wiki/Proof_of_concept[Proof of Concept]]::
+[[G_PoC,proof-of-concept]]Proof-of-Concept footnote:Proof-of-Concept[link: https://en.wikipedia.org/wiki/Proof_of_concept[Proof of Concept]]::
 A partial or nearly complete prototype constructed to demonstrate functionality and feasibility for verifying specific aspects or concepts under consideration.  This is often a starting point when evaluating a new, transitional technology. Sometimes it starts as a Minimum Viable Product ( MVP footnote:[link: https://en.wikipedia.org/wiki/Minimum_viable_product[Minimum Viable Product]] ) that has just enough features to satisfy an initial set of requests. After such insights and feedback are obtained and potentially addressed, redeployments may be utilized to iteratively branch into other realms or to incorporate other known working functionality.
 endif::FLVR+PoC[]
-// +
-// ifdef::FLVR+Production[]
-// [[G_Production]]Production::
-// FixMe - Nec ultrices dui sapien eget. Blandit turpis cursus in hac habitasse platea dictumst quisque. Sagittis vitae et leo duis ut diam quam. Et pharetra pharetra massa massa ultricies. Orci eu lobortis elementum nibh tellus molestie nunc. Et malesuada fames ac turpis egestas sed tempus. Dolor magna eget est lorem ipsum dolor sit amet. Posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Egestas purus viverra accumsan in nisl nisi. Consequat ac felis donec et odio pellentesque. Lorem mollis aliquam ut porttitor leo a. Amet aliquam id diam maecenas ultricies mi eget mauris pharetra. Bibendum at varius vel pharetra vel turpis nunc.
-// endif::FLVR+Production[]
-// +
-// ifdef::FLVR+Scaling[]
-// [[G_Scaling]]Scaling::
-// FixMe - Gravida cum sociis natoque penatibus et magnis. Amet cursus sit amet dictum sit amet justo donec enim. Tristique senectus et netus et malesuada. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget. Enim lobortis scelerisque fermentum dui faucibus. Est ullamcorper eget nulla facilisi etiam dignissim diam quis enim. Mauris a diam maecenas sed enim. Sed viverra tellus in hac. Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Vitae tempus quam pellentesque nec nam aliquam. At augue eget arcu dictum varius duis at consectetur lorem. Sed lectus vestibulum mattis ullamcorper velit sed. At auctor urna nunc id cursus metus. Adipiscing elit ut aliquam purus sit. Sed tempus urna et pharetra pharetra massa massa ultricies mi. Quis lectus nulla at volutpat diam ut venenatis tellus in.
-// endif::FLVR+Scaling[]
++
+ifdef::FLVR+Production[]
+[[G_Production,production]]Production::
+A deployed environment that target customers or users can interact with and rely upon to meet their needs, plus be operationally sustainable in terms of resource utilization and economic constraints.
+endif::FLVR+Production[]
++
+ifdef::FLVR+Scaling[]
+[[G_Scaling,scaling]]Scaling::
+The flexibility of a system environment to either vertically scale-up, horizontally scale-out or conversely scale-down by adding or subtracting resources as needed. Attributes like capacity and performance are often the primary requirements to address, while still maintaining functional consistency and reliability.
+endif::FLVR+Scaling[]
 
 endif::FLVR[]
-////
 

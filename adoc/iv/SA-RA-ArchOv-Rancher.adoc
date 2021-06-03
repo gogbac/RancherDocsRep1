@@ -1,5 +1,6 @@
 
 ifdef::iRancher[]
+
 The figure below illustrates the high-level architecture of the {pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
 
 image::ArchitectureOverview-{portfolioName}.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
@@ -24,18 +25,19 @@ Once setup, users can potentially interact with {pn_Rancher} through the web-bas
 * simply view clusters or workloads, or just benefit from what is running
 
 ifdef::RC,RI[]
-For the best performance and security, the recommended deployment of a dedicated Kubernetes cluster for the {pn_Rancher} management server. Running user workloads on this cluster is not advised. After deploying {pn_Rancher}, you can create or import clusters for running your workloads.
+For the best performance and security, the recommended deployment is a dedicated Kubernetes cluster for the {pn_Rancher} management server. Running user workloads on this cluster is not advised. After deploying {pn_Rancher}, one can then create or import clusters for orchestrated workloads.
 endif::RC,RI[]
 
 ifdef::GS[]
-To aid in planning, training or assessing functionality like in a proof-of-concept deployment, {pn_Rancher} can be installed on a single node as described later in this document.
+
+IMPORTANT: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this {pn_Rancher} cluster or nodes is not advised.
+
+To aid in planning, training or assessing functionality like in a <<G_PoC>> deployment, {pn_Rancher} can be installed on a single node running a Linux operating system as described later in this document.
 
 ifdef::BP[]
-TIP: The {pn_Rancher} backup operator can then be used to {pn_Rancher_MigrateURL}[migrate] from the single node to an installation on a multi-node, high-availability Kubernetes cluster.
+TIP: To improve <<G_Availability>>, the {pn_Rancher} backup operator can then be used to {pn_Rancher_MigrateURL}[migrate] from the single node to a <<G_Production>> installation on a multi-node, high-availability Kubernetes cluster.
 endif::BP[]
 endif::GS[]
-
-NOTE: Regardless of the deployment target, {pn_Rancher} should always run on a node or cluster that is separate from the downstream clusters that it manages. Running user workloads on this {pn_Rancher} cluster or nodes is not advised.
 
 endif::iRancher[]
 

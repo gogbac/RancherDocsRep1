@@ -1,7 +1,7 @@
 
 == Architectural overview
 
-This section outlines the overall elements of the
+This section outlines the core elements of the
 ifdef::focusRancher[]
 {pn_Rancher}
 endif::focusRancher[]
@@ -28,7 +28,7 @@ ifdef::focusRancher[]
 include::./SA-RA-ArchOv-{an_Rancher}.adoc[]
 endif::focusRancher[]
 ifdef::focusK3s[]
-include::./SA-RA-ArchOv-{an_K3s}adoc[]
+include::./SA-RA-ArchOv-{an_K3s}.adoc[]
 endif::focusK3s[]
 ifdef::focusRKE1[]
 include::./SA-RA-ArchOv-{an_RKE1}1.adoc[]

@@ -6,7 +6,7 @@ include::./SA-RA-CompMod-{an_Rancher}.adoc[]
 endif::focusRancher[]
 
 ifdef::focusK3s[]
-include::./SA-RA-CompMod-{an_K3s}adoc[]
+include::./SA-RA-CompMod-{an_K3s}.adoc[]
 endif::focusK3s[]
 
 ifdef::focusRKE1[]

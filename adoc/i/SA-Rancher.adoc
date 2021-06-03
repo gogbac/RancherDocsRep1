@@ -3,10 +3,16 @@ While any developer or organization may simply start with a single, Kubernetes-b
 
 This is where {pn_Rancher} leads the industry, being able to manage access, usage, infrastructure and applications across clusters, that are Cloud Native Computing Foundation ( CNCF footnote:[https://www.cncf.io/] ) conformant footnote:[https://www.cncf.io/certification/software-conformance], anywhere across edge, on-premise data centers, or cloud service providers. {pn_Rancher} optimizes creating and managing Kubernetes clusters like:
 
-* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
-// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] ) and
+ifdef::iK3s[]
 * Lightweight edge-centric {pn_K3s_ProductPage}[{pn_K3s}]
-* other Kubernetes clusters that are based upon CNCF certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
+endif::iK3s[]
+ifdef::iRKE1[]
+* {pn_RKE1} ( {pn_RKE1_ProductPage}[{an_RKE1}] )
+endif::iRKE1[]
+// ifdef::iRKE2[]
+// * {pn_RKE2} ( {pn_RKE2_ProductPage}[{an_RKE2}] )
+// endif::iRKE2[]
+* and other Kubernetes clusters that are based upon CNCF certified footnote:[https://www.cncf.io/certification/cka/] Kubernetes distributions or installers
 
 and deployed across various {pn_Rancher_SupURL}[supported] infrastructure elements.
 

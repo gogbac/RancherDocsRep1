@@ -16,12 +16,14 @@ Consistent security policy enforcement plus advanced user management on any Kube
 Access to Shared Tools & Services::
 A high level of reliability with easy, consistent access to a broad set of tools and services
 
+// include problem/value sections per focus
+
 ifdef::focusRancher[]
 include::./SA-RA-BPBV-{an_Rancher}.adoc[]
 endif::focusRancher[]
 
 ifdef::focusK3s[]
-include::./SA-RA-BPBV-{an_K3s}adoc[]
+include::./SA-RA-BPBV-{an_K3s}.adoc[]
 endif::focusK3s[]
 
 ifdef::focusRKE1[]
