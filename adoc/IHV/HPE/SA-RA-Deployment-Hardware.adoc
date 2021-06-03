@@ -1,7 +1,10 @@
 
 ifdef::IHV-HPE-Synergy[]
 
-The base, starting configuration can reside all within a single {vn_HPE} {familyHPE-S} Frame. Based upon the relatively small resource requirements for a {pn_Rancher} deployment, a viable approach is to deploy as a virtual machine (VM) on the target nodes, on top of an existing hypervisor, like KVM.
+The base, starting configuration can reside all within a single {vn_HPE} {familyHPE-S} Frame. Based upon the relatively small resource requirements for a
+ifdef::focusRancher[{pn_Rancher}]
+ifdef::focusK3s[{pn_K3s}]
+deployment, a viable approach is to deploy as a virtual machine (VM) on the target nodes, on top of an existing hypervisor, like KVM.
 
 //-
 Preparation(s)::

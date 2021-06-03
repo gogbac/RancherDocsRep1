@@ -19,6 +19,7 @@ endif::RI[]
 
 ifdef::RC[]
 ifdef::iIHV[]
+ifdef::IHV-Cisco[include::../IHV/Cisco/SA-RA-Deployment-Hardware.adoc[]]
 ifdef::IHV-HPE[]
 ifdef::IHV-HPE-Synergy[include::../IHV/HPE/SA-RA-Deployment-Hardware.adoc[]]
 endif::IHV-HPE[]

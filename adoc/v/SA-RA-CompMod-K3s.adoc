@@ -76,6 +76,7 @@ endif::iIHV[]
 
 ifdef::RC[]
 ifdef::iIHV[]
+ifdef::IHV-Cisco[include::../IHV/Cisco/SA-RA-CompMod.adoc[]]
 ifdef::IHV-HPE[include::../IHV/HPE/SA-RA-CompMod.adoc[]]
 ifdef::IHV-Supermicro[include::../IHV/Supermicro/SuperServer/SA-RA-CompMod.adoc[]]
 endif::iIHV[]

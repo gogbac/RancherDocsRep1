@@ -28,3 +28,25 @@ endif::BP+iRancher[]
 ifdef::BP+iLonghorn[]
 TIP: To address localized storage needs, {pn_K3s} can leverage {pn_Longhorn}, as a storage class providing persistent, block storage access for containerized workload, which is very relevant for edge scenarios.
 endif::BP+iLonghorn[]
+
+ifdef::RC[]
+With this increased consistency of the managed Kubernetes infrastructure clusters, organizations benefit from an even higher level of the Cloud Native Computing model where each layer only relies upon the API and version of the adjacent layer. For example:
+
+ifdef::iISV[]
+Workloads::
+Each managed cluster has defined access control and a designated Kubernetes version, so deployment containerized services can easily be scaled to other compatible clusters
+endif::iISV[]
+
+ifdef::iCSP,iIHV[]
+ifdef::iIHV[]
+ifdef::IHV-Cisco[include::../IHV/Cisco/SA-RA-BPBV.adoc[]]
+ifdef::IHV-HPE[include::../IHV/HPE/SA-RA-BPBV.adoc[]]
+ifdef::IHV-Supermicro[include::../IHV/Supermicro/SuperServer/SA-RA-BPBV.adoc[]]
+endif::iIHV[]
+//ifdef::iCSP[]
+//FixMe
+//endif::iCSP[]
+endif::iCSP,iIHV[]
+
+endif::RC[]
+
