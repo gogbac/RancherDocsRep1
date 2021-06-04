@@ -36,7 +36,7 @@ ifdef::IHV-HPE[{vn_HPE_homePage}[{vn_HPE}] (R)]
 ifdef::IHV-HPI[{vn_HPI_homePage}[{vn_HPI}] (R)]
 ifdef::IHV-IBM[{vn_IBM_homePage}[{vn_IBM}] (R)]
 ifdef::IHV-Lenovo[{vn_Lenovo_homePage}[{vn_Lenovo}] (R)]
-ifdef::IHV-Supermicro[{vn_SMCi_homePage}[{vn_SMCi}] (R)]
+ifdef::IHV-Supermicro-SuperServer[{vn_SMCi_homePage}[{vn_SMCi}] (R)]
 , as the platform for physical, baremetal, hypervisors and virtual machines
 endif::iIHV[]
 ifdef::iCSP[]
