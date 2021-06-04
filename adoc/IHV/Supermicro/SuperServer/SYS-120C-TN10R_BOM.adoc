@@ -1,5 +1,11 @@
-[format="csv",options="header"]
-|===================================================
-System / Component,Part Number,Qty / Node,Part Description
-include::./SYS-120C-TN10R_BOM.csv[]
-|===================================================
+|{pn_K3s} Server, {pn_Rancher} MCM cluster
+|3
+|FixMe
+|SYS-120C-TN10R
+|Configuration:
+* CPU,P4X-ICX6330-SRKHM,2,ICX 6330 2P 28C/56T 2.0G 42M 11.2GT 205W 4189 D2
+* Memory,MEM-DR416L-HL04-ER29,16,16GB DDR4-2933 2Rx8 ECC REG DIMM
+* NVMe M.2(OS),HDS-SMP-HFS7T6GETFEID430,2,"KXG60ZNV1T02 PCIe¨ Gen3 x4, NVMeª 1.3a  1TB"
+* AOC,AOC-S100G-b2C,1,"Two QSFP28 100Gbps Ethernet port PCIe 4.0 x 16 host interface,RoHS"
+* AOC,AOC-ATG-i2TM,1,"AIOM 2-port 10GBase-T, Intel X550,RoHS"
+* Software License,SFT-DCMS-SINGLE,1,"Supermicro System Managment Software Suite node license, HF, RoHS/REACH, PBF"
