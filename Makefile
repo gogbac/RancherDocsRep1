@@ -64,7 +64,7 @@ for focus in Rancher K3s
 
 	# Reference Configuration
 	  #for partner in Ampere Cisco Dell Fujitsu HPE HPI IBM Lenovo Supermicro-SuperServer
-	  for partner in Cisco HPE
+	  for partner in Cisco HPE Supermicro
 	    do
 
 	  	template=RC
@@ -72,9 +72,9 @@ for focus in Rancher K3s
 		case ${partner} in
 
 			Cisco) ARG="C240-SD" ;;
-			HPE) ARG="Synergy" ;;
+			HPE) ARG="ProLiant Synergy" ;;
 			#HPE) ARG="Apollo Edgeline Proliant Synergy" ;;
-			#Supermicro) ARG="SuperServer" ;;
+			Supermicro) ARG="SuperServer" ;;
 			*) break ;;
 		esac
 		for adocARG in ${ARG}

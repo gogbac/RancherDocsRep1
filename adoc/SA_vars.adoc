@@ -119,7 +119,7 @@ ifdef::IHV-HPE[:subtitle: {subtitle} {vn_HPE}]
 ifdef::IHV-HPI[:subtitle: {subtitle} {vn_HPI}]
 ifdef::IHV-IBM[:subtitle: {subtitle} {vn_IBM}]
 ifdef::IHV-Lenovo[:subtitle: {subtitle} {vn_Lenovo}]
-ifdef::IHV-Supermicro-SuperServer[:subtitle: {subtitle} {vn_SMCi}]
+ifdef::IHV-Supermicro[:subtitle: {subtitle} {vn_SMCi}]
 endif::iIHV[]
 endif::RC[]
 

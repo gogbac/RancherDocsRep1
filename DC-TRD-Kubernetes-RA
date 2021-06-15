@@ -82,6 +82,7 @@ ADOC_ATTRIBUTES+=" --attribute GFDL=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-HPI=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-IBM=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Lenovo=1"
+#ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro=1"
 #ADOC_ATTRIBUTES+=" --attribute IHV-Supermicro-SuperServer=1"
 
 #ADOC_ATTRIBUTES+=" --attribute iCSP=1"
