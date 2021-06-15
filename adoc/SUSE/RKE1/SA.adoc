@@ -22,7 +22,7 @@ s represented in the following figure:
 
 image::{an_RKE1}-Overview.png[title="FixMe-Overview of {pn_RKE1}", scaledwidth=80%]
 
-{pn_RKE1} can run as a complete cluster on a single node or can be expanded into a multi-node cluster. Besides the core Kubernetes components, we also run
+{pn_RKE1} can run as a complete cluster on a single node or can be expanded into a multi-node cluster. Besides the core Kubernetes components, these are also included:
 
 * containerd,
 * Flannel,

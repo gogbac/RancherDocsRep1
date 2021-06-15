@@ -1,7 +1,10 @@
+:docinfo: shared
 
 include::./SA_vars.adoc[]
 
 = {title}
+// = {subtitle}
+// = {productname}
 ////
 {author}, {companyName} < {authorEMail} >
 ////
@@ -9,7 +12,7 @@ include::./SA_vars.adoc[]
 :doctype: book
 
 // Preface
-include::./SA-Preface.adoc[]
+// include::./SA-Preface.adoc[]
 
 // About
 // include::./SA-About.adoc[]

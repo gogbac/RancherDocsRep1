@@ -1,12 +1,12 @@
-# RancherDocsRep1
 
 Content:
-- Rancher (refer to [DC-TRD-RA-Rancher](./DC-TRD-RA-Rancher) for a general DAPS configuration template) (for SUSE Rancher, the multi-cluster management server)
-  - Getting Started [GS-Rancher_color_draft_en.pdf](./example/GS-Rancher_color_draft_en.pdf)
+- Rancher (refer to [DC-TRD-Kubernetes-RA](./DC-TRD-Kubernetes-RA) for a general DAPS configuration template) (for SUSE Rancher, K3s)
+  - see [examples](./examples) folder for various document types:
+  - Getting Started
     - simplified deployment for a PoC or just to try functionality
-  - Reference Implementation [RI-Rancher_color_draft_en.pdf](./example/RI-Rancher_color_draft_en.pdf)
+  - Reference Implementation
     - stacked deployment of SUSE components as a basis for production
-  - Reference Configuration [RC-Rancher_color_draft_en.pdf](./example/RC-Rancher_color_draft_en.pdf)
+  - Reference Configuration
     - incorporate partner offerings with SUSE components for a more complete solution
 - Next Up - RKE (WIP)
 
@@ -14,7 +14,7 @@ Output Creation:
 
 - Assumptions
   - review tutorial - https://github.com/bwgartner/AsciiDoc-to-DAPS
-  - install DocBook Authoring and Publishing Suite DAPS ( https://github.com/openSUSE/daps )
+  - install DocBook Authoring and Publishing Suite DAPS ( https://github.com/openSUSE/daps ) ... suggest installation of 3.1.x version or later
   - the overall template is based upon the RA flavor of Solution Architecture template ( https://github.com/bwgartner/SA-template )
 - Process
   - git clone this repo (and either regularly fetch/pull to stay current)
@@ -24,11 +24,11 @@ Output Creation:
     - Getting Started (GS)
     - Reference Implmentation (RI)
     - Reference Configuration (RC) ... citing this example for the remainder
-  - copy the DAPS configuration file to an appropriate name
-    - e.g. DC-TRD-RA-Rancher to DC-TRD-RC-Rancher
-      - to create an output format that has the associated naming (e.g. TRD-RC-Rancher)
-  - edit the new, respective DAPS configuration file
-    - uncomment the desired document type
+  - utilize the [Makefile](./Makefile) to generate all of the document types for all the product focus areas, with multiple layered components for whatever output format you desire:
+    - ./Makefile <output-format>
+      - where <output-format> = epub, html, html --single, pdf
+      - then look in the generated ./build/ directory
+    - note the key attributes (as shown as command like arguments in the [Makefile](./Makefile) that should be enabled for a document build (and referring to the [DC-TRD-Kubernetes-RA](./DC-TRD-Kubernetes-RA) as that catalog of all attributes)
       - ADOC_ATTRIBUTES+=" --attribute RC=1"
       - adjust/enable the focus and layer attributes
         - focusPROD : to represent the top level SUSE product
@@ -38,13 +38,6 @@ Output Creation:
         - ADOC_ATTRIBUTES+=" --attribute iIHV=1"
         - ADOC_ATTRIBUTES+=" --attribute IHV-HPE=1"
         - ADOC_ATTRIBUTES+=" --attribute IHV-HPE-Synergy=1"
-  - generate the desired output format (assume you already have 
-    - NOTE: address any syntax issues until a successful build happens
-    - daps --force -d DC-TRD-RC-Rancher epub
-    - daps --force -d DC-TRD-RC-Rancher html
-    - daps --force -d DC-TRD-RC-Rancher html --single
-    - daps --force -d DC-TRD-RC-Rancher pdf
-    - look in the generated ./build/ directory mentioned in the CLI standard output
 
 Then you can progressively edit the various snippets throughout the structure that are associated ith the attributes you enable and name/value pairs and regenerate the output formats.
 	
