@@ -57,7 +57,9 @@ EOF
 +
 ----
 kubectl create namespace cert-manager
+
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/${CERT_MANAGER_VERSION}/cert-manager.crds.yaml 
+
 sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 ----
 +
@@ -65,6 +67,7 @@ sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
+ifdef::layerK3s[layer]
 . Create the Helm Chart custom resource for {pn_Rancher}:
 * Set the following variable to the hostname of the {pn_Rancher} server instance
 +
@@ -105,6 +108,15 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
+endif::layerK3s[layer]
+
+ifdef::layerRKE1[layer]
+
+NOTE: Installing Rancher requires a client system (i.e. admin workstation) that has been configured with Helm version 3 and kubectl, as well as access to the kubeconfig file for the RKE cluster. 
+
+
+endif::layerRKE1[layer]
+
 . (Optional) Create an SSH tunnel to access {pn_Rancher}: 
 +
 NOTE: This optional step is useful in cases where NAT routers and/or firewalls prevent the client web browser from reaching the exposed {pn_Rancher} server IP address and/or port. This step requires that a Linux host is accessible through SSH from the client system and that the Linux host can reach the exposed {pn_Rancher} service. The {pn_Rancher} hostname should be resolvable to the appropriate IP address by the local workstation.
@@ -133,7 +145,7 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** In instances where a load balancer is used to access a {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes will automatically make {pn_Rancher} highly available.
+** In instances where a load balancer is used to access a {pn_K3s} cluster, deploying two additional {pn_K3s} cluster nodes, for a total of three, will automatically make {pn_Rancher} highly available.
 endif::FCTR+Availability[]
 ifdef::FCTR+Security[]
 * <<G_Security>>

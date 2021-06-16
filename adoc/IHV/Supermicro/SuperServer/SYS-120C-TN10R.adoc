@@ -1,4 +1,3 @@
-include::./Supermicro_vars.adoc[]
 
 ==== {modelSupermicro-server-node} Rack Servers
 
