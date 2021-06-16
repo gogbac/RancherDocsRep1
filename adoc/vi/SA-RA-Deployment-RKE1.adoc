@@ -1,47 +1,73 @@
+include::../SUSE/RKE1/SA_vars.adoc
 
-ifdef::focusK3s,layerK3s[]
-=== {pn_K3s}
+
+ifdef::focusRKE1,layerRKE1[]
+=== {pn_RKE1}
 
 // leverage multiple prep sections
 ifdef::layerSLEMicro,layerSLES[include::./SA-RA-Deployment-OS-prep.adoc[]]
 ifdef::focusRancher[]
 +
-. Identify the appropriate, supported version of the {pn_K3s} binary (e.g. vX.YY.ZZ+k3s1), by reviewing the "{portfolioName} Support Matrix" on the {pn_Rancher_SupURL}[Support and Maintenance Terms of Service] web page. 
+. Identify the appropriate, supported version of the {pn_RKE1} binary (e.g. vX.Y.Z), by reviewing the "{portfolioName} Support Matrix" on the {pn_Rancher_SupURL}[Support and Maintenance Terms of Service] web page. 
 endif::focusRancher[]
 ifndef::focusRancher[]
 +
-. Identify the appropriate, desired version of the {pn_K3s} binary (e.g. vX.YY.ZZ+k3s1), by reviewing the "Releases" on the {pn_K3s_Download}[Download] web page. 
+. Identify the appropriate, desired version of the {pn_RKE1} binary (e.g. vX.Y.Z), by reviewing the "Releases" on the {pn_K3s_Download}[Download] web page. 
 endif::focusRancher[]
 
 //-
 Deployment Process::
-The primary steps for deploying this {pn_K3s} Kubernetes
-ifdef::focusK3s[instance]
-ifdef::layerK3s[layer]
+The primary steps for deploying this {pn_RKE1} Kubernetes
+ifdef::focusRKE1[instance]
+ifdef::layerRKE1[layer]
 are:
 // To meet the {pn_Rancher} prerequisites and requirements on supported Kubernetes instances,
-// ifdef::layerK3s[{pn_K3s_ProductPage}[{pn_K3s}]]
+// ifdef::layerRKE1[{pn_RKE1_ProductPage}[{pn_RKE1}]]
 // can be utilized, and as desired later scaled out to a production cluster.
 +
-. Set the following variable with the noted version of {pn_K3s}, as found during the preparation steps.
-+
+. Download the {pn_RKE1} binary according to the instructions on this webpage: https://rancher.com/docs/rke/latest/en/installation/. Continue following the directions on that website but stop before "Deploying Kubernetes with RKE".
+
+NOTE: When creating the cluster.yml file with the command `rke config`, configure one, three, or five nodes and give them the roles of "Control Plane", "Worker", and "etcd".
+
+. If a load balancer has been deployed for the {pn_RKE1} control-plane nodes, update the cluster.yml file (created with the command `rke config`) before deploying RKE to include the IP address or FQDN of the load balancer. The appropriate location is under authentication.sans. For example:
 ----
-K3s_VERSION=""
+authentication:
+  strategy: x509
+  sans: ["rancher.susealliances.com"]
 ----
-+
-. Install the version of {pn_K3s} with embedded Etcd enabled:
-+
+
+ifdef::layerSLEMicro[layer]
+
+. Update the cluster.yml file to work with the {pn_SLEMicro} read-only fileystem as shown below:
+
+* Update the network.options block:
 ----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
+network:
+  plugin: canal
+  options: {
+   canal_flex_volume_plugin_dir: /opt/kubernetes/kubelet-plugins/volume/exec/nodeagent~uds,
+   flannel_backend_type: vxlan 
+  }
 ----
+
+* Update the service.kube-controller.extra_args blocks:
+----
+kube-controller:
+    image: ""
+    extra_args: {flex-volume-plugin-dir: /opt/kubernetes/kubelet-plugins/volume/exec/}
+----
+
+endif::layerSLEMicro[layer]
+
+* Refer to https://rancher.com/docs/rke/latest/en/installation/ for any additional options needed for this cluster
+* When ready, run `rke up` to create the RKE cluster 
+* After cluster creation, export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file
 +
+
 ifdef::BP[]
 TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, Etcd is enabled instead of using the default SQLite datastore.
 +
 endif::BP[]
-** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
-*** The deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
-*** Then use Ctrl+c to exit the watch loop after all deployment pods are running
 
 ifdef::BP[]
 //-
@@ -49,51 +75,27 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices:
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** While a single {pn_K3s} node works perfectly fine, a full high-availability {pn_K3s} cluster is recommended for production workloads. The Etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_K3s} plane (aka master nodes). In this case, two additional control-plane nodes should be added; for a total of three.
+** While a single {pn_RKE1} node works perfectly fine, a full high-availability {pn_RKE1} cluster is recommended for production workloads. The Etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_RKE1} etcd nodes. In this case, two additional etcd nodes should be added; for a total of three.
 +
-. Deploy the same operating system on the new compute platform nodes, then log into the new nodes as root or as a user with sudo privileges.
-. Execute the following sets of commands on each of the remaining control-plane nodes:
-+
-----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
-K3s_VERSION=""          # Match the first of the first server
-----
-+
-----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https://${FIRST_SERVER_IP}:6443 K3S_TOKEN=${NODE_TOKEN} K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC='server' sh -
-----
 +
 ifdef::focusRancher[]
-By default, the {pn_K3s} server nodes are available to run non-control-plane workloads. In this case, the {pn_K3s} default behavior is perfect for the {pn_Rancher} server cluster as it doesn't require additional agent (aka worker) nodes to maintain a highly available {pn_Rancher} server application.
+In this configuration the {pn_RKE1} nodes are acting as control-plane, etcd, and worker nodes. This is perfect for the {pn_Rancher} server cluster as it does not require additional nodes to maintain a highly available {pn_Rancher} server application.
 +
 endif::focusRancher[]
-NOTE: This can be changed to the normal Kubernetes default by adding a taint to each server node. See the official Kubernetes documentation for more information on how to do that.
 +
-. (Optional) In cases where agent nodes are desired, execute the following sets of commands on each of the agent nodes to add it to the {pn_K3s} cluster:
-+
-----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
-K3s_VERSION=""          # Match the first of the first server
-----
-+
-----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https://${FIRST_SERVER_IP}:6443 K3S_TOKEN=${NODE_TOKEN} K3S_KUBECONFIG_MODE="644" sh -
-----
 endif::FCTR+Availability[]
 endif::BP[]
 
 // endif::iRancher[]
 
-ifdef::focusK3s[]
+ifdef::focusRKE1[]
 // Next Steps::
-After this successful deployment of the {pn_K3s} solution, review the {pn_K3s_DocURL}[product documentation] for details on how to directly utilize this Kubernetes cluster. Furthermore, by reviewing the {pn_Rancher} {pn_Rancher_DocURL}[product documentation] this solution can also be:
+After this successful deployment of the {pn_RKE1} solution, review the {pn_RKE1_DocURL}[product documentation] for details on how to directly utilize this Kubernetes cluster. Furthermore, by reviewing the {pn_Rancher} {pn_Rancher_DocURL}[product documentation] this solution can also be:
 
 * imported ( refer to sub-section "Importing Existing Clusters" ), then
 * managed ( refer to sub-section "Cluster Administration" ) and
 * accessed ( refer to sub-section "Cluster Access" ) to address orchestration of workloads, maintaining security and many more functions are readily available.
-endif::focusK3s[]
+endif::focusRKE1[]
 
 endif::focusK3s,layerK3s[]
 

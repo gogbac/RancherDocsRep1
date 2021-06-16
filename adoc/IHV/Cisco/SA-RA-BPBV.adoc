@@ -1,8 +1,6 @@
 
 include::./SA_vars.adoc[]
 
-ifdef::IHV-Cisco-C240-SD[include::./C240-SD_vars.adoc[]]
-
 Compute Platform::
 Utilizing the above software application and technology solutions with the server platforms offered by {vn_Cisco_homePage}[{vn_Cisco}] {pn_CiscoUCS} ( {vn_CiscoUCS_homePage}[{an_CiscoUCS}] ) brings increased productivity, reduced total cost of ownership, and scalability into your computing realm. {an_Cisco} {an_CiscoUCS} is based upon industry-standard, x86-architecture servers with {an_Cisco} innovations and delivers a better balance of CPU, memory, and I/O resources. This balance brings processor power to life with more than 150 world-record-setting benchmark results that demonstrate leadership in application areas including virtualization, cloud computing, enterprise applications, database management systems, enterprise middleware, high-performance computing, and basic CPU integer and floating-point performance metrics.
 

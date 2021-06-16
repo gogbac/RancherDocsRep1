@@ -51,7 +51,7 @@ ifdef::iRKE1[]
 
 === Business value
 
-With {pn_RKE1}, the operation of Kubernetes is easily automated and entirely independent of the operating system and platform you’re running. Using a supported version of the container runtime engine, you can deploy and run Kubernetes with {pn_RKE1}. It builds a cluster from a single command in just a few minutes, and its declarative configuration makes Kubernetes upgrades atomic and safe.
+With {pn_RKE1}, the operation of Kubernetes is easily automated and entirely independent of the operating system and platform running. Using a supported version of the container runtime engine, one can deploy and run Kubernetes with {pn_RKE1}. It builds a cluster from a single command in just a few minutes, and its declarative configuration makes Kubernetes upgrades atomic and safe.
 
 
 By allowing operation teams to focus on infrastructure and developers to deploy code the way they want too, {companyName} and the {portfolioName} offerings helps bring products to market faster and accelerate an organization’s digital transformation. 
@@ -59,7 +59,7 @@ By allowing operation teams to focus on infrastructure and developers to deploy 
 {pn_Rancher} is a fundamental part of the complete software stack for teams adopting containers. It provides DevOps teams with integrated tools for running containerized workloads while also addressing the operational and security challenges of managing multiple Kubernetes clusters across any targetedd infrastructure.
 
 Developers::
-{pn_Rancher} makes it easy for you to securely deploy containerized applications no matter where your Kubernetes infrastructure runs -– in the cloud, on-premises, or at the edge.  Using Helm or the App Catalog to deploy and manage applications across any or all these environments, ensuring multi-cluster consistency with a single deployment process. 
+{pn_Rancher} makes it easy to securely deploy containerized applications no matter where the Kubernetes infrastructure runs -– in the cloud, on-premises, or at the edge.  Using Helm or the App Catalog to deploy and manage applications across any or all these environments, ensuring multi-cluster consistency with a single deployment process. 
 
 IT Operators::
 {pn_Rancher} not only deploys and manages production-grade Kubernetes clusters from datacenter to cloud to the edge, it also unites them with centralized authentication, access control and observability. Further, it streamlines cluster deployment on bare metal or virtual machines and maintains them using defined security policies.

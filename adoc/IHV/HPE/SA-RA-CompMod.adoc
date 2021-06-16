@@ -33,7 +33,6 @@ NOTE: {an_HPE} https://techlibrary.hpe.com/us/en/enterprise/servers/supportmatri
 
 include::../../{companyName}/YES.adoc[]
 
-
 .{vn_HPE} Platform Matrix for Deployment Types
 [width="80%",valign="middle",halign="center",options="header"]
 |===
@@ -61,10 +60,12 @@ ifdef::PerfOpt[|]
 endif::IHV-HPE-Edgeline[]
 
 ifdef::IHV-HPE-ProLiant[]
-| ProLiant 
-ifdef::CapOpt[|*_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
-ifdef::Balance[|*_(S) =_*  {modelHPE-DL360},{modelHPE-DL325} *_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
-ifdef::PerfOpt[|*_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
+| ProLiant |
+// ifdef::CapOpt[|*_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
+// ifdef::Balance[|*_(S) =_*  {modelHPE-DL360},{modelHPE-DL325} *_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
+//  ifdef::PerfOpt[|*_(M) =_* {modelHPE-DL380},{modelHPE-DL385}]
+{modelHPE-DL380},{modelHPE-DL380}, {modelHPE-DL360},{modelHPE-DL360} |
+{modelHPE-DL380},{modelHPE-DL380}, {modelHPE-DL360},{modelHPE-DL360} |
 endif::IHV-HPE-ProLiant[]
 
 ifdef::IHV-HPE-Synergy[]
