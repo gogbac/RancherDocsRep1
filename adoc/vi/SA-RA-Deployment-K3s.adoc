@@ -41,7 +41,7 @@ TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node
 endif::BP[]
 ** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
 *** The deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
-*** Then use Ctrl+c to exit the watch loop after all deployment pods are running
+*** Use Ctrl+c to exit the watch loop after all deployment pods are running
 
 ifdef::BP[]
 //-

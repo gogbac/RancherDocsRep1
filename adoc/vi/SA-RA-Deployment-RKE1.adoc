@@ -17,6 +17,9 @@ endif::focusRancher[]
 
 //-
 Deployment Process::
+
+NOTE: Installing {pn_RKE1} requires a client system (i.e. admin workstation) that has been configured with kubectl.
+
 The primary steps for deploying this {pn_RKE1} Kubernetes
 ifdef::focusRKE1[instance]
 ifdef::layerRKE1[layer]
@@ -61,7 +64,13 @@ endif::layerSLEMicro[layer]
 
 * Refer to https://rancher.com/docs/rke/latest/en/installation/ for any additional options needed for this cluster
 * When ready, run `rke up` to create the RKE cluster 
-* After cluster creation, export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file
+
+* After the `rke up` command completes the RKE cluster will continue to create Kubernetes as part of the installation process.
+* Monitor the progress of the installation:
+** Export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file. I.e. `export KUBECONFIG=~/rke-cluster/kube_config_cluster.yml`
+** Run the command: `watch -c "kubectl get deployments -A"`
+*** The cluster deployment is complete when elements of all the deployments show at least "1" as "AVAILABLE"
+*** Use Ctrl+c to exit the watch loop after all deployment pods are running
 +
 
 ifdef::BP[]
