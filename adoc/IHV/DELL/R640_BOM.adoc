@@ -1,0 +1,10 @@
+|Compute Platform
+|1-3
+|
+|
+|Configuration
+
+* CPU Cores: 2 x Intel(R) Xeon(R) Gold 6248 CPU @ 2.50 GHz
+* Memory RAM: 24 x 32 GB
+* NIC: 2 x Mellanox ConnectX-4 LX 25GbE SFP Adapter, 1 x Intel(R) Ethernet 10G 4P X710/I350 rNDC
+* Storage: BOSS S1 Controller 2 x 240 GB SATA SSD, Dell HBA730 controller 2 x 900 GB SAS SSD
