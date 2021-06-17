@@ -1,3 +1,4 @@
+include::../SUSE/Rancher/SA_vars.adoc
 
 ifdef::focusRancher[]
 
@@ -67,7 +68,7 @@ sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
-ifdef::layerK3s[]
+ifdef::layerK3s[layer]
 . Create the Helm Chart custom resource for {pn_Rancher}:
 * Set the following variable to the hostname of the {pn_Rancher} server instance
 +
@@ -108,14 +109,23 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
-endif::layerK3s[]
+endif::layerK3s[layer]
 
-ifdef::layerRKE1[]
+ifdef::layerRKE1[layer]
 
 NOTE: Installing Rancher requires a client system (i.e. admin workstation) that has been configured with Helm version 3 and kubectl, as well as access to the kubeconfig file for the RKE cluster. 
 
+.Perform the following steps to install {pn_Rancher}:
+* Export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file. I.e. `export KUBECONFIG=~/rke-cluster/kube_config_cluster.yml`
+* Add the {pn_Rancher} Helm repository: `helm repo add rancher-stable https://releases.rancher.com/server-charts/stable`
+* Update the local Helm chart repository information: `helm repo update` 
+* Create the cattle-system namespace: `kubectl create namespace cattle-system`
 
-endif::layerRKE1[]
+NOTE: The easiest way of installing {pn_Rancher} is with self-signed certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#6-install-rancher-with-helm-and-your-chosen-certificate-option for other options.
+
+* Install Rancher  
+
+endif::layerRKE1[layer]
 
 . (Optional) Create an SSH tunnel to access {pn_Rancher}: 
 +
