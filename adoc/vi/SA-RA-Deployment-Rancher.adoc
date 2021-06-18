@@ -68,7 +68,7 @@ sudo mv cert-manager-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The deployment is complete when all deployments (cert-manager, cert-manager-cainjector, cert-manager-webhook) show at least "1" as "AVAILABLE"
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
-ifdef::layerK3s[layer]
+ifdef::layerK3s[]
 . Create the Helm Chart custom resource for {pn_Rancher}:
 * Set the following variable to the hostname of the {pn_Rancher} server instance
 +
@@ -109,9 +109,9 @@ sudo mv suse-rancher-helm-crd.yaml /var/lib/rancher/k3s/server/manifests/
 *** The installation is complete when all pods have a status of "Completed" or a status of "Running" with the number of "READY" pods being "1/1", "2/2", etc.
 *** Use Ctrl+c to exit the watch loop after all pods are running
 +
-endif::layerK3s[layer]
+endif::layerK3s[]
 
-ifdef::layerRKE1[layer]
+ifdef::layerRKE1[]
 
 NOTE: Installing Rancher requires a client system (i.e. admin workstation) that has been configured with Helm version 3 and kubectl, as well as access to the kubeconfig file for the RKE cluster. 
 
@@ -125,7 +125,7 @@ NOTE: The easiest way of installing {pn_Rancher} is with self-signed certificate
 
 * Install Rancher  
 
-endif::layerRKE1[layer]
+endif::layerRKE1[]
 
 . (Optional) Create an SSH tunnel to access {pn_Rancher}: 
 +
