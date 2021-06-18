@@ -22,7 +22,7 @@ NOTE: Installing {pn_RKE1} requires a client system (i.e. admin workstation) tha
 
 The primary steps for deploying this {pn_RKE1} Kubernetes
 ifdef::focusRKE1[instance]
-ifdef::layerRKE1[layer]
+ifdef::layerRKE1[]
 are:
 // To meet the {pn_Rancher} prerequisites and requirements on supported Kubernetes instances,
 // ifdef::layerRKE1[{pn_RKE1_ProductPage}[{pn_RKE1}]]
@@ -39,7 +39,7 @@ authentication:
   sans: ["rancher.susealliances.com"]
 ----
 
-ifdef::layerSLEMicro[layer]
+ifdef::layerSLEMicro[]
 
 . Update the cluster.yml file to work with the {pn_SLEMicro} read-only fileystem as shown below:
 
@@ -60,7 +60,7 @@ kube-controller:
     extra_args: {flex-volume-plugin-dir: /opt/kubernetes/kubelet-plugins/volume/exec/}
 ----
 
-endif::layerSLEMicro[layer]
+endif::layerSLEMicro[]
 
 * Refer to https://rancher.com/docs/rke/latest/en/installation/ for any additional options needed for this cluster
 * When ready, run `rke up` to create the RKE cluster 
