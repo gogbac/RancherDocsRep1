@@ -21,8 +21,8 @@ Deployment Process::
 NOTE: Installing {pn_RKE1} requires a client system (i.e. admin workstation) that has been configured with kubectl.
 
 The primary steps for deploying this {pn_RKE1} Kubernetes
-ifdef::focusRKE1[instance]
-ifdef::layerRKE1[]
+// ifdef::focusRKE1[]
+// ifdef::layerRKE1[]
 are:
 // To meet the {pn_Rancher} prerequisites and requirements on supported Kubernetes instances,
 // ifdef::layerRKE1[{pn_RKE1_ProductPage}[{pn_RKE1}]]
@@ -106,5 +106,5 @@ After this successful deployment of the {pn_RKE1} solution, review the {pn_RKE1_
 * accessed ( refer to sub-section "Cluster Access" ) to address orchestration of workloads, maintaining security and many more functions are readily available.
 endif::focusRKE1[]
 
-endif::focusK3s,layerK3s[]
+endif::focusRKE1,layerRKE1[]
 

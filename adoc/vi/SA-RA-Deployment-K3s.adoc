@@ -16,8 +16,8 @@ endif::focusRancher[]
 //-
 Deployment Process::
 The primary steps for deploying this {pn_K3s} Kubernetes
-ifdef::focusK3s[instance]
-ifdef::layerK3s[]
+// ifdef::focusK3s[]
+// ifdef::layerK3s[]
 are:
 // To meet the {pn_Rancher} prerequisites and requirements on supported Kubernetes instances,
 // ifdef::layerK3s[{pn_K3s_ProductPage}[{pn_K3s}]]
