@@ -123,7 +123,50 @@ NOTE: Installing Rancher requires a client system (i.e. admin workstation) that 
 
 NOTE: The easiest way of installing {pn_Rancher} is with self-signed certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#6-install-rancher-with-helm-and-your-chosen-certificate-option for other options.
 
-* Install Rancher  
+. Create the Helm Chart custom resource for cert-manager:
+
+* Install the cert-manager custom resource definitions:
+----
+kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.crds.yaml
+----
+
+.Install cert-manager:
+
+* Set the following variable with the desired version of cert-manager
++
+----
+CERT_MANAGER_VERSION=""
+----
++
+NOTE: At this time, the most current, supported version of cert-manager is v1.0.4
++
+// ** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
+----
+helm repo add jetstack https://charts.jetstack.io
+
+helm repo update
+
+kubectl create namespace cert-manager
+
+helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version ${CERT_MANAGER_VERSION}
+----
+
+.Install {pn_Rancher}  
+
+* Set the following variable to the FQDN of the {pn_Rancher} server instance, or load balancer that is serving {pn_Rancher}
+
+----
+HOSTNAME=""
+----
+
+* Install the {pn_Rancher} Helm chart:
+
+----
+helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=${HOSTNAME}
+----
 
 endif::layerRKE1[]
 
