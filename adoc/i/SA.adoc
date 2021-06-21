@@ -30,7 +30,7 @@ ifdef::iIHV[]
 *** Independent Hardware Vendors ( IHV ), like
 ifdef::IHV-Ampere[{vn_Ampere_homePage}[{vn_Ampere}] (R)]
 ifdef::IHV-Cisco[{vn_Cisco_homePage}[{vn_Cisco}] (R)]
-ifdef::IHV-Dell[{vn_Dell_homePage}[{vn_Dell}] (R)]
+ifdef::IHV-DELL[{vn_Dell_homePage}[{vn_Dell}] (R)]
 ifdef::IHV-Fujitsu[{vn_Fujitsu_homePage}[{vn_Fujitsu}] (R)]
 ifdef::IHV-HPE[{vn_HPE_homePage}[{vn_HPE}] (R)]
 ifdef::IHV-HPI[{vn_HPI_homePage}[{vn_HPI}] (R)]

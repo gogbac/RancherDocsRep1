@@ -8,8 +8,8 @@ DC=DC-TRD-Kubernetes-RA
 
 [ $# -gt 0 ]
 
-#for f in Rancher K3s RKE1
-for focus in Rancher K3s
+#for f in Rancher K3s RKE1 RKE2
+for focus in Rancher K3s RKE1
   do
 
     for layerOS in SLEMicro SLES
@@ -62,8 +62,9 @@ for focus in Rancher K3s
 			--name "${output}"
 	    done
 
+
 	# Reference Configuration
-	  #for partner in Ampere Cisco Dell Fujitsu HPE HPI IBM Lenovo Supermicro-SuperServer
+	  #for partner in Ampere Cisco DELL Fujitsu HPE HPI IBM Lenovo Supermicro-SuperServer
 	  for partner in Cisco DELL HPE Supermicro
 	    do
 
