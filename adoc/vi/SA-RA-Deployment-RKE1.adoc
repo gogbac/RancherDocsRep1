@@ -74,10 +74,11 @@ kube-controller:
 
 endif::layerSLEMicro[]
 
-* Refer to https://rancher.com/docs/rke/latest/en/installation/ for any additional options needed for this cluster
+* Verify password-less SSH is available from the system with the `rke` utility to each of the cluster hosts, as the user specified in the cluster.yml file
+
 * When ready, run `rke up` to create the RKE cluster 
 
-* After the `rke up` command completes the RKE cluster will continue to create Kubernetes as part of the installation process.
+* After the `rke up` command completes, the RKE cluster will continue the Kubernetes installation process
 * Monitor the progress of the installation:
 ** Export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file. I.e. `export KUBECONFIG=~/rke-cluster/kube_config_cluster.yml`
 ** Run the command: `watch -c "kubectl get deployments -A"`
