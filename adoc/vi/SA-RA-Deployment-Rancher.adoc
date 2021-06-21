@@ -117,9 +117,6 @@ NOTE: Installing Rancher requires a client system (i.e. admin workstation) that 
 
 .Perform the following steps to install {pn_Rancher}:
 * Export the variable KUBECONFIG to the absolute pathname of the kube_config_cluster.yml file. I.e. `export KUBECONFIG=~/rke-cluster/kube_config_cluster.yml`
-* Add the {pn_Rancher} Helm repository: `helm repo add rancher-stable https://releases.rancher.com/server-charts/stable`
-* Update the local Helm chart repository information: `helm repo update` 
-* Create the cattle-system namespace: `kubectl create namespace cattle-system`
 
 NOTE: The easiest way of installing {pn_Rancher} is with self-signed certificates. See https://rancher.com/docs/rancher/v2.x/en/installation/install-rancher-on-k8s/#6-install-rancher-with-helm-and-your-chosen-certificate-option for other options.
 
@@ -127,6 +124,8 @@ NOTE: The easiest way of installing {pn_Rancher} is with self-signed certificate
 
 * Install the cert-manager custom resource definitions:
 ----
+kubectl create namespace cert-manager
+
 kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v1.0.4/cert-manager.crds.yaml
 ----
 
@@ -138,15 +137,13 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 CERT_MANAGER_VERSION=""
 ----
 +
-NOTE: At this time, the most current, supported version of cert-manager is v1.0.4
+NOTE: At the time of writing, the most current, supported version of cert-manager is v1.0.4
 +
 // ** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
 ----
 helm repo add jetstack https://charts.jetstack.io
 
 helm repo update
-
-kubectl create namespace cert-manager
 
 helm install \
   cert-manager jetstack/cert-manager \
@@ -163,6 +160,10 @@ HOSTNAME=""
 ----
 
 * Install the {pn_Rancher} Helm chart:
+
+* Add the {pn_Rancher} Helm repository: `helm repo add rancher-stable https://releases.rancher.com/server-charts/stable`
+* Update the local Helm chart repository information: `helm repo update` 
+* Create the cattle-system namespace: `kubectl create namespace cattle-system`
 
 ----
 helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=${HOSTNAME}
