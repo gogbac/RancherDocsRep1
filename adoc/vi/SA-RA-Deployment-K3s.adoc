@@ -15,7 +15,7 @@ endif::focusRancher[]
 
 //-
 Deployment Process::
-The primary steps for deploying this {pn_K3s} Kubernetes
+The primary steps for deploying this {pn_K3s} Kubernetes cluster
 // ifdef::focusK3s[]
 // ifdef::layerK3s[]
 are:
@@ -29,14 +29,14 @@ are:
 K3s_VERSION=""
 ----
 +
-. Install the version of {pn_K3s} with embedded Etcd enabled:
+. Install the version of {pn_K3s} with embedded etcd enabled:
 +
 ----
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
 ----
 +
 ifdef::BP[]
-TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, Etcd is enabled instead of using the default SQLite datastore.
+TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, etcd is enabled instead of using the default SQLite datastore.
 +
 endif::BP[]
 ** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
@@ -49,7 +49,7 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices:
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** While a single {pn_K3s} node works perfectly fine, a full high-availability {pn_K3s} cluster is recommended for production workloads. The Etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_K3s} plane (aka master nodes). In this case, two additional control-plane nodes should be added; for a total of three.
+** While a single {pn_K3s} node works perfectly fine, a full high-availability {pn_K3s} cluster is recommended for production workloads. The etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_K3s} plane (aka master nodes). In this case, two additional control-plane nodes should be added; for a total of three.
 +
 . Deploy the same operating system on the new compute platform nodes, then log into the new nodes as root or as a user with sudo privileges.
 . Execute the following sets of commands on each of the remaining control-plane nodes:

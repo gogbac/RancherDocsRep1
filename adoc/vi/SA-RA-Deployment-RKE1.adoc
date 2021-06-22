@@ -87,7 +87,7 @@ endif::layerSLEMicro[]
 +
 
 ifdef::BP[]
-TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, Etcd is enabled instead of using the default SQLite datastore.
+TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, etcd is enabled instead of using the default SQLite datastore.
 +
 endif::BP[]
 
@@ -97,7 +97,7 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices:
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** While a single {pn_RKE1} node works perfectly fine, a full high-availability {pn_RKE1} cluster is recommended for production workloads. The Etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_RKE1} etcd nodes. In this case, two additional etcd nodes should be added; for a total of three.
+** While a single {pn_RKE1} node works perfectly fine, a full high-availability {pn_RKE1} cluster is recommended for production workloads. The etcd key/value store (aka database) requires an odd number of nodes be allocated to the {pn_RKE1} etcd nodes. In this case, two additional etcd nodes should be added; for a total of three.
 +
 +
 ifdef::focusRancher[]
