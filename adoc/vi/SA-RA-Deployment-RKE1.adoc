@@ -1,4 +1,3 @@
-include::../SUSE/RKE1/SA_vars.adoc
 
 
 ifdef::focusRKE1,layerRKE1[]
@@ -38,13 +37,13 @@ NOTE: See https://rancher.com/docs/rke/latest/en/example-yamls/ and https://ranc
 *** Provide the path to that key for the option "Cluster Level SSH Private Key Path"
 ** The option "Number of Hosts" refers to the number of hosts to configure at this time 
 *** Additional hosts can be added very easily after {pn_RKE1} cluster creation 
-*** For this implementation, it is recommended to configure one, three, or five hosts
+*** For this implementation it is recommended to configure one or three hosts
 ** Give all hosts the roles of "Control Plane", "Worker", and "etcd"
 ** Answer "n" for the option "Enable PodSecurityPolicy"
 * Update the cluster.yml file before continuing with the step "Deploying Kubernetes with RKE"
 
 
-. If a load balancer has been deployed for the {pn_RKE1} control-plane nodes, update the cluster.yml file (created with the command `rke config`) before deploying RKE to include the IP address or FQDN of the load balancer. The appropriate location is under authentication.sans. For example:
+. If a load balancer has been deployed for the {pn_RKE1} control-plane nodes, update the cluster.yml file before deploying {pn_RKE1} to include the IP address or FQDN of the load balancer. The appropriate location is under authentication.sans. For example:
 ----
 authentication:
   strategy: x509
@@ -74,7 +73,7 @@ kube-controller:
 
 endif::layerSLEMicro[]
 
-* Verify password-less SSH is available from the system with the `rke` utility to each of the cluster hosts, as the user specified in the cluster.yml file
+* Verify password-less SSH is available from the admin workstation to each of the cluster hosts as the user specified in the cluster.yml file
 
 * When ready, run `rke up` to create the RKE cluster 
 
