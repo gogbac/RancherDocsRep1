@@ -15,10 +15,9 @@ endif::focusRancher[]
 
 //-
 Deployment Process::
-The primary steps for deploying this {pn_K3s} Kubernetes cluster
+Perform the following steps to install the first {pn_K3s} server on one of the nodes to be used for the Kubernetes control plane
 // ifdef::focusK3s[]
 // ifdef::layerK3s[]
-are:
 // To meet the {pn_Rancher} prerequisites and requirements on supported Kubernetes instances,
 // ifdef::layerK3s[{pn_K3s_ProductPage}[{pn_K3s}]]
 // can be utilized, and as desired later scaled out to a production cluster.
