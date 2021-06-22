@@ -27,7 +27,7 @@ ifdef::iCSP,iIHV[]
 * Compute Platform
 ** To optimize availability, performance, scalability and integrity, assess current system platforms or acquire and utilize new variations from:
 ifdef::iIHV[]
-*** Independent Hardware Vendors ( IHV ), like
+*** Independent Hardware Vendors ( IHV ), such as
 ifdef::IHV-Ampere[{vn_Ampere_homePage}[{vn_Ampere}] (R)]
 ifdef::IHV-Cisco[{vn_Cisco_homePage}[{vn_Cisco}] (R)]
 ifdef::IHV-DELL[{vn_Dell_homePage}[{vn_Dell}] (R)]
