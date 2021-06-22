@@ -140,6 +140,7 @@ CERT_MANAGER_VERSION=""
 NOTE: At the time of writing, the most current, supported version of cert-manager is v1.0.4
 +
 // ** e.g., `CERT_MANAGER_VERSION="v1.0.4"`
+* Add the jetstack repo and install the cert-manager Helm chart
 ----
 helm repo add jetstack https://charts.jetstack.io
 
@@ -156,17 +157,21 @@ helm install \
 * Set the following variable to the FQDN of the {pn_Rancher} server instance, or load balancer that is serving {pn_Rancher}
 
 ----
-HOSTNAME=""
+RANCHER_HOSTNAME=""
 ----
 
-* Install the {pn_Rancher} Helm chart:
-
-* Add the {pn_Rancher} Helm repository: `helm repo add rancher-stable https://releases.rancher.com/server-charts/stable`
-* Update the local Helm chart repository information: `helm repo update` 
-* Create the cattle-system namespace: `kubectl create namespace cattle-system`
-
+* Add the {pn_Rancher} Helm repository and install the {pn_Rancher} Helm chart: 
 ----
-helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=${HOSTNAME}
+kubectl create namespace cattle-system
+
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+
+helm repo update
+
+helm install \
+  rancher rancher-stable/rancher \
+  --namespace cattle-system \
+  --set hostname=${RANCHER_HOSTNAME}
 ----
 
 endif::layerRKE1[]
