@@ -1,4 +1,4 @@
-include::./dellpoweredge_vars.adoc[]
+//include::./dellpoweredge_vars.adoc[]
 
 ==== {modelDell-server-node-R740} Rack Servers
 
@@ -16,6 +16,8 @@ The PowerEdge R740 was designed to accelerate application performance leveraging
 •       Memory Module Slots: 24 DDR4 DIMM slots (12 NVDIMM or 12 DCPMM only), Supports registered ECC DDR4 DIMMs only 
 •       Memory RAM: RDIMM 1.53TB, LRDIMM 3TB, NVDIMM 192GB, DCPMM 6.14TB (7.68TB with LRDIMM)  
 •       Storage - Front Bays: Up to 16 x 2.5” SAS/SATA/SSD, max 122.88TB, Up to 8 x 3.5” SAS/SATA, max 128TB 
+
+For more information, see {modelDell-server-node-R740-datasheet}, {modelDell-server-node-R740-datasheet-URL}
 
 Expand and optimize application performance:
 

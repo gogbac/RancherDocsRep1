@@ -1,4 +1,4 @@
-include::./dellpoweredge_vars.adoc[]
+//include::./dellpoweredge_vars.adoc[]
 
 ==== {modelDell-server-node-all}
 
