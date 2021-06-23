@@ -1,24 +1,22 @@
-#! /bin/sh
-
-# usage
-[ $# -ge 1 ] || echo "usage $(basename $0) <output-format>" 2>&1
+#
+# Makefile
 
 # setup
 DC=DC-TRD-Kubernetes-RA
+# partner in Cisco DELL HPE Supermicro
+partner=fujitsu
 
-[ $# -gt 0 ]
+#for focus in Rancher K3s RKE1 RKE2
+focus=Rancher
 
-#for f in Rancher K3s RKE1 RKE2
-for focus in Rancher K3s RKE1
-  do
+# for layerOS in SLEMicro SLES
+layerOS=SLES
+layerK8s=K3s
 
-    for layerOS in SLEMicro SLES
-      do
-
+getting-started:
 	# Getting Started
 	  template=GS
 	  output=${template}-${focus}-${layerOS} && echo ${output}
-
 	  daps --force -d ${DC} \
 		--adocattr="${template}=1@" \
 		--adocattr="focus${focus}=1@" \
@@ -33,10 +31,8 @@ for focus in Rancher K3s RKE1
 		$@ \
 		--name "${output}"
 
+reference-implementation:
 	# Reference Implementation
-	  for layerK8s in K3s
-	    do
-
 	  	template=RI
 		if [ "${focus}" = "Rancher" ]
 		  then
@@ -60,23 +56,19 @@ for focus in Rancher K3s RKE1
 			--adocattr="Integrity=1@" \
 			$@ \
 			--name "${output}"
-	    done
 
-
+reference-configuration:
 	# Reference Configuration
 	  #for partner in Ampere Cisco DELL Fujitsu HPE HPI IBM Lenovo Supermicro-SuperServer
-	  for partner in Cisco DELL HPE Supermicro
-	    do
-
 	  	template=RC
 		# append platform model
 		case ${partner} in
-
 			Cisco) ARG="C240-SD" ;;
 			DELL) ARG="PowerEdge" ;;
 			HPE) ARG="ProLiant Synergy" ;;
 			#HPE) ARG="Apollo Edgeline Proliant Synergy" ;;
 			Supermicro) ARG="SuperServer" ;;
+			fujitsu) ARG="PRIMERGY" ;;
 			*) break ;;
 		esac
 		for adocARG in ${ARG}
@@ -107,7 +99,4 @@ for focus in Rancher K3s RKE1
 			$@ \
 			--name "${output}"
 		  done
-	    done
 
-      done
-  done
