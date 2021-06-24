@@ -3,8 +3,10 @@
 
 # setup
 DC=DC-TRD-Kubernetes-RA
+
 # partner in Cisco DELL HPE Supermicro
-partner=fujitsu
+partner=Fujitsu
+ARG="PRIMERGY"
 
 #for focus in Rancher K3s RKE1 RKE2
 focus=Rancher
@@ -12,6 +14,33 @@ focus=Rancher
 # for layerOS in SLEMicro SLES
 layerOS=SLES
 layerK8s=K3s
+
+# Template type
+template=RC
+
+fujitsu:
+	# Fujitsu Reference Configuration
+	#for partner in Fujitsu
+	# append platform model
+	output=${template}-${focus}-${layerK8s}-${layerOS}-${partner}-${ARG} && echo ${output}
+	daps --force -d ${DC} \
+		--adocattr="${template}=1@" \
+		--adocattr="focus${focus}=1@" \
+		--adocattr="layer${layerK8s}=1@" \
+		--adocattr="layer${layerOS}=1@" \
+		--adocattr="FLVR=1@" \
+		--adocattr="PoC=1@" \
+		--adocattr="Production=1@" \
+		--adocattr="Scaling=1@" \
+		--adocattr="FCTR=1@" \
+		--adocattr="Automation=1@" \
+		--adocattr="Availability=1@" \
+		--adocattr="Security=1@" \
+		--adocattr="Integrity=1@" \
+		--adocattr="iIHV=1@" \
+		--adocattr="IHV-${partner}=1@" \
+		--adocattr="IHV-${partner}-${ARG}=1@" \
+		pdf -name "${output}"
 
 getting-started:
 	# Getting Started
