@@ -1,4 +1,3 @@
-include::../SUSE/Rancher/SA_vars.adoc
 
 ifdef::focusRancher[]
 
