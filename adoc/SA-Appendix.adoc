@@ -76,7 +76,6 @@ ifndef::GS[|1-3]
 * per node (up to 16 cores, stackable)
 endif::layerSLEMicro[]
 ifdef::layerSLES[]
-| 
 ifdef::GS[|1]
 ifndef::GS[|1-3]
 |874-006875
@@ -89,7 +88,6 @@ ifndef::GS[|1-3]
 
 * per node (up to 2 sockets, stackable) or 2 VMs
 endif::layerSLES[]
-
 ifdef::focusK3s[]
 |Kubernetes
 |1
