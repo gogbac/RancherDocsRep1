@@ -27,6 +27,10 @@ endif::RA+FLVR[]
 that is needed to create the solution.
 endif::RC,RI[]
 
+ifdef::BP+GS+focusRancher[]
+IMPORTANT: This single-node configuration is for development and testing environments only. Since there is only one node and a single container, if the node goes down, there is no copy of the etcd data available on other nodes and you will lose all the data of your Rancher server.
+endif::BP+GS+focusRancher[]
+
 
 ////
 The following typographical conventions are used in this manual:
