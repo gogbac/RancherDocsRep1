@@ -6,11 +6,11 @@ ifdef::focusRKE2,layerRKE2[]
 ifdef::layerSLEMicro,layerSLES[include::./SA-RA-Deployment-OS-prep.adoc[]]
 ifdef::focusRancher[]
 +
-. Identify the appropriate, supported version of the {pn_RKE2} binary (e.g. vX.YY.ZZ+rke2s1), by reviewing the "{portfolioName} Support Matrix" on the {pn_Rancher_SupURL}[Support and Maintenance Terms of Service] web page. 
+. Identify the appropriate, supported version of the {pn_RKE2} binary (e.g. vX.YY.ZZ+rke2r1), by reviewing the "{portfolioName} Support Matrix" on the {pn_Rancher_SupURL}[Support and Maintenance Terms of Service] web page. 
 endif::focusRancher[]
 ifndef::focusRancher[]
 +
-. Identify the appropriate, desired version of the {pn_RKE2} binary (e.g. vX.YY.ZZ+rke2s1), by reviewing the "Releases" on the {pn_RKE2_Download}[Download] web page. 
+. Identify the appropriate, desired version of the {pn_RKE2} binary (e.g. vX.YY.ZZ+rke2r1), by reviewing the "Releases" on the {pn_RKE2_Download}[Download] web page. 
 endif::focusRancher[]
 
 //-
@@ -28,11 +28,22 @@ Perform the following steps to install the first {pn_RKE2} server on one of the 
 RKE2_VERSION=""
 ----
 +
-. Install the version of {pn_RKE2} with embedded etcd enabled:
+. Install the appropriate version of {pn_RKE2}:
 +
+* Download the installer script:
 ----
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} INSTALL_RKE2_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
+curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
 ----
+* Create the RKE2 config.yaml file:
+----
+mkdir -p /etc/rancher/rke2/
+cat <<EOF> /etc/rancher/rke2/config.yaml
+write-kubeconfig-mode: "0644"
+tls-san:
+  - "foo.local"
+EOF
+----
+
 +
 ifdef::BP[]
 TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, etcd is enabled instead of using the default SQLite datastore.
