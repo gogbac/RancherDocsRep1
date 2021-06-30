@@ -13,6 +13,7 @@
 
 :an_Fujitsu: Fujitsu
 :vn_Fujitsu: {an_Fujitsu}
+:vn_Fujitsu_PRIMERGY: {an_Fujitsu} PRIMERGY
 :vn_Fujitsu_homePage: https://www.fujitsu.com/us/
 
 :an_HPE: HPE

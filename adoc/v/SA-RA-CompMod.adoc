@@ -1,6 +1,14 @@
 
 ifdef::RA,RC,RI[]
 
+ifdef::IHV-Fujitsu[]
+include::../IHV/Fujitsu/SA-RA-CompMod.adoc[]
+ifdef::focusRKE1[]
+WARNING:  This should be another Bill da Cat situation!!
+// include::./SA-RA-CompMod-{an_RKE1}1.adoc[]
+endif::focusRKE1[]
+endif::IHV-Fujitsu[]
+
 ifdef::focusRancher[]
 include::./SA-RA-CompMod-{an_Rancher}.adoc[]
 endif::focusRancher[]

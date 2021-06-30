@@ -14,7 +14,6 @@ then
     exit
 fi
 
-# setup
-##DC=DC-TRD-Kubernetes-RA
+# Actually, we don't need $1. Just run:  make fujitsu
 
 make fujitsu
