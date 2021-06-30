@@ -34,24 +34,42 @@ RKE2_VERSION=""
 ----
 curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
 ----
+
+*Set the following variable with the URL that will be used to access the {pn_Rancher} server. This may be based on one or more DNS entries, a reverse-proxy server, or a load balancer:
+----
+RKE2_subjectAltName=
+----
 * Create the RKE2 config.yaml file:
 ----
 mkdir -p /etc/rancher/rke2/
 cat <<EOF> /etc/rancher/rke2/config.yaml
 write-kubeconfig-mode: "0644"
 tls-san:
-  - "foo.local"
+  - "${RKE2_subjectAltName}"
 EOF
 ----
 
 +
+////
 ifdef::BP[]
 TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, etcd is enabled instead of using the default SQLite datastore.
 +
 endif::BP[]
-** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
-*** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
-*** Use Ctrl+c to exit the watch loop after all deployment pods are running
+////
+
+* Start and enable the RKE2 service, which will begin installing the required Kubernetes components:
+----
+systemctl enable --now rke2-server.service
+----
+
+* Monitor the progress of the installation: 
+----
+export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
+watch -c "kubectl get deployments -A"
+----
+
+** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
+** Use Ctrl+c to exit the watch loop after all deployment pods are running
 
 ifdef::BP[]
 //-
