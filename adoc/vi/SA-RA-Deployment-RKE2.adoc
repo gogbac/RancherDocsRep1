@@ -68,6 +68,8 @@ export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 watch -c "kubectl get deployments -A"
 ----
 
+NOTE: For the first two to three minutes of the installation, the initial output will include the error phrase "The connection to the server 127.0.0.1:6443 was refused - did you specify the right host or port?". As Kubernetes services get started this will be replace with "No resources found". About four minutes after beginning the installation, the output will begin showing the deployments being created, and after six to seven minutes the installation should be complete.
+
 ** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
 ** Use Ctrl+c to exit the watch loop after all deployment pods are running
 
