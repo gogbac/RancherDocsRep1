@@ -1,10 +1,11 @@
 
 ifdef::RA,RC,RI[]
+//WARNING:  Hello World!  another Bill da Cat situation!!
 
 ifdef::IHV-Fujitsu[]
 include::../IHV/Fujitsu/SA-RA-CompMod.adoc[]
 ifdef::focusRKE1[]
-WARNING:  This should be another Bill da Cat situation!!
+//WARNING:  This should be another Bill da Cat situation!!
 // include::./SA-RA-CompMod-{an_RKE1}1.adoc[]
 endif::focusRKE1[]
 endif::IHV-Fujitsu[]

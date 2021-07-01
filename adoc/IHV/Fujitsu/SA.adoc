@@ -1,6 +1,6 @@
 
-WARNING: Watch out for... Bill da Cat ----  Oop / Aack
-NOTE:  This should throw some sort of error
+// WARNING: Watch out for... Bill da Cat ----  Oop / Aack
+// NOTE:  This should appear in the document to show that the file: SA.adoc  is being included
 
 
 ifdef::IHV-Fujitsu[]
