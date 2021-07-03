@@ -14,7 +14,7 @@ include::./SA-RA-CompMod-{an_RKE1}1.adoc[]
 endif::focusRKE1[]
 
 ifdef::focusRKE2[]
-include::./SA-RA-CompMod-{an_RKE2}adoc[]
+include::./SA-RA-CompMod-{an_RKE2}.adoc[]
 endif::focusRKE2[]
 
 

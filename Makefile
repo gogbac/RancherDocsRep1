@@ -8,8 +8,7 @@ DC=DC-TRD-Kubernetes-RA
 
 [ $# -gt 0 ]
 
-#for f in Rancher K3s RKE1 RKE2
-for focus in Rancher K3s RKE1
+for focus in Rancher K3s RKE1 RKE2
   do
 
     for layerOS in SLEMicro SLES

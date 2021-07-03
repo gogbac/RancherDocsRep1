@@ -34,7 +34,7 @@ ifdef::focusRKE1[]
 include::./SA-RA-ArchOv-{an_RKE1}1.adoc[]
 endif::focusRKE1[]
 ifdef::focusRKE2[]
-include::./SA-RA-ArchOv-{an_RKE2}adoc[]
+include::./SA-RA-ArchOv-{an_RKE2}.adoc[]
 endif::focusRKE2[]
 
 ////
