@@ -62,6 +62,11 @@ endif::BP[]
 systemctl enable --now rke2-server.service
 ----
 
+* Include the {pn_RKE2} binary directories in this user's path:
+----
+echo "PATH=${PATH}:/opt/rke2/bin:/var/lib/rancher/rke2/bin/" >> ~/.bashrc && source  ~/.bashrc
+----
+
 * Monitor the progress of the installation: 
 ----
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
@@ -70,7 +75,7 @@ watch -c "kubectl get deployments -A"
 
 NOTE: For the first two to three minutes of the installation, the initial output will include the error phrase "The connection to the server 127.0.0.1:6443 was refused - did you specify the right host or port?". As Kubernetes services get started this will be replace with "No resources found". About four minutes after beginning the installation, the output will begin showing the deployments being created, and after six to seven minutes the installation should be complete.
 
-** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, local-path-provisioner, metrics-server, and traefik) show at least "1" as "AVAILABLE"
+** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, ingress, and metrics-server) show at least "1" as "AVAILABLE"
 ** Use Ctrl+c to exit the watch loop after all deployment pods are running
 
 ifdef::BP[]
@@ -81,15 +86,20 @@ ifdef::FCTR+Availability[]
 * <<G_Availability>>
 ** While a single {pn_RKE2} node works perfectly fine, a full high-availability {pn_RKE2} cluster is recommended for production workloads. The etcd key/value store (aka database) requires an odd number of servers (aka master nodes) be allocated to the {pn_RKE2} cluster. In this case, two additional control-plane servers should be added; for a total of three.
 +
-. Deploy the same operating system on the new compute platform nodes, then log into the new nodes as root or as a user with sudo privileges.
-. Execute the following sets of commands on each of the remaining control-plane nodes:
-+
+. Deploy the same operating system on the new compute platform nodes
+. Log into the first server node and create a new config.yaml file for the remaining two nodes:
 * Set the following variables, as appropriate for this cluster
 ----
 FIRST_SERVER_IP=""      # Private IP preferred, if available
 NODE_TOKEN=""           # From the /var/lib/rancher/rke2/server/node-token file on the first server
-RKE2_VERSION=""          # Match the first of the first server
+RKE2_VERSION=""          # Match the first of the first server (Hint: `kubectl get nodes`)
 ----
+
+cp -p /etc/rancher/rke2/config.yaml .
+
+. Execute the following sets of commands on each of the remaining control-plane nodes:
++
+
 +
 * Install {pn_RKE2}
 ----
