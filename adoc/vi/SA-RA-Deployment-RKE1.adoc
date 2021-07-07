@@ -91,7 +91,7 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices:
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** While a single {pn_RKE1} node works perfectly fine, a full high-availability {pn_RKE1} cluster is recommended for production workloads. For this use case, two additional hosts should be added; for a total of three. All three hosts will perform the roles of control-plane, etcd, and worker.
+** A full high-availability {pn_RKE1} cluster is recommended for production workloads. For this use case, two additional hosts should be added; for a total of three. All three hosts will perform the roles of control-plane, etcd, and worker.
 +
 . Deploy the same operating system on the new compute platform nodes, and prepare them in the same way as the first node
 . Update the cluster.yml file to include the addional node
@@ -129,8 +129,6 @@ endif::focusRancher[]
 
 endif::FCTR+Availability[]
 endif::BP[]
-
-// endif::iRancher[]
 
 ifdef::focusRKE1[]
 // Next Steps::

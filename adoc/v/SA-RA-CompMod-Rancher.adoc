@@ -1,6 +1,4 @@
 
-ifdef::iRancher[]
-
 == Component model
 
 This section describes the various components being used to create a {pn_Rancher} solution deployment.
@@ -139,4 +137,3 @@ FixMe - Varius sit amet mattis vulputate. Nisi scelerisque eu ultrices vitae auc
 
 endif::RC,RI,GS[]
 
-endif::iRancher[]

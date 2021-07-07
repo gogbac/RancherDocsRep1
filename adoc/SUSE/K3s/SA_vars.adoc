@@ -1,7 +1,7 @@
 
 :an_K3s: {pn_K3s}
 
-:pn_K3s_Version: 1.21.1]
+:pn_K3s_Version: 1.21.2
 ifdef::focusRancher[:pn_K3s_Version: 1.20.6]
 
 :pn_K3s_Download: https://github.com/k3s-io/k3s/

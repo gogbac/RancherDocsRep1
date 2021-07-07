@@ -1,6 +1,4 @@
 
-ifdef::iRancher[]
-
 === Business problem
 
 Many organizations are deploying Kubernetes clusters everywhere – in the cloud, on-premises, and at the edge - to unify IT operations.  Such organizations can realize dramatic benefits, including:
@@ -45,14 +43,9 @@ endif::iCSP,iIHV[]
 
 endif::RC[]
 
-endif::iRancher[]
-
 ////
 The business problem description should highlight the challenges with traditional, legacy, proprietary solutions from a customer point of view. Keep the problem description at a high level.
 ////
-
-
-ifdef::iRancher[]
 
 === Business value
 
@@ -90,4 +83,3 @@ endif::iCSP,iIHV[]
 
 endif::RC[]
 
-endif::iRancher[]

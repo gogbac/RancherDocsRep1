@@ -1,4 +1,3 @@
-ifdef::iRancher[]
 
 ifdef::layerSLEMicro[]
 === {pn_SLEMicro}
@@ -39,6 +38,4 @@ TIP: An additional consideration is, for the first node deployed, to create an a
 ////
 
 endif::BP+FCTR[]
-
-endif::iRancher[]
 

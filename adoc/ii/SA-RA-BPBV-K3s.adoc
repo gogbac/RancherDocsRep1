@@ -23,7 +23,7 @@ Given its extensive Kubernetes capabilities, {pn_K3s} can also be a suitable cho
 * even core or cloud production instances
 
 ifdef::BP+iRancher[]
-TIP: When {pn_K3s} is imported and combined with {pn_Rancher}, organization’s are equipped with an easy, complete and reliable management solution for Kubernetes at the edge.
+TIP: When {pn_K3s} is imported and combined with {pn_Rancher}, organizations are equipped with an easy, complete and reliable management solution for Kubernetes at the edge.
 endif::BP+iRancher[]
 ifdef::BP+iLonghorn[]
 TIP: To address localized storage needs, {pn_K3s} can leverage {pn_Longhorn}, as a storage class providing persistent, block storage access for containerized workload, which is very relevant for edge scenarios.

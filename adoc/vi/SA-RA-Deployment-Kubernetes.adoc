@@ -12,7 +12,6 @@ endif::layerRKE2[]
 ifdef::focusK3s,layerK3s[]
 === {pn_K3s}
 
-// ifdef::iRancher[]
 ifdef::focusRancher[]
 While it is highly recommended that Kubernetes workloads are isolated from the Kubernetes control-plane and data-plane, this design will maintain all functions, including the {pn_Rancher}, on this node. The {pn_Rancher} workload is a known quantity and no other workloads will be run on this Kubernetes cluster. For this reason the {pn_Rancher} deployment is more closely aligned with appliance-based approach.
 
@@ -101,8 +100,6 @@ curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https:
 ----
 endif::FCTR+Availability[]
 endif::BP[]
-
-// endif::iRancher[]
 
 endif::focusK3s,layerK3s[]
 

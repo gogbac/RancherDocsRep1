@@ -31,7 +31,10 @@ K3s_VERSION=""
 . Install the version of {pn_K3s} with embedded etcd enabled:
 +
 ----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' sh -s -
+curl -sfL https://get.k3s.io | \
+	INSTALL_K3S_VERSION=${K3s_VERSION} \
+	INSTALL_K3S_EXEC='server --cluster-init --write-kubeconfig-mode=644' \
+	sh -s -
 ----
 +
 ifdef::BP[]
@@ -53,18 +56,28 @@ ifdef::FCTR+Availability[]
 . Deploy the same operating system on the new compute platform nodes, then log into the new nodes as root or as a user with sudo privileges.
 . Execute the following sets of commands on each of the remaining control-plane nodes:
 +
-*** Set the following variables, as appropriate for this cluster
+*** Set the following additional variables, as appropriate for this cluster
 +
 ----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
-K3s_VERSION=""          # Match the first of the first server
+# Private IP preferred, if available
+FIRST_SERVER_IP=""
+
+# From /var/lib/rancher/k3s/server/node-token file on the first server
+NODE_TOKEN=""
+
+# Match the first of the first server
+K3s_VERSION=""
 ----
 +
 *** Install {pn_K3s}
 +
 ----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https://${FIRST_SERVER_IP}:6443 K3S_TOKEN=${NODE_TOKEN} K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC='server' sh -
+curl -sfL https://get.k3s.io | \
+	INSTALL_K3S_VERSION=${K3s_VERSION} \
+	K3S_URL=https://${FIRST_SERVER_IP}:6443 \
+	K3S_TOKEN=${NODE_TOKEN} \
+	K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC='server' \
+	sh -
 ----
 +
 *** Monitor the progress of the installation: `watch -c "kubectl get deployments -A"`
@@ -77,21 +90,18 @@ By default, the {pn_K3s} server nodes are available to run non-control-plane wor
 endif::focusRancher[]
 NOTE: This can be changed to the normal Kubernetes default by adding a taint to each server node. See the official Kubernetes documentation for more information on how to do that.
 +
-*** (Optional) In cases where agent nodes are desired, execute the following sets of commands on each of the agent nodes to add it to the {pn_K3s} cluster:
+*** (Optional) In cases where agent nodes are desired, execute the following sets of commands, using the same "_K3s_VERSION_", "_FIRST_SERVER_IP_", "_NODE_TOKEN_" and "_K3s_VERSION_" variable settings as above, on each of the agent nodes to add it to the {pn_K3s} cluster:
 +
 ----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/k3s/server/node-token file on the first server
-K3s_VERSION=""          # Match the first of the first server
-----
-+
-----
-curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=${K3s_VERSION} K3S_URL=https://${FIRST_SERVER_IP}:6443 K3S_TOKEN=${NODE_TOKEN} K3S_KUBECONFIG_MODE="644" sh -
+curl -sfL https://get.k3s.io | \
+	INSTALL_K3S_VERSION=${K3s_VERSION} \
+	K3S_URL=https://${FIRST_SERVER_IP}:6443 \
+	K3S_TOKEN=${NODE_TOKEN} \
+	K3S_KUBECONFIG_MODE="644" \
+	sh -
 ----
 endif::FCTR+Availability[]
 endif::BP[]
-
-// endif::iRancher[]
 
 ifdef::focusK3s[]
 // Next Steps::

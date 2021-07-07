@@ -1,6 +1,4 @@
 
-ifdef::iRancher[]
-
 The figure below illustrates the high-level architecture of the {pn_Rancher} installation that manages multiple downstream Kubernetes clusters: 
 
 image::ArchitectureOverview-{portfolioName}.png[title="Architecture Overview - {pn_Rancher}", scaledwidth=80%]
@@ -38,6 +36,4 @@ ifdef::BP[]
 TIP: To improve <<G_Availability>>, the {pn_Rancher} backup operator can then be used to {pn_Rancher_MigrateURL}[migrate] from the single node to a <<G_Production>> installation on a multi-node, high-availability Kubernetes cluster.
 endif::BP[]
 endif::GS[]
-
-endif::iRancher[]
 

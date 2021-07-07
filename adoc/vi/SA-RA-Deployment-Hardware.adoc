@@ -1,7 +1,5 @@
 === Compute Platform
 
-ifdef::iRancher[]
-
 ifdef::RI[]
 ifndef::iIHV[]
 Preparation(s)::
@@ -34,6 +32,4 @@ endif::iIHV[]
 // FixMe - CSP
 // endif::iCSP[]
 endif::RC[]
-
-endif::iRancher[]
 

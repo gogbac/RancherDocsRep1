@@ -30,16 +30,21 @@ RKE2_VERSION=""
 +
 . Install the appropriate version of {pn_RKE2}:
 +
-* Download the installer script:
+** Download the installer script:
++
 ----
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
+curl -sfL https://get.rke2.io | \
+	INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
 ----
-
-*Set the following variable with the URL that will be used to access the {pn_Rancher} server. This may be based on one or more DNS entries, a reverse-proxy server, or a load balancer:
++
+** Set the following variable with the URL that will be used to access the {pn_Rancher} server. This may be based on one or more DNS entries, a reverse-proxy server, or a load balancer:
++
 ----
 RKE2_subjectAltName=
 ----
-* Create the RKE2 config.yaml file:
++
+** Create the RKE2 config.yaml file:
++
 ----
 mkdir -p /etc/rancher/rke2/
 cat <<EOF> /etc/rancher/rke2/config.yaml
@@ -48,35 +53,37 @@ tls-san:
   - "${RKE2_subjectAltName}"
 EOF
 ----
-
 +
 ////
 ifdef::BP[]
 TIP: To address <<G_Availability>> and possible <<G_Scaling>> to a multiple node cluster, etcd is enabled instead of using the default SQLite datastore.
-+
 endif::BP[]
++
 ////
-
-* Start and enable the RKE2 service, which will begin installing the required Kubernetes components:
+. Start and enable the RKE2 service, which will begin installing the required Kubernetes components:
++
 ----
 systemctl enable --now rke2-server.service
 ----
-
-* Include the {pn_RKE2} binary directories in this user's path:
++
+** Include the {pn_RKE2} binary directories in this user's path:
++
 ----
-echo "PATH=${PATH}:/opt/rke2/bin:/var/lib/rancher/rke2/bin/" >> ~/.bashrc && source  ~/.bashrc
+echo "PATH=${PATH}:/opt/rke2/bin:/var/lib/rancher/rke2/bin/" >> ~/.bashrc
+source  ~/.bashrc
 ----
-
-* Monitor the progress of the installation: 
++
+** Monitor the progress of the installation: 
++
 ----
 export KUBECONFIG=/etc/rancher/rke2/rke2.yaml
 watch -c "kubectl get deployments -A"
 ----
-
++
 NOTE: For the first two to three minutes of the installation, the initial output will include the error phrase "The connection to the server 127.0.0.1:6443 was refused - did you specify the right host or port?". As Kubernetes services get started this will be replace with "No resources found". About four minutes after beginning the installation, the output will begin showing the deployments being created, and after six to seven minutes the installation should be complete.
-
-** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, ingress, and metrics-server) show at least "1" as "AVAILABLE"
-** Use Ctrl+c to exit the watch loop after all deployment pods are running
++
+*** The {pn_RKE2} deployment is complete when elements of all the deployments (coredns, ingress, and metrics-server) show at least "1" as "AVAILABLE"
+**** Use Ctrl+c to exit the watch loop after all deployment pods are running
 
 ifdef::BP[]
 //-
@@ -84,34 +91,49 @@ Deployment Consideration(s)::
 To further optimize deployment factors, leverage the following practices:
 ifdef::FCTR+Availability[]
 * <<G_Availability>>
-** While a single {pn_RKE2} node works perfectly fine, a full high-availability {pn_RKE2} cluster is recommended for production workloads. The etcd key/value store (aka database) requires an odd number of servers (aka master nodes) be allocated to the {pn_RKE2} cluster. In this case, two additional control-plane servers should be added; for a total of three.
+** A full high-availability {pn_RKE2} cluster is recommended for production workloads. The etcd key/value store (aka database) requires an odd number of servers (aka master nodes) be allocated to the {pn_RKE2} cluster. In this case, two additional control-plane servers should be added; for a total of three.
 +
 . Deploy the same operating system on the new compute platform nodes
 . Log into the first server node and create a new config.yaml file for the remaining two server nodes:
-* Set the following variables, as appropriate for this cluster
++
+*** Set the following variables, as appropriate for this cluster
++
 ----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-SECOND_SERVER_IP=""      # Private IP preferred, if available
-THIRD_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/rke2/server/node-token file on the first server
-RKE2_VERSION=""          # Match the first of the first server (Hint: `kubectl get nodes`)
-----
+# Private IP preferred, if available
+FIRST_SERVER_IP=""
 
-* Create the new config.yaml file:
+# Private IP preferred, if available
+SECOND_SERVER_IP=""
+
+# Private IP preferred, if available
+THIRD_SERVER_IP=""
+
+# From the /var/lib/rancher/rke2/server/node-token file on the first server
+NODE_TOKEN=""
+
+# Match the first of the first server (Hint: `kubectl get nodes`)
+RKE2_VERSION=""
+----
++
+*** Create the new config.yaml file:
++
 ----
 echo "server: https://${FIRST_SERVER_IP}:9345" > config.yaml
 echo "token: ${NODE_TOKEN}" >> config.yaml
 cat /etc/rancher/rke2/config.yaml >> config.yaml
 ----
-
++
 TIP: The next steps require using scp and ssh. Setting up passwordless SSH, and/or using ssh-agent,from the first server node to the second and third nodes will make these steps quicker and easier.
-
-* Copy the new config.yaml file to the remaining two server nodes:
++
+*** Copy the new config.yaml file to the remaining two server nodes:
++
 ----
 scp config.yaml ${SECOND_SERVER_IP}:~/
 scp config.yaml ${THIRD_SERVER_IP}:~/
 ----
-* Move the config.yaml file to the correct location in the filesystem:
++
+*** Move the config.yaml file to the correct location in the filesystem:
++
 ----
 ssh ${SECOND_SERVER_IP} << EOF
 mkdir -p /etc/rancher/rke2/ 
@@ -125,29 +147,29 @@ cp ~/config.yaml /etc/rancher/rke2/config.yaml
 cat /etc/rancher/rke2/config.yaml
 EOF
 ----
-
-. Execute the following sets of commands on each of the remaining control-plane nodes:
 +
-
+*** Execute the following sets of commands on each of the remaining control-plane nodes:
 +
-* Install {pn_RKE2}
+**** Install {pn_RKE2}
++
 ----
 ssh ${SECOND_SERVER_IP} << EOF
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
+curl -sfL https://get.rke2.io | \
+	INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
 systemctl enable --now rke2-server.service
 EOF
 
 ssh ${THIRD_SERVER_IP} << EOF
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
+curl -sfL https://get.rke2.io | \
+	INSTALL_RKE2_VERSION=${RKE2_VERSION} sh -
 systemctl enable --now rke2-server.service
 EOF
 ----
-
-* Monitor the progress of the new server nodes joining the {pn_RKE2} cluster: `watch -c "kubectl get nodes"`
-** It takes up to eight minutes for each node to join the cluster 
-** A node has deployed correctly when its status is "Ready" and it holds the roles of "control-plane,etcd,master"
-** Use Ctrl+c to exit the watch loop after all deployment pods are running
-
++
+*** Monitor the progress of the new server nodes joining the {pn_RKE2} cluster: `watch -c "kubectl get nodes"`
+**** It takes up to eight minutes for each node to join the cluster 
+**** A node has deployed correctly when its status is "Ready" and it holds the roles of "control-plane,etcd,master"
+**** Use Ctrl+c to exit the watch loop after all deployment pods are running
 +
 ifdef::focusRancher[]
 By default, the {pn_RKE2} server nodes are available to run non-control-plane workloads. In this case, the {pn_RKE2} default behavior is perfect for the {pn_Rancher} server cluster as it doesn't require additional agent (aka worker) nodes to maintain a highly available {pn_Rancher} server application.
@@ -155,21 +177,18 @@ By default, the {pn_RKE2} server nodes are available to run non-control-plane wo
 endif::focusRancher[]
 NOTE: This can be changed to the normal Kubernetes default by adding a taint to each server node. See the official Kubernetes documentation for more information on how to do that.
 +
-. (Optional) In cases where agent nodes are desired, execute the following sets of commands on each of the agent nodes to add it to the {pn_RKE2} cluster:
+. (Optional) In cases where agent nodes are desired, execute the following sets of commands, using the same, "_RKE2_VERSION_", "_FIRST_SERVER_IP_" and "_NODE_TOKEN_" variable settings as above, on each of the agent nodes to add it to the {pn_RKE2} cluster:
 +
 ----
-FIRST_SERVER_IP=""      # Private IP preferred, if available
-NODE_TOKEN=""           # From the /var/lib/rancher/rke2/server/node-token file on the first server
-RKE2_VERSION=""          # Match the first of the first server
-----
-+
-----
-curl -sfL https://get.rke2.io | INSTALL_RKE2_VERSION=${RKE2_VERSION} RKE2_URL=https://${FIRST_SERVER_IP}:6443 RKE2_TOKEN=${NODE_TOKEN} RKE2_KUBECONFIG_MODE="644" sh -
+curl -sfL https://get.rke2.io | \
+	INSTALL_RKE2_VERSION=${RKE2_VERSION} \
+	RKE2_URL=https://${FIRST_SERVER_IP}:6443 \
+	RKE2_TOKEN=${NODE_TOKEN} \
+	RKE2_KUBECONFIG_MODE="644" \
+	sh -
 ----
 endif::FCTR+Availability[]
 endif::BP[]
-
-// endif::iRancher[]
 
 ifdef::focusRKE2[]
 // Next Steps::
