@@ -31,7 +31,7 @@ NOTE: Installing {pn_RKE1} requires a client system (i.e. admin workstation) tha
 //. Download the {pn_RKE1} binary according to the instructions on this webpage: https://rancher.com/docs/rke/latest/en/installation/. Follow the directions on that page, but with the following exceptions:
 . Create the cluster.yml file with the command `rke config`
 +
-NOTE: See https://rancher.com/docs/rke/latest/en/example-yamls/ and https://rancher.com/docs/rke/latest/en/config-options/ for full descriptions of the cluster.yml parameters
+NOTE: See product documentation for https://rancher.com/docs/rke/latest/en/example-yamls/[example-yamls] and https://rancher.com/docs/rke/latest/en/config-options/[config-options] for detailed examples and descriptions of the cluster.yml parameters.
 +
 ** It is recommended to create a unique SSH key for this {pn_RKE1} cluster with the command `ssh-keygen`
 *** Provide the path to that key for the option "Cluster Level SSH Private Key Path"
