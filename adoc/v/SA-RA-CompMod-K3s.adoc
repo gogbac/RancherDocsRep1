@@ -39,12 +39,19 @@ endif::RC,RI[]
 
 ifndef::GS[]
 
-ifdef::iSLEMicro[]
+ifdef::layerSLEMicro[]
 === Software - {pn_SLEMicro}
 
 include::../SUSE/SLE-Micro/SA.adoc[]
 
-endif::iSLEMicro[]
+endif::layerSLEMicro[]
+
+ifdef::layerSLES[]
+=== Software - {pn_SLES}
+
+include::../SUSE/SLES/SA.adoc[]
+
+endif::layerSLES[]
 
 ////
 Depending on the number and complexity of the components this proceeding section might better be represented as a table with brief descriptions.   Fewer components can be expressed in short paragraph form.

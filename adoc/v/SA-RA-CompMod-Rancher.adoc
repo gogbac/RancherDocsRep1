@@ -43,35 +43,42 @@ endif::RC,RI[]
 
 ifndef::GS[]
 
-ifdef::iK3s[]
+ifdef::layerK3s[]
 === Software - {pn_K3s}
 
 include::../SUSE/K3s/SA.adoc[]
 
-endif::iK3s[]
+endif::layerK3s[]
 
 //// 
-ifdef::iRKE1[]
+ifdef::layerRKE1[]
 === Software - {pn_RKE1}
 
 include::../SUSE/RKE1/SA.adoc[]
 
-endif::iRKE1[]
+endif::layerRKE1[]
 
-ifdef::iRKE2[]
+ifdef::layerRKE2[]
 === Software - {pn_RKE2}
 
 include::../SUSE/RKE2/SA.adoc[]
 
-endif::iRKE2[]
+endif::layerRKE2[]
 ////
 
-ifdef::iSLEMicro[]
+ifdef::layerSLEMicro[]
 === Software - {pn_SLEMicro}
 
 include::../SUSE/SLE-Micro/SA.adoc[]
 
-endif::iSLEMicro[]
+endif::layerSLEMicro[]
+
+ifdef::layerSLES[]
+=== Software - {pn_SLES}
+
+include::../SUSE/SLES/SA.adoc[]
+
+endif::layerSLES[]
 
 ////
 Depending on the number and complexity of the components this proceeding section might better be represented as a table with brief descriptions.   Fewer components can be expressed in short paragraph form.

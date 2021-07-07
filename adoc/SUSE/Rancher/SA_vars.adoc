@@ -6,7 +6,7 @@
 
 :pn_Rancher_ProductPage: https://rancher.com/products/rancher/
 
-:pn_Rancher_DocURL: https://rancher.com/docs/rancher/v2.x/en/
+:pn_Rancher_DocURL: https://rancher.com/docs/rancher/v2.5/en/
 
 :pn_Rancher_MigrateURL: https://rancher.com/docs/rancher/v2.5/en/backups/migrating-rancher/
 
