@@ -88,49 +88,7 @@ ifndef::GS[|1-3]
 
 * per node (up to 2 sockets, stackable) or 2 VMs
 endif::layerSLES[]
-ifdef::focusK3s[]
-|Kubernetes
-|1
-|R-0003-PS1
-|{pn_K3s},
-
-* x86-64 or aarch64
-* Priority Subscription,
-* 1 Year
-| Configuration:
-
-* provides support of 10 nodes
-endif::focusK3s[]
-
-ifdef::focusRKE1[]
-|Kubernetes
-|1
-|R-0003-PS1
-|{pn_RKE1},
-
-* x86-64,
-* Priority Subscription,
-* 1 Year
-| Configuration:
-
-* provides support of 10 nodes
-endif::focusRKE1[]
-
-ifdef::focusRKE2[]
-|Kubernetes
-|1
-|R-0003-PS1
-|{pn_RKE2},
-
-* x86-64,
-* Priority Subscription,
-* 1 Year
-| Configuration:
-
-* provides support of 10 nodes
-endif::focusRKE2[]
-
-ifdef::focusRancher[]
+// ifdef::focusRancher[]
 |Kubernetes Management
 |1
 |R-0001-PS1 
@@ -141,7 +99,19 @@ ifdef::focusRancher[]
 * 1 Year
 | Configuration:
 
-* per instance, includes up to 3 Kubernetes nodes
+* per deployed instance
+// endif::focusRancher[]
+|{portfolioName} Management
+|2
+|R-0004-PS1
+|{portfolioName} 10 Nodes
+
+* x86-64 or aarch64,
+* Priority Subscription,
+* 1 Year,
+| Configuration:
+
+* requires priority server subscription
 |Consulting and Training
 |1
 |R-0001-QSO 
@@ -154,7 +124,20 @@ ifdef::focusRancher[]
 * Bi-weekly cadence calls for 12 weeks
 * On-demand consulting (24 hours)
 ** Two developer workshops
-endif::focusRancher[]
+ifdef::layerLonghorn[]
+|Longhorn
+|1
+|L-0004-PS1 
+|{pn_LonghornRancher},
+
+* x86-64,aarch64
+* Priority Subscription,
+* 1 Year
+| Configuration:
+
+* up to 10 nodes
+** requires priority server subscription
+endif::layerLonghorn[]
 
 |===
 
