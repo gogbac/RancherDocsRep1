@@ -90,7 +90,7 @@ By default, the {pn_K3s} server nodes are available to run non-control-plane wor
 endif::focusRancher[]
 NOTE: This can be changed to the normal Kubernetes default by adding a taint to each server node. See the official Kubernetes documentation for more information on how to do that.
 +
-*** (Optional) In cases where agent nodes are desired, execute the following sets of commands, using the same "_K3s_VERSION_", "_FIRST_SERVER_IP_", "_NODE_TOKEN_" and "_K3s_VERSION_" variable settings as above, on each of the agent nodes to add it to the {pn_K3s} cluster:
+*** (Optional) In cases where agent nodes are desired, execute the following sets of commands, using the same "_K3s_VERSION_", "_FIRST_SERVER_IP_", and "_NODE_TOKEN_" variable settings as above, on each of the agent nodes to add it to the {pn_K3s} cluster:
 +
 ----
 curl -sfL https://get.k3s.io | \
