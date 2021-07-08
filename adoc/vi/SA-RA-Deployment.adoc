@@ -28,7 +28,7 @@ that is needed to create the solution.
 endif::RC,RI[]
 
 ifdef::BP+GS+focusRancher[]
-IMPORTANT: This single-node configuration is for development and testing environments only. Since there is only one node and a single container, if the node goes down, there is no copy of the etcd data available on other nodes and you will lose all the data of your Rancher server.
+IMPORTANT: This single-node configuration described is for development and testing environments. Additional use cases and reduced risk factors can be accomplished if the configuration database utilizes an external database, like MySQL, or if etcd data persists on a volume to avoid loss.
 endif::BP+GS+focusRancher[]
 
 
