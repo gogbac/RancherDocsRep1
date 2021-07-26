@@ -1,7 +1,6 @@
 include::./PRIMERGY_vars.adoc[]
 
-// WARNING:  Vert da Flirtin Flert
-
+WARNING:  Doc: SA-RA-CompMod.adoc
 
 ifdef::IHV-Fujitsu-PRIMERGY[]
 

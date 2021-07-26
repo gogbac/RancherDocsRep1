@@ -1,4 +1,6 @@
 
+WARNING:  Doc: SA-RA-BPBV.adoc
+
 PRIMERGY Servers Platforms::
 Utilizing the above software application and technology solutions with the server platforms offered by {vn_Fujitsu} ( {vn_Fujitsu_homePage}[{an_Fujitsu}] ) provides many alternative for scale, cost-effectiveness and performance options that could align with local IT staff platform preferences:
 

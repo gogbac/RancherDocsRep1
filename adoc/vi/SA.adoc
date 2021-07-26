@@ -9,6 +9,8 @@ FixMe - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 
 endif::EA,RA[]
 
+WARNING:  Document: vi/SA.adoc
+
 ifdef::EA+Physical[]
 include::./SA-EA-Physical.adoc[]
 endif::EA+Physical[]

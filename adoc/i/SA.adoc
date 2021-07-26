@@ -103,6 +103,8 @@ platform. One should still be familiar with the traditional IT infrastructure pi
 
 endif::RA,RC,RI,GS[]
 
+WARNING:  Document: i/SA.adoc
+
 ////
 
 Reference Architecture

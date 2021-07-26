@@ -1,5 +1,9 @@
 
+WARNING:  Doc: SA-RA-Deployment-Hardware.adoc
+
 ifdef::IHV-Fujitsu-PRIMERGY[]
+
+WARNING:  Inside IHV-Fujitsu-PRIMERGY
 
 The base, starting configuration can reside all within a single {vn_Fujitsu} {familyHPE-S} Frame. Based upon the relatively small resource requirements for a
 ifdef::focusRancher[{pn_Rancher}]

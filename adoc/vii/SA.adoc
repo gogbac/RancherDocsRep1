@@ -13,6 +13,8 @@ FixMe - Libero id faucibus nisl tincidunt eget nullam non nisi est. Vulputate en
 
 endif::EA,RA[]
 
+WARNING:  Document: vii/SA.adoc
+
 ifdef::EA+Migration[]
 include::./SA-EA-Migration.adoc[]
 endif::EA+Migration[]

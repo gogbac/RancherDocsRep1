@@ -7,6 +7,8 @@ ifdef::IHV-Fujitsu[]
 
 include::./PRIMERGY_vars.adoc[]
 
+WARNING:  IHV-Fujitsu:  SA.adoc
+
 === {vn_Fujitsu}
 
 Utilizing the above software application and technology solutions with the server platforms offered by {vn_Fujitsu} [ {an_Fujitsu} ] provides many alternative for scale, cost-effectiveness and performance options that could align with local IT staff platform preferences:
