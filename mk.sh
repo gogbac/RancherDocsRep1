@@ -15,6 +15,6 @@ then
 fi
 
 # Actually, we don't need $1. Just run:  make fujitsu
-# But, use the right Makefile:  Makefile.fujitsu
+# But, use the right Makefile:  Makefile-fujitsu
 
-make -f Makefile.fujitsu fujitsu
+make -f Makefile-fujitsu fujitsu
