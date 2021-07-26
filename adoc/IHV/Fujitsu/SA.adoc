@@ -1,13 +1,7 @@
 
-// WARNING: Watch out for... Bill da Cat ----  Oop / Aack
-// NOTE:  This should appear in the document to show that the file: SA.adoc  is being included
-
-
 ifdef::IHV-Fujitsu[]
 
 include::./PRIMERGY_vars.adoc[]
-
-WARNING:  IHV-Fujitsu:  SA.adoc
 
 === {vn_Fujitsu}
 
