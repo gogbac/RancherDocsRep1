@@ -13,8 +13,6 @@ FixMe - Libero id faucibus nisl tincidunt eget nullam non nisi est. Vulputate en
 
 endif::EA,RA[]
 
-WARNING:  Document: iv/SA.adoc
-
 ifdef::EA+Application[]
 include::./SA-EA-Application.adoc[]
 endif::EA+Application[]

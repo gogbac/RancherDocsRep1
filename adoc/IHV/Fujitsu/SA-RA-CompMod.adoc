@@ -1,7 +1,5 @@
 include::./PRIMERGY_vars.adoc[]
 
-WARNING:  Doc: SA-RA-CompMod.adoc
-
 ifdef::IHV-Fujitsu-PRIMERGY[]
 
 NOTE: {an_Fujitsu} https://www.fujitsu.com/fts/products/computing/servers/primergy/os/linux/suse/[Servers Support & OS Certification Matrices] outlines the minimum version of SLE required for installation, yet later service pack releases may also be used.
@@ -17,9 +15,6 @@ Even with the broad certification and support model across the range of availabl
 NOTE: {an_Fujitsu} https://www.fujitsu.com/fts/products/computing/servers/primergy/os/linux/suse/[Servers Support & OS Certification Matrices] outlines the minimum version of SLE required for installation, yet later service pack releases may also be used.
 
 include::../../{companyName}/YES.adoc[]
-
-// WARNING:  Vert da Flert
-
 
 .{vn_Fujitsu} Platform Matrix for Deployments for this reference
 [width="80%",valign="middle",halign="center",options="header"]
