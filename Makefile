@@ -80,7 +80,7 @@ for focus in Rancher K3s RKE1 RKE2
 
 	# Reference Configuration
 	  #for partner in Ampere Cisco DELL Fujitsu HPE HPI IBM Lenovo Supermicro-SuperServer
-	  for partner in Cisco DELL HPE Supermicro
+	  for partner in Cisco DELL Fujitsu HPE Supermicro
 	    do
 
 	  	template=RC
@@ -90,6 +90,7 @@ for focus in Rancher K3s RKE1 RKE2
 
 			Cisco) ARG="C240-SD" ;;
 			DELL) ARG="PowerEdge" ;;
+			Fujitsu) ARG="PRIMERGY" ;;
 			HPE) ARG="ProLiant Synergy" ;;
 			Supermicro) ARG="SuperServer" ;;
 			*) break ;;
