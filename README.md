@@ -24,7 +24,7 @@ Output Creation:
     - Getting Started (GS)
     - Reference Implmentation (RI)
     - Reference Configuration (RC) ... citing this example for the remainder
-  - utilize the [Makefile](./Makefile) to generate all of the document types for all the product focus areas, with multiple layered components for whatever output format you desire:
+  - utilize the [Makefile](./Makefile) to generate all (or a subset, via local Makefile.cf) of the document types for all the product focus areas, with multiple layered components for whatever output format you desire:
     - ./Makefile <output-format>
       - where <output-format> = epub, html, html --single, pdf
       - then look in the generated ./build/ directory
