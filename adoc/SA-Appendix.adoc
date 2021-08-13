@@ -2,15 +2,20 @@
 ifdef::RC,RI,GS[]
 
 [appendix]
+
 == Appendix
 
-The following sections provide a bill of materials listing for each component layer.
+The following provide a bill of materials listing for the respective component layer(s) of the described deployment.
 
 
+ifdef::RC,RI[]
 === Compute Platform Bill of Materials
+
+Recommended set of computing platform models, components and resources.
 
 [cols="2,1,3,3a,2a",options=header,frame=topbot,grid=rows]
 |===
+
 |Role |Qty |SKU |Component |Notes
 
 ifndef::iIHV[]
@@ -45,37 +50,25 @@ ifdef::IHV-HPE+IHV-HPE-ProLiant[include::./IHV/HPE/ProLiant_BOM.adoc[]]
 ifdef::IHV-HPE+IHV-HPE-Synergy[include::./IHV/HPE/Synergy_BOM.adoc[]]
 ifdef::IHV-Supermicro[include::../adoc/IHV/Supermicro/SuperServer/SYS-120C-TN10R_BOM.adoc[]]
 ifdef::IHV-Supermicro[include::../adoc/IHV/Supermicro/SuperServer/SYS-620C-TN12R_BOM.adoc[]]
-|
-|
-|
-|
-|
+
 endif::RC+iIHV[]
 
 |===
+endif::RC,RI[]
+
 
 === Software Bill of Materials
 
+Recommended set of software, support and services.
+
 [cols="2,1,3,3a,2a",options=header,frame=topbot,grid=rows]
+
 |===
+
 |Role |Qty |SKU |Component |Notes
 
-|Operating System
-ifdef::layerSLEMicro[]
-ifdef::GS[|1]
-ifndef::GS[|1-3]
-// |1 - 3 ( ARM : 874-007864, x86_64 : 874-007864 )
-|874-007864 
-|{pn_SLEMicro},
-
-* x86_64,
-* Priority Subscription,
-* 1 Year
-|Configuration:
-
-* per node (up to 16 cores, stackable)
-endif::layerSLEMicro[]
 ifdef::layerSLES[]
+|Operating System
 ifdef::GS[|1]
 ifndef::GS[|1-3]
 |874-006875
@@ -87,8 +80,23 @@ ifndef::GS[|1-3]
 |Configuration:
 
 * per node (up to 2 sockets, stackable) or 2 VMs
+
 endif::layerSLES[]
-// ifdef::focusRancher[]
+ifdef::layerSLEMicro[]
+|Operating System
+ifdef::GS[|1]
+ifndef::GS[|1-3]
+|874-007864 
+|{pn_SLEMicro},
+
+* x86_64,
+* Priority Subscription,
+* 1 Year
+|Configuration:
+
+* per node (up to 16 cores, stackable)
+
+endif::layerSLEMicro[]
 |Kubernetes Management
 |1
 |R-0001-PS1 
@@ -100,7 +108,7 @@ endif::layerSLES[]
 | Configuration:
 
 * per deployed instance
-// endif::focusRancher[]
+
 |{portfolioName} Management
 |2
 |R-0004-PS1
@@ -112,18 +120,23 @@ endif::layerSLES[]
 | Configuration:
 
 * requires priority server subscription
+
 |Consulting and Training
 |1
 |R-0001-QSO 
 |{portfolioName} Quick Start,
 
 * Go Live Services
-| Terms:
 
-* Review of client architecture
-* Bi-weekly cadence calls for 12 weeks
-* On-demand consulting (24 hours)
-** Two developer workshops
+| 
+
+// | Terms:
+// 
+// * Review of client architecture
+// * Bi-weekly cadence calls for 12 weeks
+// * On-demand consulting (24 hours)
+// ** Two developer workshops
+
 ifdef::layerLonghorn[]
 |Longhorn
 |1
@@ -137,30 +150,31 @@ ifdef::layerLonghorn[]
 
 * up to 10 nodes
 ** requires priority server subscription
+
 endif::layerLonghorn[]
 
 |===
 
 NOTE: For the software components, other durations of support terms are also available.
 
+
 ifdef::RC+iISV[]
 === Workload Bill of Materials
 
+Recommended set of workload components.
+
 [cols="2,1,3,3a,2a",options=header,frame=topbot,grid=rows]
 |===
+
 |Role |Qty |SKU |Component |Notes
 
-|FixMe
-|FixMe
-|FixMe
-|FixMe
-|FixMe
+|FixMe |FixMe |FixMe |FixMe |FixMe
 
 |===
 endif::RC+iISV[]
 
-ifeval::[ "{daps-adoc-attributes}" != "" ]
 
+ifeval::[ "{daps-adoc-attributes}" != "" ]
 === Documentation Configuration / Attributes
 
 This document was built using the following https://github.com/asciidoc/asciidoc[AsciiDoc] and DocBook Authorting and Publishing Suite ( https://github.com/openSUSE/daps[DAPS] ) attributes:
